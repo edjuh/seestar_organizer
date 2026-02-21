@@ -44,3 +44,7 @@
 7. **Never Assume:** If a state, hardware condition, or environment variable is unknown, ASK or run a discovery script. Verify with the user when in doubt. 
 8. **Tooling:** Exclusively use `vim` for interactive edits and `heredoc` (`cat << 'EOF'`) for code deployment. Do not suggest `nano` or GUI tools.
 9. **No Ghost Code:** Do not generate code that relies on unverified assumptions about the AAVSO REDA campaign data structure or the Seestar S30-PRO's Alpaca bridging capabilities.
+
+## 10. The "Golden Bridge" (S30-PRO Movement Protocol):
+**NEVER use standard Alpaca SlewToCoordinates.** The Seestar optical train requires iterative plate-solving to maintain dead-center photometry accuracy. 
+All observation commands MUST be sent as a JSON payload to the `seestar_alp` internal sequencer (`POST /api/v1/telescope/0/sequence`) using the "1x1 Mosaic" trick. This forces the bridge's Chief of Staff to handle plate-solving, centering, and repetition autonomously.
