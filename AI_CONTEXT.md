@@ -39,3 +39,8 @@
 ## 6. Workflow & Output Generation
 * **The Heredoc Method:** When providing code updates to the user, ALWAYS use the `cat << 'EOF' > filename` (or `>>` for appending) method. This allows the user to safely copy and paste the entire block into their SSH terminal without wrestling with `vim` or clipboard formatting errors.
 * **Code Context:** Do not store full source code in this memory file. Instead, ask the user to provide the current file state if needed, and rely on your knowledge of the "Gemini Style" architecture.
+
+## The Golden Rules of Engagement:
+7. **Never Assume:** If a state, hardware condition, or environment variable is unknown, ASK or run a discovery script. Verify with the user when in doubt. 
+8. **Tooling:** Exclusively use `vim` for interactive edits and `heredoc` (`cat << 'EOF'`) for code deployment. Do not suggest `nano` or GUI tools.
+9. **No Ghost Code:** Do not generate code that relies on unverified assumptions about the AAVSO REDA campaign data structure or the Seestar S30-PRO's Alpaca bridging capabilities.
