@@ -1,0 +1,29 @@
+[hardware]
+mount_type = "ALTAZ"
+default_exposure = 10
+focal_length = 250
+aperture = 50
+
+[storage]
+source_dir = "/home/ed/seestar_downloads"
+primary_dir = "/mnt/astro_nas/organized_fits"
+lifeboat_dir = "/home/ed/seestar_organizer/local_buffer"
+
+[alpaca]
+host = "0.0.0.0"
+port = 5555
+simulate = true
+
+[aavso]
+observer_code = "REDA"
+webobs_token = "59f8662468a0287d80899c0bd163e97b9cb19d9d"
+target_tool_key = "deb9c3a2635e14c4ecce2add517e8e30"
+
+[weather]
+meteoblue_apikey = "SCVxG4meyYvdUENk"
+
+[location]
+lat = 52.3874
+lon = 4.6462
+elevation = 2.0
+horizon_limit = 30

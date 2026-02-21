@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+data/local_buffer
+engine.log
+logs/

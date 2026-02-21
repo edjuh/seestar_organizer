@@ -1,0 +1,58 @@
+#splash-container {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: black;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    animation: fadeOutMain 2s forwards;
+    animation-delay: 5s;
+}
+
+.monolith-line {
+    width: 0;
+    height: 1px;
+    background: #fceea7;
+    box-shadow: 0 0 10px #fceea7;
+    animation: lineExpand 2.5s ease-out forwards;
+}
+
+.stars-quote {
+    color: white;
+    font-family: 'Courier New', monospace;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    opacity: 0;
+    letter-spacing: 5px;
+    animation: fadeInText 3s forwards;
+    animation-delay: 1.5s;
+}
+
+.organizer-title {
+    color: #4a90e2;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 2.5rem;
+    opacity: 0;
+    margin-top: -10px;
+    animation: fadeInText 2s forwards;
+    animation-delay: 4s;
+}
+
+@keyframes lineExpand {
+    0% { width: 0; opacity: 0; }
+    50% { width: 70vw; opacity: 1; }
+    100% { width: 0; opacity: 0; }
+}
+
+@keyframes fadeInText {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutMain {
+    0% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}

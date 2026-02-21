@@ -1,0 +1,16 @@
+{
+    "targets": [
+        {"name": "SS Cyg", "ra": 325.68, "dec": 43.58, "mag": "8.2", "type": "UGSS", "priority": 1, "sector": "Cyg"},
+        {"name": "Z Cam", "ra": 125.43, "dec": 73.14, "mag": "10.0", "type": "UGZ", "priority": 1, "sector": "Cam"},
+        {"name": "U Gem", "ra": 119.33, "dec": 21.95, "mag": "8.2", "type": "UGSS", "priority": 1, "sector": "Gem"},
+        {"name": "T CrB", "ra": 239.88, "dec": 25.92, "mag": "2.0", "type": "NR", "priority": 1, "sector": "CrB"},
+        {"name": "V Sge", "ra": 304.99, "dec": 21.13, "mag": "10.5", "type": "CB", "priority": 1, "sector": "Sge"},
+        {"name": "AM Her", "ra": 274.15, "dec": 49.85, "mag": "12.0", "type": "AM", "priority": 1, "sector": "Her"},
+        {"name": "SU UMa", "ra": 122.04, "dec": 62.61, "mag": "11.0", "type": "UGSU", "priority": 1, "sector": "UMa"},
+        {"name": "RX And", "ra": 1.15, "dec": 41.17, "mag": "10.3", "type": "UGZ", "priority": 1, "sector": "And"},
+        {"name": "TT Ari", "ra": 31.72, "dec": 15.29, "mag": "10.5", "type": "VY", "priority": 1, "sector": "Ari"},
+        {"name": "Algol", "ra": 46.10, "dec": 40.95, "mag": "2.1", "type": "EA", "priority": 2, "sector": "Per"},
+        {"name": "Betelgeuse", "ra": 88.79, "dec": 7.41, "mag": "0.5", "type": "SRc", "priority": 2, "sector": "Ori"},
+        {"name": "Mira", "ra": 34.84, "dec": -2.98, "mag": "2.0", "type": "M", "priority": 2, "sector": "Cet"}
+    ]
+}

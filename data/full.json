@@ -1,0 +1,52 @@
+{
+    "targets": [
+        {
+            "name": "V CVn",
+            "ra": 199.14,
+            "dec": 45.52,
+            "mag": "6.5",
+            "type": "SRa",
+            "sector": "CVn"
+        },
+        {
+            "name": "RT Cyg",
+            "ra": 295.84,
+            "dec": 48.78,
+            "mag": "6.0",
+            "type": "M",
+            "sector": "Cyg"
+        },
+        {
+            "name": "T Cep",
+            "ra": 317.32,
+            "dec": 68.49,
+            "mag": "5.2",
+            "type": "M",
+            "sector": "Cep"
+        },
+        {
+            "name": "S Vir",
+            "ra": 200.75,
+            "dec": -7.18,
+            "mag": "6.3",
+            "type": "M",
+            "sector": "Vir"
+        },
+        {
+            "name": "RR Lyr",
+            "ra": 285.42,
+            "dec": 42.78,
+            "mag": "7.1",
+            "type": "RRAB",
+            "sector": "Lyr"
+        },
+        {
+            "name": "U Mon",
+            "ra": 112.72,
+            "dec": -9.78,
+            "mag": "5.9",
+            "type": "RVB",
+            "sector": "Mon"
+        }
+    ]
+}

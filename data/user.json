@@ -1,0 +1,12 @@
+{
+    "targets": [
+        {
+            "name": "M42",
+            "ra": 83.82,
+            "dec": -5.39,
+            "mag": "4.0",
+            "type": "Nebula",
+            "sector": "Ori"
+        }
+    ]
+}
