@@ -3,23 +3,29 @@
 **Automated Variable Star Observation Pipeline**
 
 ## 🔭 Project Overview
-This project automates the entire lifecycle of variable star observation: from planning and capture to photometry and final AAVSO submission. 
+This project automates the entire lifecycle of variable star observation: from planning and capture to photometry and final AAVSO submission. Optimized for the **ZWO Seestar S30-pro** and its **IMX585 sensor**.
 
-The system is specifically optimized for the **ZWO Seestar S30-pro**, leveraging its superior **IMX585 sensor** and wide-field capabilities to capture multiple scientific targets within a single FOV.
+## 🏛️ Architecture & The "Golden Bridge"
+Because the native Seestar app is a closed ecosystem, this project utilizes `seestar_alp` as a Chief of Staff to handle low-level hardware communication. 
 
-## 🏗️ Hardware Stack
-- **Compute:** Raspberry Pi (Debian Bookworm)
-- **Positioning:** GPS Module (for precision time/location sync)
-- **Imaging:** ZWO Seestar S30-pro
+The Python Orchestrator acts as the "Brain" and executes the following loop:
+1. **Sensor Check:** Polls OpenWeatherMap and GPS APIs. If unsafe, it waits.
+2. **Target Acquisition:** Scans a deduplicated, offline JSON database of AAVSO targets.
+3. **The 1x1 Mosaic Trick:** Formats targets into a mock `1x1 Mosaic` JSON payload to bypass Alpaca sequence limitations.
+4. **Federation Injection:** Payload is POSTed directly to the `seestar_alp` Federation Controller (Device 0).
+5. **Autonomous Execution:** Orchestrator fires an HTMX toggle to initiate autofocus and scientific exposure.
 
-## 💻 Software Stack
-- **Seestar ALP:** API interface for telescope control and state monitoring.
-- **Python 3.13:** Core logic for the Harvester and Analyst services.
-- **ASTAP:** Used for high-precision plate solving and stellar identification.
+## 📂 Project Structure
+* `core/` - Long-running engines (Orchestrator, Alpaca Client, Sensor APIs).
+* `utils/` - Human-triggered CLI scripts (AAVSO Scraper, Math converters).
+* `data/` - Offline JSON caches for targets, weather states, and sequence lists.
 
-## 🛠️ System Architecture
-- **Harvester:** Automates FITS ingest from telescope to NAS/SSD.
-- **Analyst:** Handles photometry and AAVSO report generation.
+## 🏗️ Hardware & Software
+- **Hardware:** RPi5 (Bookworm), GPS Module, ZWO Seestar S30-pro.
+- **Software:** Seestar ALP, Python 3.13, ASTAP.
+
+## 📜 Slotwoord van een Heer van Stand
+"Het is een hele zorg, nietwaar? De sterrenhemel is onmetelijk en de techniek staat voor niets, maar men moet wel de juiste middelen hebben om de zaken in goede banen te leiden. Een heer weet wanneer hij moet delegeren; ik laat het sorteren en organiseren van de opnamen dan ook graag over aan deze voortreffelijke eenvoudige software. Het is, zoals mijn goede vader placht te zeggen, een kwestie van fijn van draad blijven. Mocht u onvolkomenheden aantreffen, schroom dan niet om een ambtelijk schrijven (of een Issue) achter te laten. Maar let wel: wij handelen hier volgens de regelen van het fatsoen!"
 
 ---
-**Current Development Phase:** v0.7.4 (Infrastructure Verified)
+**Version:** (ssc-3.13.5) | *"We do not guess the API; we read the blueprints."*
