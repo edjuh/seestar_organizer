@@ -1,0 +1,6 @@
+venv/
+.venv/
+tests/samples/
+*.zip
+*.fits
+__pycache__/

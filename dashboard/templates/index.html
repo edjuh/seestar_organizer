@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="5">
+    <title>AlarmPI Status</title>
+    <style>
+        body {
+            background-color: {{ bg_color }};
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        h1 { font-size: 8vw; margin: 0; text-transform: uppercase; }
+        h2 { font-size: 5vw; margin: 10px 0; color: #ecf0f1; }
+        p { font-size: 3vw; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>{{ state.status }}</h1>
+    <h2>TARGET: {{ state.target }}</h2>
+    <p>{{ state.message }}</p>
+</body>
+</html>

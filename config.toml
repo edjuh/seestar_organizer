@@ -1,0 +1,48 @@
+[hardware]
+mount_type = "EQ"
+default_exposure = 60
+focal_length = 250
+aperture = 50
+
+[storage]
+source_dir = "/home/ed/seestar_downloads"
+primary_dir = "/mnt/astro_nas/organized_fits"
+lifeboat_dir = "/home/ed/seestar_organizer/data/local_buffer"
+
+[alpaca]
+host = "127.0.0.1"
+port = 5555
+simulate = true
+
+[aavso]
+observer_code = "REDA"
+webobs_token = "59f8662468a0287d80899c0bd163e97b9cb19d9d"
+target_tool_key = "deb9c3a2635e14c4ecce2add517e8e30"
+
+[location]
+lat = 52.3874
+lon = 4.6462
+elevation = 2.0
+horizon_limit = 30
+
+[notifications]
+telegram_bot_token = "8220052922:AAHhnteZyxUI2dedJ0u9jrba4rF-weFYK_g"
+telegram_chat_id = "8499954599"
+
+[solver]
+engine = "astrometry"
+config_path = "~/.local/share/astrometry/astrometry.cfg"
+scale_low = 3.5
+scale_high = 4.0
+search_radius = 5.0
+downsample = 2
+timeout = 45
+
+[paths]
+samples = "tests/samples"
+logs = "logs/seestar_joost.log"
+output = "data/sequences"
+
+[planner]
+sun_altitude_limit = -18.0
+default_priority = 5

@@ -1,0 +1,227 @@
+2026-02-22 20:18:36,255 - ERROR - AAVSO API Error for CH Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CH+Cyg&format=json
+2026-02-22 20:18:47,940 - ERROR - AAVSO API Error for RW Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=RW+Aur&format=json
+2026-02-22 20:18:59,599 - ERROR - AAVSO API Error for Proxima Cen: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Proxima+Cen&format=json
+2026-02-22 20:19:10,873 - ERROR - AAVSO API Error for bet Pic: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=bet+Pic&format=json
+2026-02-22 20:19:22,011 - ERROR - AAVSO API Error for V2487 Oph: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2487+Oph&format=json
+2026-02-22 20:19:33,549 - ERROR - AAVSO API Error for V1687 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V1687+Cyg&format=json
+2026-02-22 20:19:45,184 - ERROR - AAVSO API Error for KIC 08462852: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=KIC+08462852&format=json
+2026-02-22 20:19:56,766 - ERROR - AAVSO API Error for 2MASS J06593158-0405277: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=2MASS+J06593158-0405277&format=json
+2026-02-22 20:20:08,077 - ERROR - AAVSO API Error for V2492 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2492+Cyg&format=json
+2026-02-22 20:20:19,567 - ERROR - AAVSO API Error for eps Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=eps+Aur&format=json
+2026-02-22 20:20:30,712 - ERROR - AAVSO API Error for S Dor: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=S+Dor&format=json
+2026-02-22 20:20:42,353 - ERROR - AAVSO API Error for 1SWASP J140747.93-394542.6: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=1SWASP+J140747.93-394542.6&format=json
+2026-02-22 20:20:53,918 - ERROR - AAVSO API Error for P Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=P+Cyg&format=json
+2026-02-22 20:21:05,091 - ERROR - AAVSO API Error for CH Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CH+Cyg&format=json
+2026-02-22 20:21:16,240 - ERROR - AAVSO API Error for CH Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CH+Cyg&format=json
+2026-02-22 20:21:27,428 - ERROR - AAVSO API Error for CH Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CH+Cyg&format=json
+2026-02-22 20:21:38,599 - ERROR - AAVSO API Error for CH Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CH+Cyg&format=json
+2026-02-22 20:21:49,002 - ERROR - AAVSO API Error for 1SWASP J140747.93-394542.6: 502 Server Error: Bad Gateway for url: https://www.aavso.org/apps/vsp/api/chart/?star=1SWASP+J140747.93-394542.6&format=json
+2026-02-22 20:22:00,418 - ERROR - AAVSO API Error for 1SWASP J140747.93-394542.6: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=1SWASP+J140747.93-394542.6&format=json
+2026-02-22 20:22:11,865 - ERROR - AAVSO API Error for 1SWASP J140747.93-394542.6: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=1SWASP+J140747.93-394542.6&format=json
+2026-02-22 20:22:23,365 - ERROR - AAVSO API Error for 2MASS J06593158-0405277: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=2MASS+J06593158-0405277&format=json
+2026-02-22 20:22:34,926 - ERROR - AAVSO API Error for 2MASS J06593158-0405277: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=2MASS+J06593158-0405277&format=json
+2026-02-22 20:22:46,456 - ERROR - AAVSO API Error for 2MASS J06593158-0405277: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=2MASS+J06593158-0405277&format=json
+2026-02-22 20:22:57,624 - ERROR - AAVSO API Error for 2MASS J06593158-0405277: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=2MASS+J06593158-0405277&format=json
+2026-02-22 20:23:08,780 - ERROR - AAVSO API Error for KIC 08462852: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=KIC+08462852&format=json
+2026-02-22 20:23:20,276 - ERROR - AAVSO API Error for KIC 08462852: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=KIC+08462852&format=json
+2026-02-22 20:23:31,407 - ERROR - AAVSO API Error for RW Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=RW+Aur&format=json
+2026-02-22 20:23:42,573 - ERROR - AAVSO API Error for RW Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=RW+Aur&format=json
+2026-02-22 20:23:53,809 - ERROR - AAVSO API Error for RW Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=RW+Aur&format=json
+2026-02-22 20:24:05,014 - ERROR - AAVSO API Error for RW Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=RW+Aur&format=json
+2026-02-22 20:24:16,313 - ERROR - AAVSO API Error for S Dor: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=S+Dor&format=json
+2026-02-22 20:24:27,460 - ERROR - AAVSO API Error for S Dor: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=S+Dor&format=json
+2026-02-22 20:24:38,754 - ERROR - AAVSO API Error for S Dor: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=S+Dor&format=json
+2026-02-22 20:24:50,122 - ERROR - AAVSO API Error for S Dor: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=S+Dor&format=json
+2026-02-22 20:25:01,330 - ERROR - AAVSO API Error for V1687 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V1687+Cyg&format=json
+2026-02-22 20:25:12,479 - ERROR - AAVSO API Error for V1687 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V1687+Cyg&format=json
+2026-02-22 20:25:23,658 - ERROR - AAVSO API Error for V1687 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V1687+Cyg&format=json
+2026-02-22 20:25:34,807 - ERROR - AAVSO API Error for V1687 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V1687+Cyg&format=json
+2026-02-22 20:25:44,298 - ERROR - VSP Error 400 for CH Cyg
+2026-02-22 20:25:45,963 - ERROR - AAVSO API Error for V2487 Oph: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2487+Oph&format=json
+2026-02-22 20:25:57,099 - ERROR - AAVSO API Error for V2492 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2492+Cyg&format=json
+2026-02-22 20:26:08,278 - ERROR - AAVSO API Error for V2492 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2492+Cyg&format=json
+2026-02-22 20:26:19,599 - ERROR - AAVSO API Error for V2492 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2492+Cyg&format=json
+2026-02-22 20:26:30,751 - ERROR - AAVSO API Error for V2492 Cyg: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2492+Cyg&format=json
+2026-02-22 20:26:41,952 - ERROR - AAVSO API Error for bet Pic: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=bet+Pic&format=json
+2026-02-22 20:26:44,606 - ERROR - VSP Error 400 for CH Cyg
+2026-02-22 20:26:53,133 - ERROR - AAVSO API Error for bet Pic: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=bet+Pic&format=json
+2026-02-22 20:27:04,287 - ERROR - AAVSO API Error for eps Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=eps+Aur&format=json
+2026-02-22 20:27:15,474 - ERROR - AAVSO API Error for eps Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=eps+Aur&format=json
+2026-02-22 20:27:26,670 - ERROR - AAVSO API Error for eps Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=eps+Aur&format=json
+2026-02-22 20:27:37,872 - ERROR - AAVSO API Error for eps Aur: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=eps+Aur&format=json
+2026-02-22 20:27:49,054 - ERROR - AAVSO API Error for EPIC 204278916: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=EPIC+204278916&format=json
+2026-02-22 20:28:00,210 - ERROR - AAVSO API Error for EPIC 204278916: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=EPIC+204278916&format=json
+2026-02-22 20:28:11,411 - ERROR - AAVSO API Error for EPIC 204278916: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=EPIC+204278916&format=json
+2026-02-22 20:28:22,559 - ERROR - AAVSO API Error for ASASSN-17fp: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=ASASSN-17fp&format=json
+2026-02-22 20:28:33,850 - ERROR - AAVSO API Error for GJ729: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=GJ729&format=json
+2026-02-22 20:28:45,032 - ERROR - AAVSO API Error for V2500 Oph: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=V2500+Oph&format=json
+2026-02-22 20:28:56,583 - ERROR - AAVSO API Error for Proxima Cen: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Proxima+Cen&format=json
+2026-02-22 20:29:08,087 - ERROR - AAVSO API Error for Nova Oph 2017: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Nova+Oph+2017&format=json
+2026-02-22 20:29:19,633 - ERROR - AAVSO API Error for Nova Oph 2017: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Nova+Oph+2017&format=json
+2026-02-22 20:29:31,209 - ERROR - AAVSO API Error for Nova Oph 2017: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Nova+Oph+2017&format=json
+2026-02-22 20:29:42,687 - ERROR - AAVSO API Error for Nova Oph 2017: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Nova+Oph+2017&format=json
+2026-02-22 20:29:54,512 - ERROR - AAVSO API Error for Nova Oph 2017: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=Nova+Oph+2017&format=json
+2026-02-22 20:30:05,649 - ERROR - AAVSO API Error for PDS 110: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=PDS+110&format=json
+2026-02-22 20:30:17,101 - ERROR - AAVSO API Error for PDS 110: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=PDS+110&format=json
+2026-02-22 20:30:28,278 - ERROR - AAVSO API Error for PDS 110: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=PDS+110&format=json
+2026-02-22 20:30:39,434 - ERROR - AAVSO API Error for PDS 110: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=PDS+110&format=json
+2026-02-23 00:17:49,061 - ERROR - AAVSO API Error for GJ 887: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=GJ+887&format=json&fov=60&maglimit=18.0
+2026-02-23 00:24:22,596 - ERROR - AAVSO API Error for GJ 54.1: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=GJ+54.1&format=json&fov=60&maglimit=18.0
+2026-02-23 05:04:13,743 - ERROR - AAVSO API Error for CVSO-165: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-165&format=json&fov=60&maglimit=18.0
+2026-02-23 05:04:26,666 - ERROR - AAVSO API Error for CVSO-165: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-165&format=json&fov=60&maglimit=18.0
+2026-02-23 05:04:37,569 - ERROR - AAVSO API Error for CVSO-165: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-165&format=json&fov=60&maglimit=18.0
+2026-02-23 05:04:51,087 - ERROR - AAVSO API Error for CVSO-165: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-165&format=json&fov=60&maglimit=18.0
+2026-02-23 05:05:02,109 - ERROR - AAVSO API Error for CVSO-165: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-165&format=json&fov=60&maglimit=18.0
+2026-02-23 05:05:15,183 - ERROR - AAVSO API Error for CVSO-165: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-165&format=json&fov=60&maglimit=18.0
+2026-02-23 05:21:15,484 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:21:28,497 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:21:39,386 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:21:50,297 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:22:01,173 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:22:13,984 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:22:26,831 - ERROR - AAVSO API Error for CVSO-107: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-107&format=json&fov=60&maglimit=18.0
+2026-02-23 05:22:37,699 - ERROR - AAVSO API Error for CVSO-107: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-107&format=json&fov=60&maglimit=18.0
+2026-02-23 05:22:52,259 - ERROR - AAVSO API Error for CVSO-107: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-107&format=json&fov=60&maglimit=18.0
+2026-02-23 05:23:03,058 - ERROR - AAVSO API Error for CVSO-107: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-107&format=json&fov=60&maglimit=18.0
+2026-02-23 05:23:13,823 - ERROR - AAVSO API Error for CVSO-107: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-107&format=json&fov=60&maglimit=18.0
+2026-02-23 05:23:24,610 - ERROR - AAVSO API Error for CVSO-107: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-107&format=json&fov=60&maglimit=18.0
+2026-02-23 05:23:37,567 - ERROR - AAVSO API Error for CVSO-58: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-58&format=json&fov=60&maglimit=18.0
+2026-02-23 05:23:48,383 - ERROR - AAVSO API Error for CVSO-58: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-58&format=json&fov=60&maglimit=18.0
+2026-02-23 05:23:59,168 - ERROR - AAVSO API Error for CVSO-58: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-58&format=json&fov=60&maglimit=18.0
+2026-02-23 05:24:12,022 - ERROR - AAVSO API Error for CVSO-58: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-58&format=json&fov=60&maglimit=18.0
+2026-02-23 05:24:24,903 - ERROR - AAVSO API Error for CVSO-58: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-58&format=json&fov=60&maglimit=18.0
+2026-02-23 05:24:37,691 - ERROR - AAVSO API Error for CVSO-58: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-58&format=json&fov=60&maglimit=18.0
+2026-02-23 05:27:59,783 - ERROR - AAVSO API Error for CVSO-36: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-36&format=json&fov=60&maglimit=18.0
+2026-02-23 05:28:12,944 - ERROR - AAVSO API Error for CVSO-36: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-36&format=json&fov=60&maglimit=18.0
+2026-02-23 05:28:25,784 - ERROR - AAVSO API Error for CVSO-36: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-36&format=json&fov=60&maglimit=18.0
+2026-02-23 05:28:36,568 - ERROR - AAVSO API Error for CVSO-36: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-36&format=json&fov=60&maglimit=18.0
+2026-02-23 05:28:47,347 - ERROR - AAVSO API Error for CVSO-36: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-36&format=json&fov=60&maglimit=18.0
+2026-02-23 05:28:58,127 - ERROR - AAVSO API Error for CVSO-36: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-36&format=json&fov=60&maglimit=18.0
+2026-02-23 05:29:11,052 - ERROR - AAVSO API Error for CVSO-90: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-90&format=json&fov=60&maglimit=18.0
+2026-02-23 05:29:24,102 - ERROR - AAVSO API Error for CVSO-17: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-17&format=json&fov=60&maglimit=18.0
+2026-02-23 05:29:36,943 - ERROR - AAVSO API Error for CVSO-17: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-17&format=json&fov=60&maglimit=18.0
+2026-02-23 05:29:49,794 - ERROR - AAVSO API Error for CVSO-17: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-17&format=json&fov=60&maglimit=18.0
+2026-02-23 05:30:00,578 - ERROR - AAVSO API Error for CVSO-17: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-17&format=json&fov=60&maglimit=18.0
+2026-02-23 05:30:11,455 - ERROR - AAVSO API Error for CVSO-17: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-17&format=json&fov=60&maglimit=18.0
+2026-02-23 05:30:25,171 - ERROR - AAVSO API Error for CVSO-17: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=CVSO-17&format=json&fov=60&maglimit=18.0
+2026-02-23 05:56:16,684 - ERROR - AAVSO API Error for N Sgr 2021 No. 2: HTTPSConnectionPool(host='apps.aavso.org', port=443): Read timed out. (read timeout=20)
+2026-02-23 05:56:47,605 - ERROR - AAVSO API Error for N Sgr 2021 No. 2: HTTPSConnectionPool(host='apps.aavso.org', port=443): Read timed out. (read timeout=20)
+2026-02-23 05:57:18,294 - ERROR - AAVSO API Error for N Sgr 2021 No. 2: HTTPSConnectionPool(host='apps.aavso.org', port=443): Read timed out. (read timeout=20)
+2026-02-23 05:57:48,960 - ERROR - AAVSO API Error for N Sgr 2021 No. 2: HTTPSConnectionPool(host='apps.aavso.org', port=443): Read timed out. (read timeout=20)
+2026-02-23 05:58:19,638 - ERROR - AAVSO API Error for N Sgr 2021 No. 2: HTTPSConnectionPool(host='apps.aavso.org', port=443): Read timed out. (read timeout=20)
+2026-02-23 10:02:24,840 - ERROR - ASTAP Solve Failed for /home/ed/seestar_organizer/tests/samples/v1687cyg_sample.fits
+2026-02-23 11:28:09,222 - ERROR - AAVSO API Error for R  Mon: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=R++Mon&format=json&fov=60&maglimit=18.0
+2026-02-23 13:19:56,076 - ERROR - AAVSO API Error for zet UMa A: 400 Client Error: Bad Request for url: https://apps.aavso.org:443/vsp/api/chart/?star=zet+UMa+A&format=json&fov=60&maglimit=18.0
+2026-02-23 13:32:10,796 - INFO - MasterAnalyst: Processing target at RA:None DEC:None
+2026-02-23 13:32:10,796 - ERROR - MasterAnalyst: Coordinate conversion error -> 'NoneType' object has no attribute 'replace'
+2026-02-23 13:45:24,806 - INFO - MasterAnalyst: Processing target at RA:None DEC:None
+2026-02-23 13:45:24,806 - INFO - MasterAnalyst: Missing coordinates. Forcing Blind Solve.
+2026-02-23 13:45:24,806 - INFO - Analyst: Initiating solve on lsc1m005-fa15-20181130-0042-f00.fits.fz...
+2026-02-23 13:45:24,889 - ERROR - Analyst: Solve FAILED. Output:  is zero.  Image must be at least one pixel wide
+augment-xylist.c:591:backtick Failed to run command: pnmfile /tmp/tmp.ppm.XpSOek
+ ioutils.c:568:run_command_get_outputs Command failed: return value 1
+
+2026-02-23 13:45:24,889 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 13:47:46,489 - INFO - MasterAnalyst: Processing target at RA:None DEC:None
+2026-02-23 13:47:46,489 - INFO - MasterAnalyst: Missing coordinates. Forcing Blind Solve.
+2026-02-23 13:47:46,489 - INFO - Analyst: Initiating solve on seestar_spoof.fits...
+2026-02-23 13:47:49,767 - ERROR - Analyst: Solve FAILED. Output: ngine failed.  Command that failed was:
+  /usr/bin/astrometry-engine /home/ed/seestar_organizer/tests/samples/seestar_spoof.axy
+ ioutils.c:568:run_command_get_outputs Command failed: return value 255
+
+2026-02-23 13:47:49,767 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 13:52:59,020 - INFO - MasterAnalyst: Processing target at RA:None DEC:None
+2026-02-23 13:52:59,020 - INFO - MasterAnalyst: Missing coordinates. Forcing Blind Solve.
+2026-02-23 13:52:59,020 - INFO - Analyst: Initiating solve on seestar_spoof.fits...
+2026-02-23 13:54:14,047 - ERROR - Analyst: Solve TIMEOUT on seestar_spoof.fits
+2026-02-23 13:54:14,047 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 13:56:42,291 - INFO - MasterAnalyst: Processing target at RA:None DEC:None
+2026-02-23 13:56:42,291 - INFO - MasterAnalyst: Missing coordinates. Forcing Blind Solve.
+2026-02-23 13:56:42,291 - INFO - Analyst: Initiating solve on seestar_spoof.fits...
+2026-02-23 13:57:57,332 - ERROR - Analyst: Solve TIMEOUT on seestar_spoof.fits
+2026-02-23 13:57:57,333 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 14:09:13,369 - INFO - MasterAnalyst: Processing target at RA:None DEC:None
+2026-02-23 14:09:13,369 - INFO - MasterAnalyst: Missing coordinates. Forcing Blind Solve.
+2026-02-23 14:09:13,370 - INFO - Analyst: Initiating S30-Pro Optimized solve on seestar_spoof.fits...
+2026-02-23 14:09:58,382 - ERROR - Analyst: Engine Error: Command '['/usr/bin/solve-field', '/home/ed/seestar_organizer/tests/samples/seestar_spoof.fits', '--overwrite', '--no-plots', '--scale-units', 'arcsecperpix', '--scale-low', '3.65', '--scale-high', '3.85', '--cpulimit', '30', '--config', '/home/ed/.local/share/astrometry/astrometry.cfg']' timed out after 45 seconds
+2026-02-23 14:09:58,382 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 14:25:37,563 - INFO - MasterAnalyst: Processing target at RA:03:53:18 DEC:+62:11:48
+2026-02-23 14:25:37,563 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:25:40,760 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:25:40,787 - INFO - MasterAnalyst: Target successfully mapped to X:33833.87, Y:-10654.42
+2026-02-23 14:25:40,787 - INFO - MasterAnalyst: Processing target at RA:03:54:33 DEC:+62:08:21
+2026-02-23 14:25:40,788 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:25:43,921 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:25:43,930 - INFO - MasterAnalyst: Target successfully mapped to X:33667.71, Y:-10902.78
+2026-02-23 14:28:19,191 - INFO - MasterAnalyst: Processing target at RA:03:53:18 DEC:+62:11:48
+2026-02-23 14:28:19,191 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:28:22,422 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:28:22,440 - INFO - MasterAnalyst: Target successfully mapped to X:959.89, Y:540.39
+2026-02-23 14:28:22,440 - INFO - MasterAnalyst: Processing target at RA:03:54:33 DEC:+62:08:21
+2026-02-23 14:28:22,441 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:28:25,646 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:28:25,655 - INFO - MasterAnalyst: Target successfully mapped to X:679.45, Y:437.45
+2026-02-23 14:35:39,956 - INFO - MasterAnalyst: Processing target at RA:03:53:18 DEC:+62:11:48
+2026-02-23 14:35:39,956 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:35:43,124 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:35:43,143 - INFO - MasterAnalyst: Target successfully mapped to X:959.89, Y:540.39
+2026-02-23 14:35:43,143 - INFO - MasterAnalyst: Processing target at RA:21:42:45 DEC:+43:35:08
+2026-02-23 14:35:43,144 - INFO - Analyst: Initiating S30-Pro Optimized solve on ss_cyg.fits...
+2026-02-23 14:36:28,146 - ERROR - Analyst: Engine Error: Command '['/usr/bin/solve-field', '/home/ed/seestar_organizer/tests/samples/ss_cyg.fits', '--overwrite', '--no-plots', '--scale-units', 'arcsecperpix', '--scale-low', '3.65', '--scale-high', '3.85', '--cpulimit', '30', '--config', '/home/ed/.local/share/astrometry/astrometry.cfg', '--ra', '325.6875', '--dec', '43.58556', '--radius', '2.0']' timed out after 45 seconds
+2026-02-23 14:36:28,146 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 14:36:28,146 - INFO - MasterAnalyst: Processing target at RA:03:08:10 DEC:+40:57:20
+2026-02-23 14:36:28,147 - INFO - Analyst: Initiating S30-Pro Optimized solve on algol.fits...
+2026-02-23 14:36:33,793 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:36:33,802 - INFO - MasterAnalyst: Target successfully mapped to X:959.79, Y:539.88
+2026-02-23 14:36:33,802 - INFO - MasterAnalyst: Processing target at RA:19:22:33 DEC:+42:47:03
+2026-02-23 14:36:33,802 - INFO - Analyst: Initiating S30-Pro Optimized solve on rr_lyrae.fits...
+2026-02-23 14:37:18,806 - ERROR - Analyst: Engine Error: Command '['/usr/bin/solve-field', '/home/ed/seestar_organizer/tests/samples/rr_lyrae.fits', '--overwrite', '--no-plots', '--scale-units', 'arcsecperpix', '--scale-low', '3.65', '--scale-high', '3.85', '--cpulimit', '30', '--config', '/home/ed/.local/share/astrometry/astrometry.cfg', '--ra', '290.6375', '--dec', '42.78417', '--radius', '2.0']' timed out after 45 seconds
+2026-02-23 14:37:18,806 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 14:46:40,981 - INFO - MasterAnalyst: Processing target at RA:03:53:18 DEC:+62:11:48
+2026-02-23 14:46:40,981 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:46:44,175 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:46:44,194 - INFO - MasterAnalyst: Target successfully mapped to X:959.89, Y:540.39
+2026-02-23 14:46:44,194 - INFO - MasterAnalyst: Processing target at RA:21:42:45 DEC:+43:35:08
+2026-02-23 14:46:44,194 - INFO - Analyst: Initiating S30-Pro Optimized solve on ss_cyg.fits...
+2026-02-23 14:47:29,197 - ERROR - Analyst: Engine Error: Command '['/usr/bin/solve-field', '/home/ed/seestar_organizer/tests/samples/ss_cyg.fits', '--overwrite', '--no-plots', '--scale-units', 'arcsecperpix', '--scale-low', '3.5', '--scale-high', '4.0', '--cpulimit', '30', '--config', '/home/ed/.local/share/astrometry/astrometry.cfg', '--ra', '325.6875', '--dec', '43.58556', '--radius', '5.0']' timed out after 45 seconds
+2026-02-23 14:47:29,197 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 14:47:29,197 - INFO - MasterAnalyst: Processing target at RA:03:08:10 DEC:+40:57:20
+2026-02-23 14:47:29,198 - INFO - Analyst: Initiating S30-Pro Optimized solve on algol.fits...
+2026-02-23 14:47:34,748 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:47:34,756 - INFO - MasterAnalyst: Target successfully mapped to X:959.79, Y:539.88
+2026-02-23 14:47:34,757 - INFO - MasterAnalyst: Processing target at RA:19:22:33 DEC:+42:47:03
+2026-02-23 14:47:34,757 - INFO - Analyst: Initiating S30-Pro Optimized solve on rr_lyrae.fits...
+2026-02-23 14:48:19,761 - ERROR - Analyst: Engine Error: Command '['/usr/bin/solve-field', '/home/ed/seestar_organizer/tests/samples/rr_lyrae.fits', '--overwrite', '--no-plots', '--scale-units', 'arcsecperpix', '--scale-low', '3.5', '--scale-high', '4.0', '--cpulimit', '30', '--config', '/home/ed/.local/share/astrometry/astrometry.cfg', '--ra', '290.6375', '--dec', '42.78417', '--radius', '5.0']' timed out after 45 seconds
+2026-02-23 14:48:19,761 - ERROR - MasterAnalyst: Failed to acquire WCS map. Solving aborted.
+2026-02-23 14:51:41,171 - INFO - MasterAnalyst: Processing target at RA:03:53:18 DEC:+62:11:48
+2026-02-23 14:51:41,171 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:51:44,908 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:51:44,927 - INFO - MasterAnalyst: Target successfully mapped to X:960.07, Y:540.06
+2026-02-23 14:51:44,928 - INFO - MasterAnalyst: Processing target at RA:21:42:45 DEC:+43:35:08
+2026-02-23 14:51:44,928 - INFO - Analyst: Initiating S30-Pro Optimized solve on ss_cyg.fits...
+2026-02-23 14:51:49,061 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:51:49,070 - INFO - MasterAnalyst: Target successfully mapped to X:959.85, Y:539.89
+2026-02-23 14:51:49,070 - INFO - MasterAnalyst: Processing target at RA:03:08:10 DEC:+40:57:20
+2026-02-23 14:51:49,071 - INFO - Analyst: Initiating S30-Pro Optimized solve on algol.fits...
+2026-02-23 14:51:53,461 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:51:53,470 - INFO - MasterAnalyst: Target successfully mapped to X:960.11, Y:539.63
+2026-02-23 14:51:53,470 - INFO - MasterAnalyst: Processing target at RA:19:22:33 DEC:+42:47:03
+2026-02-23 14:51:53,470 - INFO - Analyst: Initiating S30-Pro Optimized solve on rr_lyrae.fits...
+2026-02-23 14:51:58,685 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:51:58,693 - INFO - MasterAnalyst: Target successfully mapped to X:959.67, Y:539.96
+2026-02-23 14:53:46,377 - INFO - MasterAnalyst: Processing target at RA:03:53:18 DEC:+62:11:48
+2026-02-23 14:53:46,377 - INFO - Analyst: Initiating S30-Pro Optimized solve on mu_cam.fits...
+2026-02-23 14:53:50,121 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:53:50,130 - INFO - MasterAnalyst: Target successfully mapped to X:960.07, Y:540.06
+2026-02-23 14:53:50,130 - INFO - MasterAnalyst: Processing target at RA:21:42:45 DEC:+43:35:08
+2026-02-23 14:53:50,131 - INFO - Analyst: Initiating S30-Pro Optimized solve on ss_cyg.fits...
+2026-02-23 14:53:54,280 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:53:54,288 - INFO - MasterAnalyst: Target successfully mapped to X:959.85, Y:539.89
+2026-02-23 14:53:54,288 - INFO - MasterAnalyst: Processing target at RA:03:08:10 DEC:+40:57:20
+2026-02-23 14:53:54,289 - INFO - Analyst: Initiating S30-Pro Optimized solve on algol.fits...
+2026-02-23 14:53:58,693 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:53:58,702 - INFO - MasterAnalyst: Target successfully mapped to X:960.11, Y:539.63
+2026-02-23 14:53:58,702 - INFO - MasterAnalyst: Processing target at RA:19:22:33 DEC:+42:47:03
+2026-02-23 14:53:58,702 - INFO - Analyst: Initiating S30-Pro Optimized solve on rr_lyrae.fits...
+2026-02-23 14:54:03,863 - INFO - Analyst: Solve SUCCESS.
+2026-02-23 14:54:03,871 - INFO - MasterAnalyst: Target successfully mapped to X:959.67, Y:539.96
