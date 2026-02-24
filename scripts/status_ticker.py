@@ -2,44 +2,42 @@
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 # Filename: scripts/status_ticker.py
-# Purpose:  v1.8 Kwetal - Polite Dashboard & Exorcism Monitor
+# Purpose:  v2.0 Kwetal - The Investigator Dashboard (Polite Mode)
 # -----------------------------------------------------------------------------
 
 import requests
 import time
+import os
 
 def get_dashboard():
     base = "http://127.0.0.1:5555/api/v1/telescope/1"
-    auth = "ClientID=1&ClientTransactionID=14000"
+    auth = "ClientID=1&ClientTransactionID=20000"
     
     try:
-        # Check connection first
-        r_ping = requests.get(f"{base}/connected?{auth}", timeout=2)
-        if r_ping.status_code == 500:
-            print(f"[{time.strftime('%H:%M:%S')}] ⚠️ BRIDGE OVERLOAD (500 Error)")
-            return
-
-        # Pull Coordinates
-        lat = requests.get(f"{base}/sitelatitude?{auth}").json().get("Value", "??")
-        lon = requests.get(f"{base}/sitelongitude?{auth}").json().get("Value", "??")
+        # Polling with a longer timeout to be polite to the bridge
+        r_lat = requests.get(f"{base}/sitelatitude?{auth}", timeout=5).json()
+        lat = r_lat.get("Value", "??")
         
-        # Mission State
-        s_resp = requests.put(f"{base}/action", data={"Action": "get_event_state", "Parameters": "{}", "ClientID": 1, "ClientTransactionID": 14001}).json()
-        val = s_resp.get("Value", {})
-
+        # Checking for the Maastricht Ghost
+        is_maastricht = "50.8" in str(lat)
+        
+        # Check if suspect files exist
+        csc_exists = os.path.exists("/home/ed/seestar_alp/front/csc_sites.json")
+        
         print("\033[H\033[J", end="")
         print("-" * 65)
-        print(f"[{time.strftime('%H:%M:%S')}] --- 👑 v1.8 POLITE DASHBOARD ---")
-        print(f"🛰️  ALPACA:     {'✅ ONLINE' if r_ping.json().get('Value') else '❌ OFFLINE'}")
-        print(f"📍 API LOC:    {lat}°N, {lon}°E")
-        print(f"⚠️  STATUS:     {'MAASTRICHT DETECTED' if '50.8' in str(lat) else 'HAARLEM STABLE'}")
-        print(f"📋 SCHEDULE:   {val.get('state', 'Idle')}")
+        print(f"[{time.strftime('%H:%M:%S')}] --- 🕵️ v2.0 THE INVESTIGATOR DASHBOARD ---")
+        print(f"📍 CURRENT API LAT: {lat}°N")
+        print(f"👻 GHOST STATUS:    {'⚠️ MAASTRICHT DETECTED' if is_maastricht else '✅ HAARLEM STABLE'}")
+        print("-" * 30)
+        print(f"📂 CSC_SITES.JSON:  {'FOUND' if csc_exists else 'MISSING'}")
+        print(f"📂 EPHEM/CITIES:    CHECKING...")
         print("-" * 65)
-        print("Searching for the ghost in the code... [Status: Throttled]")
+        print("Interrogating library files... [Status: Forensic Analysis]")
     except Exception as e:
-        print(f"[{time.strftime('%H:%M:%S')}] 🛰️ Waiting for Specialist... {e}")
+        print(f"[{time.strftime('%H:%M:%S')}] 🛰️ Bridge is resting... {e}")
 
 if __name__ == "__main__":
     while True:
         get_dashboard()
-        time.sleep(30) # Polite 30s interval
+        time.sleep(45) # Very polite polling to allow the bridge to recover
