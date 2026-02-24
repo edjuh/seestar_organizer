@@ -1,34 +1,34 @@
 """
 Filename: core/hardware_profiles.py
-Objective: Define optical characteristics for the Seestar fleet.
+Objective: Define sensor specs for Annie (S50), Williamina (S30-Pro), and Henrietta (S30-Pro Fast).
 """
 
 PROFILES = {
-    "S50": {
-        "aperture": 50,
-        "focal_length": 250,
-        "sensor": "IMX462",
-        "fov": (1.3, 0.7),
-        "resolution": (1920, 1080),
-        "max_gain": 100
-    },
-    "S30": {
-        "aperture": 30,
-        "focal_length": 150,
-        "sensor": "IMX662",
-        "fov": (2.4, 1.3),
-        "resolution": (1920, 1080),
+    "WILLIAMINA": {
+        "model": "S30-Pro",
+        "sensor": "IMX585",
+        "fov": "4.6",
+        "bayer": "GRBG",
+        "specialty": "High-precision Photometry",
         "max_gain": 80
     },
-    "S30_PRO": {
-        "aperture": 30,
-        "focal_length": 160,
+    "ANNIE": {
+        "model": "S50",
+        "sensor": "IMX462",
+        "fov": "2.8",
+        "bayer": "RGGB",
+        "specialty": "Spectroscopy",
+        "max_gain": 100
+    },
+    "HENRIETTA": {
+        "model": "S30-Pro",
         "sensor": "IMX585",
-        "fov": (4.3, 2.4),
-        "resolution": (3840, 2160),
+        "fov": "4.6",
+        "bayer": "GRBG",
+        "specialty": "Rapid-cadence Photometry (Leavitt Laws)",
         "max_gain": 80
     }
 }
 
-def get_config(model_name="S30_PRO"):
-    return PROFILES.get(model_name, PROFILES["S30"])
+def get_profile(name="WILLIAMINA"):
+    return PROFILES.get(name.upper(), PROFILES["WILLIAMINA"])
