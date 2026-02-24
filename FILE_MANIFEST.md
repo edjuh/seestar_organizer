@@ -5,12 +5,12 @@
 ## 📂 Core
 * `core/__init__.py`: No objective defined.
 * `core/aavso_client.py`: AAVSO VSP API interface with intelligent error parsing and FOV scaling.
-* `core/alpaca_client.py`: No objective defined.
+* `core/alpaca_client.py`: Handshake with the Seestar Federation Alpaca bridge (Port 5432).
 * `core/analyst.py`: No objective defined.
-* `core/calibration_engine.py`: No objective defined.
+* `core/calibration_engine.py`: Manages Zero-Point (ZP) offsets and flat-field corrections for the IMX585.
 * `core/dashboard.py`: Terminal User Interface (TUI) for real-time system monitoring.
 * `core/env_loader.py`: Centralized configuration and environment variable manager.
-* `core/ephemeris.py`: No objective defined.
+* `core/ephemeris.py`: Solar, lunar, and stellar position calculator for Haarlem coordinates.
 * `core/fog_monitor.py`: Infrared sky-clarity monitor using MLX90614.
 * `core/gps.py`: Manages geographic coordinates for astronomical calculations.
 * `core/hardware_profiles.py`: Define sensor specs for Annie (S50), Williamina (S30-Pro), and Henrietta (S30-Pro Fast).
@@ -18,12 +18,12 @@
 * `core/horizon.py`: Veto targets based on local obstructions (Trees, Buildings).
 * `core/librarian.py`: Monthly cron tool to fetch NEW targets from AAVSO.
 * `core/logger.py`: System-wide logging with automatic file rotation.
-* `core/master_analyst.py`: No objective defined.
+* `core/master_analyst.py`: High-level plate-solving coordinator for narrow-field Seestar frames.
 * `core/nightly_planner.py`: Filter the AAVSO target library for visibility from Haarlem tonight.
 * `core/notifier.py`: Outbound alert management via Telegram and system bells.
 * `core/orchestrator.py`: The Kwetal Master Loop. Runs continuously as a systemd daemon.
-* `core/photometry_engine.py`: No objective defined.
-* `core/pixel_mapper.py`: No objective defined.
+* `core/photometry_engine.py`: Instrumental flux extraction and science-grade lightcurve generation.
+* `core/pixel_mapper.py`: Converts celestial WCS coordinates to local sensor pixel X/Y coordinates.
 * `core/planner.py`: Calculates darkness windows for Haarlem for any given date.
 * `core/scheduler.py`: Legacy target scheduling logic (V1).
 * `core/selector.py`: Prioritize targets setting in the West during the dark window.
@@ -37,26 +37,19 @@
 ## 📂 Logic
 
 ## 📂 Utils
-* `utils/astro.py`: No objective defined.
-* `utils/check_progress.py`: Track harvest progress and identify the most recent acquisition.
+* `utils/astro.py`: Core library for RA/Dec parsing, sidereal time, and coordinate math.
 * `utils/cleanup.py`: Housekeeping for temporary files and logs.
-* `utils/defrag_monitor.py`: Visual Defragmenter with ETA and Last-Star-Fetched ticker.
-* `utils/fetch_sequences.py`: Systematic authenticated harvest with automatic manifest verification and deduplication.
+* `utils/fetch_sequences.py`: Downloads specific V-band comparison sequences for identified targets.
 * `utils/generate_manifest.py`: Automatically rebuild the FILE_MANIFEST.md by parsing '
-* `utils/main.py`: Final Phase 1.4 Orchestrator - Hardware & Horizon Aware.
-* `utils/sync_catalog.py`: No objective defined.
-* `utils/verify_library.py`: No objective defined.
+* `utils/verify_library.py`: Audits the data/sequences vault for JSON integrity and missing target headers.
 
 ## 📂 Scripts
-* `scripts/harvest_aavso.py`: No objective defined.
-* `scripts/sync_catalog.py`: Sync the local target library with current AAVSO Alert Notice targets.
+* `scripts/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
+* `scripts/prepare_2100_sequence.py`: Forecast and prepare a science-grade sequence for 21:00 tonight.
 
 ## 📂 Tests
 
 ## 🚀 Root Entry Points
-* `main.py`: No objective defined.
-* `main_plan.py`: Generate a nightly schedule from verified photometry targets.
-* `seestar_sentry.service`: No objective defined.
-* `setup_wizard.py`: No objective defined.
-* `sky_report.py`: Rapid status report of environmental and hardware readiness.
-* `steward_live.py`: Live Terminal Dashboard for active observation monitoring.
+* `main.py`: Primary entry point for the Seestar Sentry daemon; manages the Williamina and Annie hardware loops.
+* `seestar_sentry.service`: Systemd service configuration for background autonomous operation.
+* `setup_wizard.py`: Interactive CLI for configuring GPS, weather APIs, and AAVSO credentials.
