@@ -45,7 +45,7 @@
 
 ## 📂 Scripts
 * `scripts/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
-* `scripts/inject_target.py`: Authenticated injection of targets into the Federation bridge with response validation.
+* `scripts/inject_target.py`: Inject targets directly into the Alpaca API (Port 5555) for Williamina.
 * `scripts/prepare_2100_sequence.py`: Forecast and prepare a science-grade sequence for 21:00 tonight.
 
 ## 📂 Tests
