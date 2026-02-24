@@ -1,3 +1,7 @@
+"""
+Filename: core/master_analyst.py
+Objective: High-level plate-solving coordinator for narrow-field Seestar frames.
+"""
 from pathlib import Path
 from core.logger import log_event
 from core.analyst import analyst

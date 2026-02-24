@@ -1,5 +1,13 @@
 """
 Filename: setup_wizard.py
+Objective: Interactive CLI for configuring GPS, weather APIs, and AAVSO credentials.
+"""
+"""
+Filename: setup_wizard.py
+Objective: Interactive configuration tool for initial site and hardware calibration.
+"""
+"""
+Filename: setup_wizard.py
 Purpose: CLI interview to generate a perfect config.toml for beta testers.
 """
 import os

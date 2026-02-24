@@ -1,5 +1,9 @@
 """
 Filename: utils/fetch_sequences.py
+Objective: Downloads specific V-band comparison sequences for identified targets.
+"""
+"""
+Filename: utils/fetch_sequences.py
 Version: 1.3.1
 Objective: Systematic authenticated harvest with automatic manifest verification and deduplication.
 """

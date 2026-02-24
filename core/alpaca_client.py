@@ -1,3 +1,7 @@
+"""
+Filename: core/alpaca_client.py
+Objective: Handshake with the Seestar Federation Alpaca bridge (Port 5432).
+"""
 import requests
 import os
 import uuid

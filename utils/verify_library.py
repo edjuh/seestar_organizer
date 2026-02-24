@@ -1,3 +1,7 @@
+"""
+Filename: utils/verify_library.py
+Objective: Audits the data/sequences vault for JSON integrity and missing target headers.
+"""
 import json
 from pathlib import Path
 from core.logger import log_event

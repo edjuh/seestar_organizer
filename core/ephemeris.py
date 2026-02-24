@@ -1,3 +1,7 @@
+"""
+Filename: core/ephemeris.py
+Objective: Solar, lunar, and stellar position calculator for Haarlem coordinates.
+"""
 from astropy.coordinates import SkyCoord, EarthLocation, AltAz, get_sun
 from astropy.time import Time
 import astropy.units as u

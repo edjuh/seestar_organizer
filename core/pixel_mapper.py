@@ -1,3 +1,7 @@
+"""
+Filename: core/pixel_mapper.py
+Objective: Converts celestial WCS coordinates to local sensor pixel X/Y coordinates.
+"""
 import warnings
 from astropy.wcs import WCS
 from astropy.utils.exceptions import AstropyWarning

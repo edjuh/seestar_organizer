@@ -1,3 +1,7 @@
+"""
+Filename: core/photometry_engine.py
+Objective: Instrumental flux extraction and science-grade lightcurve generation.
+"""
 import numpy as np
 from scipy.ndimage import convolve
 from astropy.io import fits

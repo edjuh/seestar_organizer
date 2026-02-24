@@ -1,3 +1,4 @@
+# Objective: Systemd service configuration for background autonomous operation.
 [Unit]
 Description=Seestar Organizer Sentry - Autonomous AAVSO Monitor
 After=network.target

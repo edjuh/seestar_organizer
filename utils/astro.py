@@ -1,3 +1,11 @@
+"""
+Filename: utils/astro.py
+Objective: Core library for RA/Dec parsing, sidereal time, and coordinate math.
+"""
+"""
+Filename: utils/astro.py
+Objective: Low-level astronomical coordinate and time conversion helpers.
+"""
 def ra_to_decimal(ra_str):
     if isinstance(ra_str, (int, float)): return float(ra_str)
     parts = ra_str.replace(" ", ":").split(":")

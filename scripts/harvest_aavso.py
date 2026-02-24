@@ -1,3 +1,11 @@
+"""
+Filename: scripts/harvest_aavso.py
+Objective: Automated scraping of AAVSO Alert Notices to populate the observation queue.
+"""
+"""
+Filename: scripts/harvest_aavso.py
+Objective: Scrapes the AAVSO target list for new Alert Notices and high-priority events.
+"""
 import requests
 import json
 import tomllib

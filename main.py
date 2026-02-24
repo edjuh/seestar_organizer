@@ -1,3 +1,11 @@
+"""
+Filename: main.py
+Objective: Primary entry point for the Seestar Sentry daemon; manages the Williamina and Annie hardware loops.
+"""
+"""
+Filename: main.py
+Objective: The primary entry point for the Sentry daemon; coordinates all specialist modules.
+"""
 import time
 import os
 from core.weather import weather
