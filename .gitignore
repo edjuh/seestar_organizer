@@ -5,3 +5,5 @@ config.toml
 logs/*.log
 data/sequences/*.json
 FILE_MANIFEST.md.bak
+venv/
+tests/
