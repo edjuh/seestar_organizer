@@ -2,58 +2,47 @@
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 # Filename: scripts/status_ticker.py
-# Purpose:  Authenticated Watchdog & Mission Telemetry (v1.0 Kwetal)
-# Author:   Ed (The Specialist) & Gemini
-# Version:  v1.0
+# Purpose:  The Truth Dashboard (v1.4 Kwetal) - Hardware vs Sim Detection
 # -----------------------------------------------------------------------------
 
 import requests
 import time
-import sys
+import os
 
-def watchdog_ticker():
-    """Patrols the Alpaca connection and monitors mission state."""
+def get_dashboard():
     base = "http://127.0.0.1:5555/api/v1/telescope/1"
-    auth = "ClientID=1&ClientTransactionID=2700"
+    auth = "ClientID=1&ClientTransactionID=7001"
     
-    print("--- 🔭 Williamina v1.0 Kwetal Watchdog Active ---")
-    while True:
-        try:
-            # 1. Check Connection via Alpaca Property
-            r = requests.get(f"{base}/connected?{auth}", timeout=2)
-            is_conn = r.json().get("Value", False)
-            
-            # 2. Force Reconnect if Flapped
-            if not is_conn:
-                print(f"[{time.strftime('%H:%M:%S')}] ⚠️ Kicking socket...")
-                requests.put(f"{base}/connected", data={
-                    "Connected": "true", 
-                    "ClientID": 1, 
-                    "ClientTransactionID": 2701
-                })
-            
-            # 3. Pull Mission State via authenticated Action
-            s = requests.put(f"{base}/action", data={
-                "Action": "get_event_state", 
-                "Parameters": "{}", 
-                "ClientID": 1, 
-                "ClientTransactionID": 2702
-            })
-            val = s.json().get("Value", {})
-            state = val.get("state", "Idle")
-            item = val.get("item_number", "N/A")
-            stacking = "🔭 Imaging" if val.get("is_stacking") else "⏳ Waiting"
-            
-            # 4. Pull Joost Heartbeat
-            with open("/home/ed/seestar_organizer/logs/seestar_joost.log", "r") as f:
-                joost_msg = f.readlines()[-1].strip()[25:]
-
-            # The 'Heer van Stand' Console Output
-            print(f"[{time.strftime('%H:%M:%S')}] Conn: {'✅' if is_conn else '❌'} | {state} ({item}) | {stacking} | Joost: {joost_msg}")
-        except Exception as e:
-            print(f"[{time.strftime('%H:%M:%S')}] 🛰️ Bridge search... {e}")
+    try:
+        # 1. Get State to check for Simulation flags
+        s_resp = requests.put(f"{base}/action", data={"Action": "get_event_state", "Parameters": "{}", "ClientID": 1, "ClientTransactionID": 7002}).json()
+        val = s_resp.get("Value", {})
         
-        time.sleep(30)
+        # Check if the bridge thinks it is in simulation
+        # In your log: 'simulation': True, 'is_debug': True
+        is_sim = val.get("cur_scheduler_item", {}).get("simulation", True)
+        mode_tag = "🛠️ HARDWARE" if not is_sim else "🤖 SIMULATED"
+
+        # 2. Coordinates
+        lat = requests.get(f"{base}/sitelatitude?{auth}").json().get("Value", "??")
+        lon = requests.get(f"{base}/sitelongitude?{auth}").json().get("Value", "??")
+        
+        # 3. Joost Pulse
+        with open("/home/ed/seestar_organizer/logs/seestar_joost.log", "r") as f:
+            joost = f.readlines()[-1].strip()[25:]
+
+        print("\033[H\033[J", end="")
+        print("-" * 65)
+        print(f"[{time.strftime('%H:%M:%S')}] --- 🌟 THE TRUTH DASHBOARD (v1.4) ---")
+        print(f"📡 MODE:       {mode_tag}")
+        print(f"📍 LOCATION:   {lat}°N, {lon}°E (JO22hj21)")
+        print(f"🛡️  JOOST:      {joost}")
+        print(f"📋 SCHEDULE:   {val.get('state', 'Idle')}")
+        print("-" * 65)
+    except Exception as e:
+        print(f"[{time.strftime('%H:%M:%S')}] ⚠️ Dashboard Error: {e}")
 
 if __name__ == "__main__":
-    watchdog_ticker()
+    while True:
+        get_dashboard()
+        time.sleep(10)
