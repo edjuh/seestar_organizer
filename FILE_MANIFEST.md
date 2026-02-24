@@ -46,6 +46,7 @@
 ## 📂 Scripts
 * `scripts/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
 * `scripts/inject_target.py`: Inject target into Williamina using the Bruno-validated 'start_mosaic' dialect.
+* `scripts/post_reboot_check.py`: No objective defined.
 * `scripts/prepare_2100_sequence.py`: Forecast and prepare a science-grade sequence for 21:00 tonight.
 
 ## 📂 Tests

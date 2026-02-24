@@ -7,3 +7,4 @@ data/sequences/*.json
 FILE_MANIFEST.md.bak
 venv/
 tests/
+engine.log
