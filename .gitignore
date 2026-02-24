@@ -1,6 +1,16 @@
-venv/
+# Environments
 .venv/
-tests/samples/
-*.zip
-*.fits
 __pycache__/
+*.pyc
+
+# Local Configuration (Secret-sensitive)
+config.toml
+*.env
+
+# Logs and Data
+logs/*.log
+data/sequences/*.json
+data/catalog/*.csv
+
+# System / OS
+.DS_Store
