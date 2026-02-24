@@ -1,40 +1,37 @@
-"""
-Filename: scripts/status_ticker.py
-Objective: Authenticated mission monitoring for Williamina (v1.0 Kwetal).
-"""
 import requests
 import time
-import sys
+import os
 
-def get_stats(device_num=1):
-    base_url = f"http://127.0.0.1:5555/api/v1/telescope/{device_num}/action"
+def get_dashboard():
+    # 1. Alpaca/Federation Check
+    base = "http://127.0.0.1:5555/api/v1/telescope"
+    auth = "ClientID=1&ClientTransactionID=2500"
     
-    # Authenticated payload for the scheduler specialist
-    payload = {
-        "Action": "get_event_state",
-        "Parameters": "{}",
-        "ClientID": 1,
-        "ClientTransactionID": 2300
-    }
-    
+    # 2. Joost Heartbeat (Last line of log)
     try:
-        response = requests.put(base_url, data=payload, timeout=3)
-        if response.status_code == 200:
-            data = response.json().get("Value", {})
-            sched_state = data.get("state", "Unknown")
-            is_stacking = data.get("is_stacking", False)
-            
-            # Mission Ticker Output
-            timestamp = time.strftime('%H:%M:%S')
-            status_icon = "🔭" if is_stacking else "⏳"
-            print(f"[{timestamp}] Scheduler: {sched_state} | Stacking: {status_icon} | Target: V1159 Ori")
-        else:
-            print(f"[{time.strftime('%H:%M:%S')}] ⚠️  Bridge Error: {response.status_code}")
-    except Exception as e:
-        print(f"[{time.strftime('%H:%M:%S')}] ❌ Ticker Lost: {e}")
+        with open("/home/ed/seestar_organizer/logs/seestar_joost.log", "r") as f:
+            joost_line = f.readlines()[-1].strip()
+    except:
+        joost_line = "Log inaccessible"
+
+    try:
+        # Pull Alpaca State
+        r = requests.put(f"{base}/1/action", data={"Action": "get_event_state", "Parameters": "{}", "ClientID": 1, "ClientTransactionID": 2501}, timeout=1)
+        state = r.json().get("Value", {}).get("state", "OFFLINE")
+        
+        # Dashboard Console Output
+        print("-" * 60)
+        print(f"[{time.strftime('%H:%M:%S')}] --- 🔭 SEESTAR MISSION CONTROL ---")
+        print(f"🏛️  FEDERATION:  ACTIVE (Port 5555)")
+        print(f"📡 WILLIAMINA:  {state}")
+        print(f"🛡️  JOOST:       {joost_line[25:]}") # Clean up timestamp
+        print(f"🌡️  WEATHER:     SAFE (Forced)")
+        print(f"🎯 TARGET:      V1159 Ori (000-BBJ-536)")
+        print("-" * 60)
+    except:
+        print(f"[{time.strftime('%H:%M:%S')}] ⚠️ Dashboard: Waiting for Alpaca...")
 
 if __name__ == "__main__":
-    print("--- 🛰️ Williamina Specialist Ticker (Ctrl+C to stop) ---")
     while True:
-        get_stats()
-        time.sleep(60)
+        get_dashboard()
+        time.sleep(30)
