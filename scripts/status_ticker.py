@@ -1,35 +1,40 @@
 """
 Filename: scripts/status_ticker.py
-Objective: Authenticated monitoring of Williamina's 21:00 mission.
+Objective: Authenticated mission monitoring for Williamina (v1.0 Kwetal).
 """
 import requests
 import time
 import sys
 
-def get_vitals(device_num=1):
-    base_url = f"http://127.0.0.1:5555/api/v1/telescope/{device_num}"
-    # Using the discovery parameters we validated
-    auth = "ClientID=1&ClientTransactionID=2205"
+def get_stats(device_num=1):
+    base_url = f"http://127.0.0.1:5555/api/v1/telescope/{device_num}/action"
+    
+    # Authenticated payload for the scheduler specialist
+    payload = {
+        "Action": "get_event_state",
+        "Parameters": "{}",
+        "ClientID": 1,
+        "ClientTransactionID": 2300
+    }
     
     try:
-        # Check the Action-based state via the Federation or Device
-        payload = {"Action": "get_event_state", "Parameters": "{}", "ClientID": 1, "ClientTransactionID": 2206}
-        response = requests.put(f"{base_url}/action", data=payload, timeout=2)
-        
+        response = requests.put(base_url, data=payload, timeout=3)
         if response.status_code == 200:
-            val = response.json().get("Value", {})
-            state = val.get("state", "Unknown")
-            item = val.get("item_number", "N/A")
+            data = response.json().get("Value", {})
+            sched_state = data.get("state", "Unknown")
+            is_stacking = data.get("is_stacking", False)
             
-            # Print a clean line for the ticker
-            print(f"[{time.strftime('%H:%M:%S')}] Williamina: {state} | Item: {item} | 21:00 Goal: V1159 Ori")
+            # Mission Ticker Output
+            timestamp = time.strftime('%H:%M:%S')
+            status_icon = "🔭" if is_stacking else "⏳"
+            print(f"[{timestamp}] Scheduler: {sched_state} | Stacking: {status_icon} | Target: V1159 Ori")
         else:
-            print(f"[{time.strftime('%H:%M:%S')}] ⚠️ API Polling Error: {response.status_code}")
+            print(f"[{time.strftime('%H:%M:%S')}] ⚠️  Bridge Error: {response.status_code}")
     except Exception as e:
-        print(f"[{time.strftime('%H:%M:%S')}] ❌ Ticker Lost Connection: {e}")
+        print(f"[{time.strftime('%H:%M:%S')}] ❌ Ticker Lost: {e}")
 
 if __name__ == "__main__":
-    print("--- 🔭 Williamina 21:00 Mission Watch (Ctrl+C to stop) ---")
+    print("--- 🛰️ Williamina Specialist Ticker (Ctrl+C to stop) ---")
     while True:
-        get_vitals()
+        get_stats()
         time.sleep(60)

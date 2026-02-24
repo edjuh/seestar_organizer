@@ -48,7 +48,7 @@
 * `scripts/inject_target.py`: No objective defined.
 * `scripts/post_reboot_check.py`: No objective defined.
 * `scripts/prepare_2100_sequence.py`: Forecast and prepare a science-grade sequence for 21:00 tonight.
-* `scripts/status_ticker.py`: Authenticated monitoring of Williamina's 21:00 mission.
+* `scripts/status_ticker.py`: Authenticated mission monitoring for Williamina (v1.0 Kwetal).
 
 ## 📂 Tests
 
