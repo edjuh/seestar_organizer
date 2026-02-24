@@ -1,15 +1,30 @@
-# AI Project Context - Seestar Photometry Engine
+# AI Project Context - Seestar Photometry Engine (Rommeldam Edition)
 
-## Current Status (2026-02-24)
+## 🏰 Architectural Logic & Current Status
+- **v0.5 Hiep Hieper (The Orchestrator):** Manages the "Golden Bridge" between AAVSO JSON vaults and the Alpaca client.
+- **v0.9 Terpen Tijn (Current):** "Het is prut!" Implements the "Aperture Grip"—handling western priority, sub-pixel centroiding logic, and enforcing a >30° altitude floor for science-grade photons.
 - **Environment:** Raspberry Pi 5 (Headless, Debian Bookworm).
-- **Core Engine:** Astrometry.net (solve-field) with cached `.wcs` maps.
 - **Hardware:** S30-Pro IMX585 (GRBG color matrix, 4.6° Telephoto FOV).
-- **Photometry:** Phase 0.9 complete. Engine dynamically debayers FITS based on header DNA, extracts instrumental flux, and calculates ZP against offline AAVSO JSON vaults.
 
-## Technical Snapshot
-1. **Analyst:** Uses solve-field --config to handle narrow-field S50/S30 images.
-2. **Mapper:** Python logic converts WCS celestial data to Pixel X/Y.
-3. **Registry:** Targets are stowed in observable_targets.json (User-managed harvest).
+## 🛠️ Technical Snapshot
+1. **Analyst:** Plate-solver (Astrometry.net) configured for narrow-field Seestar optics.
+2. **Mapper:** Python WCS-to-Pixel bridge for instrumental flux extraction.
+3. **Registry:** `data/sequences/` contains 390+ AAVSO targets.
 
-## Immediate Goal
-Verify plate-solving on real Seestar photons (NAXIS=2 images) and begin instrumental flux extraction (Aperture Photometry).
+## 🛰️ Seestar Federation Alpaca Handshake
+- **Endpoint:** `http://127.0.0.1:5432/0/schedule`
+- **Device Index:** `/0/`
+- **Method:** `POST` with unique `schedule_item_id` (UUID4).
+- **Coordinate Mapping:**
+| Source Field (AAVSO JSON) | Target Field (Alpaca) | Logic |
+| :--- | :--- | :--- |
+| `auid` or `comments` | `target_name` | Primary: `auid`; Fallback: `comments`. |
+| `ra` ("HH:MM:SS") | `ra` | Must use `unit=(u.hourangle, u.deg)`. |
+| `dec` ("DD:MM:SS") | `dec` | Preserved colon-string for parser. |
+| N/A | `is_j2000` | Always `True`. |
+| N/A | `panel_time_sec` | Standardized to `60`s for variable stars. |
+
+## 🧪 Critical Handshake Logic
+- **List-Wrapped:** AAVSO files are `raw_json[0]`.
+- **Simulation:** `SIMULATION_MODE=True` bypasses weather/sun but maintains real-time Alt/Az calculation.
+- **Westward Priority:** Objects in Azimuth 180-350 with low altitude take priority to ensure capture before setting.

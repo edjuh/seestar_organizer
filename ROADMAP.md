@@ -17,6 +17,26 @@ This document outlines the architectural journey of the S30-PRO autonomous obser
 * **v1.0 Kwetal:** Converting the Orchestrator into a bulletproof `systemd` background daemon.
 * **v1.1 Pee Pastinakel:** Dynamic aperture scaling (PSF fitting) and saturation detection to handle bright-star magnitude offsets.
 
+# 🗺️ S30-PRO Development Roadmap: The Rommeldam Epic
+
+This document outlines the architectural journey of the S30-PRO autonomous observatory, structurally mapped to the characters of Marten Toonder's universe.
+
+## ✅ Past Milestones (The Foundation)
+* **v0.0 Beunhaas:** Environment Validation.
+* **v0.1 Brigadier Snuf:** The State Engine.
+* **v0.2 Zedekia Zwederkoorn:** The Alpaca Bridge Patch.
+* **v0.3 Joris Goedbloed:** Target Acquisition.
+* **v0.4 Zachtzalver:** Command Translation.
+* **v0.5 Hiep Hieper:** The Orchestrator (The Golden Bridge).
+* **v0.6 Insp. Priembickel:** Hardening and Git strictness.
+* **v0.7 Argus:** The all-seeing autonomous observer.
+* **v0.8 Lieven Brekel:** Mid-sequence weather aborts and WCS bridge hardening.
+* **v0.9 Terpen Tijn (CURRENT):** "Het is prut!" Westward priority active. Sub-pixel centroiding, dynamic CFA debayering, and stable Alpaca handshake for AAVSO targets.
+
+## 🚀 Near-Term Milestones (The Specialists)
+* **v1.0 Kwetal:** Converting the Orchestrator into a bulletproof `systemd` background daemon.
+* **v1.1 Pee Pastinakel:** Dynamic aperture scaling (PSF fitting) and saturation detection.
+
 ---
 
 ## 🌲 Epoch 1: Het Kleine Volkje (v1.x)
