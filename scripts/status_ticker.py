@@ -1,4 +1,4 @@
-!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 # Filename: scripts/status_ticker.py
@@ -16,6 +16,7 @@ def watchdog_ticker():
     base = "http://127.0.0.1:5555/api/v1/telescope/1"
     auth = "ClientID=1&ClientTransactionID=2700"
     
+    print("--- 🔭 Williamina v1.0 Kwetal Watchdog Active ---")
     while True:
         try:
             # 1. Check Connection via Alpaca Property
@@ -24,7 +25,12 @@ def watchdog_ticker():
             
             # 2. Force Reconnect if Flapped
             if not is_conn:
-                requests.put(f"{base}/connected", data={"Connected": "true", "ClientID": 1, "ClientTransactionID": 2701})
+                print(f"[{time.strftime('%H:%M:%S')}] ⚠️ Kicking socket...")
+                requests.put(f"{base}/connected", data={
+                    "Connected": "true", 
+                    "ClientID": 1, 
+                    "ClientTransactionID": 2701
+                })
             
             # 3. Pull Mission State via authenticated Action
             s = requests.put(f"{base}/action", data={
@@ -50,5 +56,4 @@ def watchdog_ticker():
         time.sleep(30)
 
 if __name__ == "__main__":
-    print("--- 🔭 Williamina v1.0 Kwetal Watchdog Active ---")
     watchdog_ticker()
