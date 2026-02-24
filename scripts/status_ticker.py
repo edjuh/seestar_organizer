@@ -2,42 +2,47 @@
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 # Filename: scripts/status_ticker.py
-# Purpose:  v2.0 Kwetal - The Investigator Dashboard (Polite Mode)
+# Purpose:  v2.2 Kwetal - Alpaca Power Sync & Coronation Watch
 # -----------------------------------------------------------------------------
 
 import requests
 import time
-import os
+
+def ram_the_truth():
+    base = "http://127.0.0.1:5555/api/v1/telescope/1"
+    try:
+        requests.put(f"{base}/sitelatitude", data={"SiteLatitude": 52.37, "ClientID": 1, "ClientTransactionID": 22002}, timeout=2)
+        requests.put(f"{base}/sitelongitude", data={"SiteLongitude": 4.64, "ClientID": 1, "ClientTransactionID": 22003}, timeout=2)
+    except:
+        pass
 
 def get_dashboard():
     base = "http://127.0.0.1:5555/api/v1/telescope/1"
-    auth = "ClientID=1&ClientTransactionID=20000"
+    auth = "ClientID=1&ClientTransactionID=22004"
     
     try:
-        # Polling with a longer timeout to be polite to the bridge
+        # Polling for current state
         r_lat = requests.get(f"{base}/sitelatitude?{auth}", timeout=5).json()
         lat = r_lat.get("Value", "??")
         
-        # Checking for the Maastricht Ghost
-        is_maastricht = "50.8" in str(lat)
-        
-        # Check if suspect files exist
-        csc_exists = os.path.exists("/home/ed/seestar_alp/front/csc_sites.json")
-        
+        with open("/home/ed/seestar_organizer/logs/seestar_joost.log", "r") as f:
+            joost = f.readlines()[-1].strip()[25:]
+
         print("\033[H\033[J", end="")
         print("-" * 65)
-        print(f"[{time.strftime('%H:%M:%S')}] --- 🕵️ v2.0 THE INVESTIGATOR DASHBOARD ---")
-        print(f"📍 CURRENT API LAT: {lat}°N")
-        print(f"👻 GHOST STATUS:    {'⚠️ MAASTRICHT DETECTED' if is_maastricht else '✅ HAARLEM STABLE'}")
+        print(f"[{time.strftime('%H:%M:%S')}] --- ⚡ v2.2 ALPACA POWER DASHBOARD ---")
+        print(f"📍 API STATUS: {lat}°N {'✅ HAARLEM' if '52.3' in str(lat) else '❌ GHOST'}")
+        print(f"🛡️  JOOST:      {joost}")
         print("-" * 30)
-        print(f"📂 CSC_SITES.JSON:  {'FOUND' if csc_exists else 'MISSING'}")
-        print(f"📂 EPHEM/CITIES:    CHECKING...")
+        print(f"📡 MODE:       🛠️ HARDWARE")
+        print(f"🔭 TARGETS:    V1159 Ori, M42, M45")
         print("-" * 65)
-        print("Interrogating library files... [Status: Forensic Analysis]")
+        print("Ramming truth... [v1.0 Kwetal Stage: Finalized]")
     except Exception as e:
-        print(f"[{time.strftime('%H:%M:%S')}] 🛰️ Bridge is resting... {e}")
+        print(f"[{time.strftime('%H:%M:%S')}] 🛰️ Bridge is initializing... {e}")
 
 if __name__ == "__main__":
+    ram_the_truth() # Use Alpaca Powers on boot!
     while True:
         get_dashboard()
-        time.sleep(45) # Very polite polling to allow the bridge to recover
+        time.sleep(45)
