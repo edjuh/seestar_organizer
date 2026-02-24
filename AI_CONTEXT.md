@@ -1,10 +1,10 @@
 # AI Project Context - Seestar Photometry Engine
 
-## Current Status (2026-02-23)
+## Current Status (2026-02-24)
 - **Environment:** Raspberry Pi 5 (Headless, Debian Bookworm).
-- **Core Engine:** Astrometry.net (solve-field) with local indices (4208-4211).
-- **Database:** V17 Johnson-V Photometry catalog installed in ~/.astap.
-- **Hardware:** No active Seestar connection; currently testing via harvested FITS files.
+- **Core Engine:** Astrometry.net (solve-field) with cached `.wcs` maps.
+- **Hardware:** S30-Pro IMX585 (GRBG color matrix, 4.6° Telephoto FOV).
+- **Photometry:** Phase 0.9 complete. Engine dynamically debayers FITS based on header DNA, extracts instrumental flux, and calculates ZP against offline AAVSO JSON vaults.
 
 ## Technical Snapshot
 1. **Analyst:** Uses solve-field --config to handle narrow-field S50/S30 images.

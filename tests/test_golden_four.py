@@ -1,9 +1,11 @@
 import sys
 from pathlib import Path
-from core.master_analyst import master_analyst
 
-PROJECT_ROOT = Path(__file__).parent.resolve()
+# Fix: Point to the actual project root, and do it BEFORE importing core
+PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 sys.path.insert(0, str(PROJECT_ROOT))
+
+from core.master_analyst import master_analyst
 
 targets = [
     {"name": "MU Cam", "file": "mu_cam.fits", "ra": "03:53:18", "dec": "+62:11:48"},
@@ -19,7 +21,7 @@ def run_sweep():
     for t in targets:
         f_path = PROJECT_ROOT / "tests" / "samples" / t['file']
         if not f_path.exists():
-            print(f"{t['name']:<12} | File Missing")
+            print(f"{t['name']:<12} | File Missing: {f_path}")
             continue
             
         x, y = master_analyst.get_target_pixel(str(f_path), t['ra'], t['dec'])
