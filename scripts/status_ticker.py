@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 # Filename: scripts/status_ticker.py
@@ -27,7 +27,12 @@ def watchdog_ticker():
                 requests.put(f"{base}/connected", data={"Connected": "true", "ClientID": 1, "ClientTransactionID": 2701})
             
             # 3. Pull Mission State via authenticated Action
-            s = requests.put(f"{base}/action", data={"Action": "get_event_state", "Parameters": "{}", "ClientID": 1, "ClientTransactionID": 2702})
+            s = requests.put(f"{base}/action", data={
+                "Action": "get_event_state", 
+                "Parameters": "{}", 
+                "ClientID": 1, 
+                "ClientTransactionID": 2702
+            })
             val = s.json().get("Value", {})
             state = val.get("state", "Idle")
             item = val.get("item_number", "N/A")
@@ -45,5 +50,5 @@ def watchdog_ticker():
         time.sleep(30)
 
 if __name__ == "__main__":
-    print("--- 🔭 Williamina v1.0 Kwetal Watchdog ---")
+    print("--- 🔭 Williamina v1.0 Kwetal Watchdog Active ---")
     watchdog_ticker()
