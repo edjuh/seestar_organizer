@@ -6,13 +6,17 @@ import os
 import json
 from core.ephemeris import observer
 from core.logger import log_event
+from core.hardware_profiles import get_profile
 
 class Selector:
-    def __init__(self):
+    def __init__(self, specialist="WILLIAMINA"):
+        """Initialize with a specific hardware specialist profile."""
         self.vault_path = "data/sequences/"
+        self.profile = get_profile(specialist)
+        log_event(f"Selector: Active Specialist is {specialist} ({self.profile['model']})")
 
     def get_night_plan(self, target_time=None):
-        """Finds all valid targets and ranks them by western urgency."""
+        """Finds valid targets and ranks them by western urgency and hardware FOV."""
         targets_found = []
 
         if not os.path.exists(self.vault_path):
@@ -26,33 +30,28 @@ class Selector:
                 with open(os.path.join(self.vault_path, filename), 'r') as f:
                     raw_data = json.load(f)
                 
+                # Handle AAVSO list-wrapped JSON
                 data = raw_data[0] if isinstance(raw_data, list) else raw_data
                 ra, dec = data.get('ra'), data.get('dec')
                 if ra is None or dec is None: continue
                 
                 pos = observer.get_alt_az(ra, dec, time_override=target_time)
                 
-                # Filter: Must be above the 30-degree floor
+                # Filter: Altitude Gate
                 if pos['alt'] > 30:
                     data['display_name'] = data.get('auid') or data.get('comments') or filename
                     data['alt'] = pos['alt']
                     data['az'] = pos['az']
                     
-                    # Logic: If Azimuth is West (180-350) and Alt is low, it's high priority
-                    # We create a 'priority_score'. Higher = Capture it now.
+                    # Westward Priority Logic
                     if 180 < pos['az'] < 350:
-                        # Urgency increases as altitude decreases toward 30
                         data['priority_score'] = 100 - pos['alt'] 
                     else:
-                        # Eastern/Zenith objects have lower priority than setting objects
                         data['priority_score'] = pos['alt'] / 2
 
                     targets_found.append(data)
             except Exception:
                 continue
 
-        # Sort by priority score (Urgent/Western first)
         targets_found.sort(key=lambda x: x['priority_score'], reverse=True)
         return targets_found
-
-selector = Selector()
