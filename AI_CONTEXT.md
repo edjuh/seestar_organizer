@@ -28,3 +28,8 @@
 - **List-Wrapped:** AAVSO files are `raw_json[0]`.
 - **Simulation:** `SIMULATION_MODE=True` bypasses weather/sun but maintains real-time Alt/Az calculation.
 - **Westward Priority:** Objects in Azimuth 180-350 with low altitude take priority to ensure capture before setting.
+
+## 🏮 The "Aperture Grip" (Terpen Tijn Logic)
+- **Westward Priority:** To avoid losing targets to the horizon, the Selector prioritizes objects with Azimuth 180°-350°.
+- **Priority Score:** $(100 - Altitude)$ for Western targets; $(Altitude / 2)$ for Eastern/Zenith targets.
+- **Handshake Name:** Always use `target['display_name']` to avoid `None` errors in the Alpaca bridge.
