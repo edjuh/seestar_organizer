@@ -25,6 +25,10 @@ lon = 4.6462
 elevation = 2.0
 horizon_limit = 30
 
+[Weather]
+MAX_CLOUD_COVER = 40       # Maximum acceptable average cloud percentage
+FORECAST_HOURS_AHEAD = 3   # How many hours into the future to verify
+
 [notifications]
 telegram_bot_token = "8220052922:AAHhnteZyxUI2dedJ0u9jrba4rF-weFYK_g"
 telegram_chat_id = "8499954599"

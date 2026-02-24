@@ -1,0 +1,15 @@
+[Unit]
+Description=Seestar Organizer Sentry - Autonomous AAVSO Monitor
+After=network.target
+
+[Service]
+User=ed
+WorkingDirectory=/home/ed/seestar_organizer
+ExecStart=/home/ed/seestar_organizer/venv/bin/python3 main.py
+Restart=always
+RestartSec=10
+StandardOutput=append:/home/ed/seestar_organizer/logs/sentry.log
+StandardError=append:/home/ed/seestar_organizer/logs/sentry.log
+
+[Install]
+WantedBy=multi-user.target
