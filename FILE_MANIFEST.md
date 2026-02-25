@@ -4,31 +4,8 @@
 
 ## 📂 Core
 * `core/__init__.py`: No objective defined.
-* `core/aavso_client.py`: AAVSO VSP API interface with intelligent error parsing and FOV scaling.
-* `core/analyst.py`: Analyzes FITS image quality, FWHM, and basic observational metrics.
-* `core/calibration_engine.py`: Manages Zero-Point (ZP) offsets and flat-field corrections for the IMX585.
-* `core/dashboard.py`: Terminal User Interface (TUI) for real-time system monitoring.
-* `core/env_loader.py`: Centralized configuration and environment variable manager.
-* `core/ephemeris.py`: Solar, lunar, and stellar position calculator for Haarlem coordinates.
-* `core/fog_monitor.py`: Infrared sky-clarity monitor using MLX90614.
-* `core/gps.py`: Manages geographic coordinates for astronomical calculations.
-* `core/hardware_profiles.py`: Define sensor specs for Annie (S50), Williamina (S30-Pro), and Henrietta (S30-Pro Fast).
-* `core/horizon.py`: Veto targets based on local obstructions (Trees, Buildings).
-* `core/librarian.py`: Monthly cron tool to fetch NEW targets from AAVSO.
-* `core/logger.py`: System-wide logging with automatic file rotation.
-* `core/master_analyst.py`: High-level plate-solving coordinator for narrow-field Seestar frames.
-* `core/notifier.py`: Outbound alert management via Telegram and system bells.
-* `core/photometry_engine.py`: Instrumental flux extraction and science-grade lightcurve generation.
-* `core/pixel_mapper.py`: Converts celestial WCS coordinates to local sensor pixel X/Y coordinates.
-* `core/planner.py`: Calculates darkness windows for Haarlem for any given date.
-* `core/scheduler.py`: Legacy target scheduling logic (V1).
 * `core/selector.py`: Prioritize targets setting in the West during the dark window.
-* `core/sequence_engine.py`: Prioritizes targets and creates a time-slotted mission plan.
 * `core/sequence_repository.py`: Local cache manager for AAVSO V-band comparison sequences.
-* `core/sync_manager.py`: Manages file synchronization between Seestar, Local Buffer, and NAS.
-* `core/validator.py`: Enforce data integrity constraints for the S30-PRO pipeline.
-* `core/vault_manager.py`: Maps to the user's existing config.toml structure.
-* `core/weather.py`: Predictive ensemble weather monitoring (Open-Meteo + Buienradar).
 
 ## 📂 Logic
 
