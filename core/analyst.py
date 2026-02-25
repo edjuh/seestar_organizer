@@ -1,3 +1,7 @@
+"""
+Objective: Analyzes FITS image quality, FWHM, and basic observational metrics.
+"""
+
 import subprocess
 import tomllib
 from pathlib import Path

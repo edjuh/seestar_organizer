@@ -1,3 +1,7 @@
+"""
+Objective: Core engine for harvesting and parsing AAVSO target alerts and sequences.
+"""
+
 import os
 import time
 import shutil

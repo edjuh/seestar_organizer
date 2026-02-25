@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
 # Filename: core/orchestrator.py
-# Purpose:  Block 2: The Brain (Joost). Main operational loop and decision maker.
+"""
+Objective: The Brain (Joost). Main operational loop and decision maker.
+"""
 # -----------------------------------------------------------------------------
 
 import time
