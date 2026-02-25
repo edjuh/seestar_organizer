@@ -1,54 +1,55 @@
-"""
-Filename: core/orchestrator.py
-Objective: The Kwetal Master Loop. Runs continuously as a systemd daemon.
-"""
-import sys
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# -----------------------------------------------------------------------------
+# Filename: core/orchestrator.py
+# Purpose:  Block 2: The Brain (Joost). Main operational loop and decision maker.
+# -----------------------------------------------------------------------------
+
 import time
-from pathlib import Path
+import sys
+import os
+import logging
 
-# The Kwetal Path Lock
-PROJECT_ROOT = Path(__file__).parent.parent.resolve()
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+# 1. Setup Logging for the Dashboard to read
+LOG_DIR = "/home/ed/seestar_organizer/logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+LOG_FILE = os.path.join(LOG_DIR, "seestar_joost.log")
 
-from core.weather import weather
-from core.alpaca_client import alpaca
-from core.logger import log_event
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(LOG_FILE),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger("Joost")
 
-class Orchestrator:
-    def __init__(self):
-        self.is_running = True
-        self.poll_interval = 600  # Wake up every 10 minutes
+# 2. Import Block 1 (The Communicator)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from api.alpaca_client import AlpacaClient
 
-    def run_night_shift(self):
-        log_event("Kwetal Orchestrator: Booting sequence initiated.")
+def run_orchestrator():
+    logger.info("Joost: Waking up. Initializing Block 2 Orchestrator.")
+    client = AlpacaClient()
+
+    while True:
+        logger.info("Joost: Starting routine check...")
         
-        while self.is_running:
-            log_event("Kwetal: Waking up for routine check...")
-            
-            # 1. The Safety Gate
-            if not weather.is_safe_to_image():
-                log_event("Kwetal: Weather is UNSAFE. Initiating hardware lockdown.")
-                alpaca.park_telescope()  # THE MUSCLE WIRE
-                self.sleep_cycle()
-                continue
-                
-            # 2. The Target Gate
-            log_event("Kwetal: Weather is SAFE. Checking target visibility...")
-            
-            # 3. The Imaging Loop
-            log_event("Kwetal: Target locked. Initiating tracking and imaging...")
-            
-            self.sleep_cycle()
-
-    def sleep_cycle(self):
-        log_event(f"Kwetal: Cycle complete. Sleeping for {self.poll_interval // 60} minutes.")
-        try:
-            time.sleep(self.poll_interval)
-        except KeyboardInterrupt:
-            log_event("Kwetal: Manual interrupt detected. Shutting down.")
-            self.is_running = False
+        # 3. Safely Check Hardware State
+        if not client.is_connected():
+            logger.warning("Joost: Telescope is offline. Waiting for hardware...")
+        else:
+            lat = client.get_latitude()
+            lon = client.get_longitude()
+            logger.info(f"Joost: Telescope online at {lat}°N, {lon}°E. Ready for sequences.")
+            # (Future: This is where Joost will read tonights_plan.json and execute slews)
+        
+        logger.info("Joost: Cycle complete. Sleeping for 60 seconds.")
+        time.sleep(60)
 
 if __name__ == "__main__":
-    master_brain = Orchestrator()
-    master_brain.run_night_shift()
+    try:
+        run_orchestrator()
+    except KeyboardInterrupt:
+        logger.info("Joost: Orchestrator safely shut down by user.")

@@ -5,7 +5,6 @@
 ## 📂 Core
 * `core/__init__.py`: No objective defined.
 * `core/aavso_client.py`: AAVSO VSP API interface with intelligent error parsing and FOV scaling.
-* `core/alpaca_client.py`: Handshake with the Seestar Federation Alpaca bridge (Port 5432).
 * `core/analyst.py`: No objective defined.
 * `core/calibration_engine.py`: Manages Zero-Point (ZP) offsets and flat-field corrections for the IMX585.
 * `core/dashboard.py`: Terminal User Interface (TUI) for real-time system monitoring.
@@ -21,7 +20,7 @@
 * `core/master_analyst.py`: High-level plate-solving coordinator for narrow-field Seestar frames.
 * `core/nightly_planner.py`: Filter the AAVSO target library for visibility from Haarlem tonight.
 * `core/notifier.py`: Outbound alert management via Telegram and system bells.
-* `core/orchestrator.py`: The Kwetal Master Loop. Runs continuously as a systemd daemon.
+* `core/orchestrator.py`: No objective defined.
 * `core/photometry_engine.py`: Instrumental flux extraction and science-grade lightcurve generation.
 * `core/pixel_mapper.py`: Converts celestial WCS coordinates to local sensor pixel X/Y coordinates.
 * `core/planner.py`: Calculates darkness windows for Haarlem for any given date.
@@ -41,14 +40,11 @@
 * `utils/cleanup.py`: Housekeeping for temporary files and logs.
 * `utils/fetch_sequences.py`: Downloads specific V-band comparison sequences for identified targets.
 * `utils/generate_manifest.py`: Automatically rebuild the FILE_MANIFEST.md by parsing '
+* `utils/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
 * `utils/verify_library.py`: Audits the data/sequences vault for JSON integrity and missing target headers.
 
 ## 📂 Scripts
-* `scripts/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
-* `scripts/inject_target.py`: No objective defined.
-* `scripts/post_reboot_check.py`: No objective defined.
-* `scripts/prepare_2100_sequence.py`: Forecast and prepare a science-grade sequence for 21:00 tonight.
-* `scripts/status_ticker.py`: No objective defined.
+* `scripts/dashboard.py`: No objective defined.
 
 ## 📂 Tests
 

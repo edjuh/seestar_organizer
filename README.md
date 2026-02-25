@@ -8,15 +8,26 @@ This project automates the entire lifecycle of variable star observation: from p
 ## 🏛️ Architecture & The "Golden Bridge"
 Because the native Seestar app is a closed ecosystem, this project utilizes `seestar_alp` as a Chief of Staff to handle low-level hardware communication. 
 
-The Python Orchestrator acts as the "Brain" and executes the following loop:
+To ensure strict stability, the v1.0 Kwetal release enforces a **Modular 3-Block Architecture** based on the Single Responsibility Principle:
+
+### 1. The Communicator (Block 1)
+The exclusive bridge to the hardware API. It translates Python method calls into API endpoints and manages connection states. It makes zero operational decisions and is the *only* component permitted to send HTTP GET/PUT requests to the telescope.
+
+### 2. The Brain (Block 2)
+The Python Orchestrator lives here and executes the master loop:
 1. **Sensor Check:** Polls OpenWeatherMap and GPS APIs. If unsafe, it waits.
 2. **Target Acquisition:** Scans a deduplicated, offline JSON database of AAVSO targets.
 3. **The 1x1 Mosaic Trick:** Formats targets into a mock `1x1 Mosaic` JSON payload to bypass Alpaca sequence limitations.
 4. **Federation Injection:** Payload is POSTed directly to the `seestar_alp` Federation Controller (Device 0).
 5. **Autonomous Execution:** Orchestrator fires an HTMX toggle to initiate autofocus and scientific exposure.
 
+### 3. The Watchdog (Block 3)
+A passive telemetry dashboard for the terminal. "Look, but do not touch." It requests current state data from the Communicator and reads the Orchestrator's logs to generate a UI. It is strictly forbidden from forcing coordinates or triggering connections.
+
 ## 📂 Project Structure
-* `core/` - Long-running engines (Orchestrator, Alpaca Client, Sensor APIs).
+* `api/` - The Communicator (Hardware Abstraction Layer).
+* `core/` - Long-running engines (Orchestrator, Harvester, Sensor APIs).
+* `scripts/` - Passive telemetry and dashboarding (Watchdogs).
 * `utils/` - Human-triggered CLI scripts (AAVSO Scraper, Math converters).
 * `data/` - Offline JSON caches for targets, weather states, and sequence lists.
 
@@ -26,6 +37,3 @@ The Python Orchestrator acts as the "Brain" and executes the following loop:
 
 ## 📜 Slotwoord van een Heer van Stand
 "Het is een hele zorg, nietwaar? De sterrenhemel is onmetelijk en de techniek staat voor niets, maar men moet wel de juiste middelen hebben om de zaken in goede banen te leiden. Een heer weet wanneer hij moet delegeren; ik laat het sorteren en organiseren van de opnamen dan ook graag over aan deze voortreffelijke eenvoudige software. Het is, zoals mijn goede vader placht te zeggen, een kwestie van fijn van draad blijven. Mocht u onvolkomenheden aantreffen, schroom dan niet om een ambtelijk schrijven (of een Issue) achter te laten. Maar let wel: wij handelen hier volgens de regelen van het fatsoen!"
-
----
-**Version:** (ssc-3.13.5) | *"We do not guess the API; we read the blueprints."*
