@@ -10,6 +10,29 @@ Because the native Seestar app is a closed ecosystem, this project utilizes `see
 
 To ensure strict stability, the v1.0 Kwetal release enforces a **Modular 3-Block Architecture** based on the Single Responsibility Principle:
 
+## 🛫 PREFLIGHT (Daytime Operations)
+*The hardware is off. The Pi prepares the data.*
+* **Phase 1: Planning & Vetting**
+    * **Preflight A (Harvester):** Downloads active campaigns from AAVSO, vetoing targets outside the Seestar's physical FOV constraints.
+    * **Preflight B (Fetcher):** Secures local AAVSO comparison star sequences (`comp_stars/*.json`), verifying reference stars are within the FOV.
+    * **Preflight C (Scheduler):** `nightly_planner.py` scores the surviving targets against tonight's specific ephemeris. It enforces Lunar avoidance, rewards Westward setting targets, and caps the daily itinerary to the Top 20 targets (`tonights_plan.json`).
+
+### 🚀 FLIGHT (Nighttime Operations)
+*The hardware is active. The pipeline is closed.*
+* **Phase 2: Acquisition**
+    * The **Butler (`orchestrator.py`)** verifies the Safety Gate (Weather/Fog) and commands the **Communicator (`alpaca_client.py`)**.
+    * The 1x1 Mosaic payload is injected. The Seestar slews, auto-focuses, and captures raw FITS files without human intervention.
+
+### 🛬 POSTFLIGHT (Processing & Archiving)
+*The telescope slews to the next target. Data is processed asynchronously.*
+* **Phase 3: The Forge (Per-Object)**
+    * `sync_manager.py` pulls the raw FITS.
+    * The pipeline calibrates (darks/bias), aligns, stacks, and plate-solves the master image.
+    * `photometry_engine.py` extracts the instrumental flux, cross-references the `comp_stars` JSON, and computes the scientific V-band magnitude.
+* **Phase 4: The Epilogue (Morning)**
+    * The system updates the local Cadence Ledger to prevent over-observing the same targets.
+    * Extracted photometry is formatted for AAVSO WebObs submission.
+
 ### 1. The Communicator (Block 1)
 The exclusive bridge to the hardware API. It translates Python method calls into API endpoints and manages connection states. It makes zero operational decisions and is the *only* component permitted to send HTTP GET/PUT requests to the telescope.
 

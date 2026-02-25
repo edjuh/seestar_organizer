@@ -2,106 +2,191 @@
 # -*- coding: utf-8 -*-
 """
 Filename: core/nightly_planner.py
-Version: 1.1.0
-Role: The Astronomer
-Objective: Filter the AAVSO target library for visibility from Haarlem tonight.
+Version: 1.2.1
+Role: The Astronomer / Scheduler
+
+===============================================================================
+[ INFO BLOCK: PREFLIGHT PHASE C - THE SCHEDULER ]
+
+This module represents the final stage of the PREFLIGHT pipeline. It assumes
+the AAVSO Harvester (Preflight A) and Sequence Fetcher (Preflight B) have 
+already provided clean, FOV-safe data.
+
+Dynamic Logic & Scoring Engine:
+1. Dynamic Config: Reads True Base coordinates and limits from `config.toml`.
+2. Lunar Defense: Vetoes any target within the user-defined Moon avoidance radius.
+3. Photometry Gate: Vetoes any target lacking a local comparison sequence file.
+4. Scoring Algorithm:
+   - Base: + Peak Altitude (Tie-breaker for atmospheric clarity).
+   - Westward Drift: +500 pts if the target is lower at dawn than at dusk (Catch it now).
+   - Priority: +1000 pts if flagged by AAVSO as an active alert/campaign.
+5. The Cap: Exports only the Top 20 highest-scoring targets to `tonights_plan.json`.
+===============================================================================
 """
 
 import os
+import sys
 import json
+import toml
 import ephem
-from datetime import datetime, timedelta
+from datetime import datetime, timezone
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("NightlyPlanner")
 
-# 1. Haarlem Parameters
-HAARLEM_LAT = '52.38'
-HAARLEM_LON = '4.63'
-ALTITUDE_LIMIT = 30.0 # Degrees above horizon
+def load_observatory_config():
+    config_path = "/home/ed/seestar_organizer/config.toml"
+    if not os.path.exists(config_path):
+        logger.error(f"Config file missing at {config_path}")
+        sys.exit(1)
+        
+    try:
+        with open(config_path, 'r') as f:
+            config = toml.load(f)
+            
+        loc = config.get('location', {})
+        hw = config.get('hardware', {})
+        
+        lat = loc.get('lat')
+        lon = loc.get('lon')
+        alt_limit = loc.get('horizon_limit', 30.0)
+        default_exp = hw.get('default_exposure', 10)
+        moon_limit = loc.get('moon_avoidance', 30.0) 
+        
+        if lat is None or lon is None:
+            logger.error("Latitude/Longitude missing in config.toml [location] block.")
+            sys.exit(1)
+            
+        return str(lat), str(lon), float(alt_limit), int(default_exp), float(moon_limit)
+        
+    except Exception as e:
+        logger.error(f"Failed to parse config.toml: {e}")
+        sys.exit(1)
 
-def get_haarlem_observer():
-    obs = ephem.Observer()
-    obs.lat = HAARLEM_LAT
-    obs.lon = HAARLEM_LON
-    obs.elevation = 0
-    # Set to current UTC time
-    obs.date = datetime.utcnow()
-    return obs
-
-def ensure_dummy_library(targets_file):
-    """Creates a dummy AAVSO library if you don't have one yet."""
-    if not os.path.exists(targets_file):
-        dummy_data = [
-            {"name": "V1159 Ori", "ra": "05:32:00", "dec": "-05:54:00", "exposure": 10, "count": 180},
-            {"name": "CH Cyg",    "ra": "19:24:33", "dec": "50:14:29",  "exposure": 10, "count": 180},
-            {"name": "SS Cyg",    "ra": "21:42:42", "dec": "43:35:09",  "exposure": 10, "count": 180}
-        ]
-        with open(targets_file, 'w') as f:
-            json.dump(dummy_data, f, indent=2)
-        logger.info("Created dummy targets.json for testing.")
+def format_filename(star_name):
+    return star_name.lower().replace(" ", "_") + ".json"
 
 def generate_plan():
+    lat, lon, alt_limit, default_exp, moon_limit = load_observatory_config()
+    logger.info(f"Observer: {lat}°N, {lon}°E | Horizon: {alt_limit}° | Moon Avoid: {moon_limit}°")
+
     base_dir = "/home/ed/seestar_organizer/data"
     targets_file = os.path.join(base_dir, "targets.json")
+    comp_dir = os.path.join(base_dir, "comp_stars")
     plan_file = os.path.join(base_dir, "tonights_plan.json")
+    history_file = os.path.join(base_dir, "local_history.json") 
     
-    ensure_dummy_library(targets_file)
+    if not os.path.exists(targets_file):
+        logger.error(f"Missing master targets file: {targets_file}")
+        sys.exit(1)
     
     with open(targets_file, 'r') as f:
         master_targets = json.load(f)
+        
+    local_history = {}
+    if os.path.exists(history_file):
+        with open(history_file, 'r') as f:
+            local_history = json.load(f)
 
-    obs = get_haarlem_observer()
+    obs = ephem.Observer()
+    obs.lat, obs.lon, obs.elevation = lat, lon, 0
+    obs.date = datetime.now(timezone.utc)
     sun = ephem.Sun()
+    moon = ephem.Moon()
     
-    # Calculate tonight's Astronomical Twilight (Sun at -18 degrees)
     obs.horizon = '-18'
     try:
         dusk = obs.next_setting(sun, use_center=True)
         dawn = obs.next_rising(sun, use_center=True)
     except ephem.AlwaysUpError:
         logger.warning("Summer Solstice! It never gets truly dark tonight.")
-        return # Cannot observe
+        return 
 
     logger.info(f"Dark Window: {dusk.datetime().strftime('%H:%M')} UTC to {dawn.datetime().strftime('%H:%M')} UTC")
     
-    # Set observer time to middle of the dark window to test altitude
     mid_night = dusk.datetime() + (dawn.datetime() - dusk.datetime()) / 2
-    obs.date = mid_night
-    obs.horizon = str(ALTITUDE_LIMIT)
+    obs.horizon = str(alt_limit)
 
-    tonights_plan = {
-        "date": datetime.utcnow().strftime("%Y-%m-%d"),
-        "haarlem_dark_window": {"start": str(dusk), "end": str(dawn)},
-        "targets": []
-    }
+    scored_targets = []
+    seen_targets = set()
 
     for target in master_targets:
-        star = ephem.FixedBody()
-        star._ra = ephem.hours(target['ra'])
-        star._dec = ephem.degrees(target['dec'])
-        star.compute(obs)
+        t_name = target.get('star_name')
+        t_ra_deg = target.get('ra')
+        t_dec_deg = target.get('dec')
         
-        # Is it above our 30-degree horizon limit in the middle of the night?
-        alt_deg = float(star.alt) * 180.0 / ephem.pi
-        if alt_deg >= ALTITUDE_LIMIT:
-            tonights_plan["targets"].append({
-                "name": target['name'],
-                "ra": float(star._ra) * 12.0 / ephem.pi, # Convert rad to decimal hours for Alpaca
-                "dec": float(star._dec) * 180.0 / ephem.pi, # Convert rad to decimal degrees
-                "exposure_sec": target.get('exposure', 10),
-                "frames": target.get('count', 180),
-                "transit_alt": round(alt_deg, 2)
-            })
-            logger.info(f"✅ {target['name']} passes (Alt: {alt_deg:.1f}°)")
-        else:
-            logger.warning(f"❌ {target['name']} fails horizon veto (Alt: {alt_deg:.1f}°)")
+        if not t_name or t_ra_deg is None or t_dec_deg is None:
+            continue
+            
+        if t_name in seen_targets:
+            continue
+
+        expected_comp_file = os.path.join(comp_dir, format_filename(t_name))
+        if not os.path.exists(expected_comp_file):
+            continue
+
+        star = ephem.FixedBody()
+        star._ra = float(t_ra_deg) * ephem.pi / 180.0
+        star._dec = float(t_dec_deg) * ephem.pi / 180.0
+        
+        obs.date = mid_night
+        star.compute(obs)
+        moon.compute(obs)
+        separation = ephem.separation(star, moon) * 180.0 / ephem.pi
+        
+        if separation < moon_limit:
+            continue
+            
+        alt_mid = float(star.alt) * 180.0 / ephem.pi
+        if alt_mid < alt_limit:
+            continue
+
+        score = 0
+        if target.get('priority') is True:
+            score += 1000
+            
+        obs.date = dusk
+        star.compute(obs)
+        alt_dusk = float(star.alt) * 180.0 / ephem.pi
+        
+        obs.date = dawn
+        star.compute(obs)
+        alt_dawn = float(star.alt) * 180.0 / ephem.pi
+        
+        if alt_dusk > alt_dawn:
+            score += 500
+            
+        score += alt_mid
+        alpaca_ra = float(t_ra_deg) / 15.0 
+        
+        scored_targets.append({
+            "name": t_name,
+            "ra": round(alpaca_ra, 6), 
+            "dec": round(float(t_dec_deg), 6),
+            "exposure_sec": default_exp,
+            "frames": 180, 
+            "transit_alt": round(alt_mid, 2),
+            "filter": target.get('filter', 'V'),
+            "score": round(score, 1)
+        })
+        seen_targets.add(t_name)
+
+    scored_targets.sort(key=lambda x: x['score'], reverse=True)
+    top_targets = scored_targets[:20]
+
+    tonights_plan = {
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "local_dark_window": {"start": str(dusk), "end": str(dawn)},
+        "targets": top_targets
+    }
 
     with open(plan_file, 'w') as f:
         json.dump(tonights_plan, f, indent=2)
     
-    logger.info(f"Plan generated! {len(tonights_plan['targets'])} targets locked.")
+    logger.info(f"Plan generated! Top {len(top_targets)} targets locked (from {len(scored_targets)} viable).")
+    for t in top_targets[:5]:
+        logger.info(f"  -> {t['name']} (Score: {t['score']})")
 
 if __name__ == "__main__":
     generate_plan()

@@ -18,7 +18,7 @@
 * `core/librarian.py`: Monthly cron tool to fetch NEW targets from AAVSO.
 * `core/logger.py`: System-wide logging with automatic file rotation.
 * `core/master_analyst.py`: High-level plate-solving coordinator for narrow-field Seestar frames.
-* `core/nightly_planner.py`: Filter the AAVSO target library for visibility from Haarlem tonight.
+* `core/nightly_planner.py`: No objective defined.
 * `core/notifier.py`: Outbound alert management via Telegram and system bells.
 * `core/orchestrator.py`: Main operational loop. Enforces hardware safety before executing sequence targets.
 * `core/photometry_engine.py`: Instrumental flux extraction and science-grade lightcurve generation.

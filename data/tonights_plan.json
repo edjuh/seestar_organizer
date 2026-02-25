@@ -1,12 +1,209 @@
 {
   "date": "2026-02-25",
+  "local_dark_window": {
+    "start": "2026/2/25 19:06:34",
+    "end": "2026/2/26 04:41:20"
+  },
   "targets": [
     {
-      "name": "V1159 Ori",
-      "ra": 5.546,
-      "dec": -5.915,
-      "exposure_sec": 10,
-      "frames": 180
+      "name": "HD 80606",
+      "ra": 9.377103,
+      "dec": 50.60372,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 78.73,
+      "filter": "V",
+      "score": 1578.7
+    },
+    {
+      "name": "LN UMa",
+      "ra": 10.076314,
+      "dec": 66.48747,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 75.57,
+      "filter": "B",
+      "score": 1575.6
+    },
+    {
+      "name": "CH UMa",
+      "ra": 10.116867,
+      "dec": 67.54653,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 74.62,
+      "filter": "V",
+      "score": 1574.6
+    },
+    {
+      "name": "GOTO065054.49+593624.51 ",
+      "ra": 6.848469,
+      "dec": 59.60689,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 59.03,
+      "filter": "V",
+      "score": 1559.0
+    },
+    {
+      "name": "BZ Cam",
+      "ra": 6.492803,
+      "dec": 71.07694,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 57.77,
+      "filter": "V",
+      "score": 1557.8
+    },
+    {
+      "name": "MU Cam",
+      "ra": 6.421181,
+      "dec": 73.57753,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 57.29,
+      "filter": "V",
+      "score": 1557.3
+    },
+    {
+      "name": "V1024 Cep",
+      "ra": 5.113411,
+      "dec": 83.32314,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 52.97,
+      "filter": "B",
+      "score": 1553.0
+    },
+    {
+      "name": "omi Leo",
+      "ra": 9.685841,
+      "dec": 9.89231,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 46.04,
+      "filter": "Spectroscopy",
+      "score": 1546.0
+    },
+    {
+      "name": "DW Cnc",
+      "ra": 7.981419,
+      "dec": 16.27928,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 42.65,
+      "filter": "V",
+      "score": 1542.6
+    },
+    {
+      "name": "ASASSN-V J022007.17+610705.5",
+      "ra": 2.335325,
+      "dec": 61.11819,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 32.2,
+      "filter": "V",
+      "score": 1532.2
+    },
+    {
+      "name": "AR UMa",
+      "ra": 11.262395,
+      "dec": 42.97286,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 78.2,
+      "filter": "B",
+      "score": 1078.2
+    },
+    {
+      "name": "DO Dra",
+      "ra": 11.727359,
+      "dec": 71.68904,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 69.38,
+      "filter": "V",
+      "score": 1069.4
+    },
+    {
+      "name": "NSV 6224",
+      "ra": 13.398761,
+      "dec": 54.92536,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 65.19,
+      "filter": "Spectroscopy",
+      "score": 1065.2
+    },
+    {
+      "name": "SN 2023ixf",
+      "ra": 14.060717,
+      "dec": 54.31169,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 59.49,
+      "filter": "B",
+      "score": 1059.5
+    },
+    {
+      "name": "AG Dra",
+      "ra": 16.028058,
+      "dec": 66.80283,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 49.78,
+      "filter": "B",
+      "score": 1049.8
+    },
+    {
+      "name": "S5 1803+78",
+      "ra": 18.012692,
+      "dec": 78.46778,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 47.13,
+      "filter": "B",
+      "score": 1047.1
+    },
+    {
+      "name": "GP Com",
+      "ra": 13.095111,
+      "dec": 18.01772,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 44.63,
+      "filter": "V",
+      "score": 1044.6
+    },
+    {
+      "name": "ome Dra",
+      "ra": 17.615858,
+      "dec": 68.75797,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 42.87,
+      "filter": "Spectroscopy",
+      "score": 1042.9
+    },
+    {
+      "name": "V338 Boo",
+      "ra": 15.773928,
+      "dec": 44.31311,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 40.16,
+      "filter": "V",
+      "score": 1040.2
+    },
+    {
+      "name": "SDSS J152509.57+360054.5",
+      "ra": 15.419324,
+      "dec": 36.01519,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 37.82,
+      "filter": "V",
+      "score": 1037.8
     }
   ]
 }
