@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Filename: core/preflight/fetcher.py
-Version: 1.1.5 (Kwetal)
-Role: Phase 1.2 - The Sequence Fetcher (The Probe-Proven Method)
+Version: 1.0.0 (Kwetal)
+Role: Preflight B - The Sequence Fetcher
+Objective: Secures local AAVSO comparison star sequences and verifies FOV radius.
 """
 
 import os
@@ -45,7 +46,7 @@ def active_fetch():
         with open(config_path, "rb") as f:
             config = tomllib.load(f)
         delay = config.get('settings', {}).get('fetch_delay', 31.4)
-        # We use the probe-proven FOV (180 arcmin = 3 degrees) to ensure the API responds
+        # S30-pro FOV check (180 arcmin = 3 degrees)
         api_fov = 180.0 
         mag_limit = 15.0
         safe_radius = config.get('hardware', {}).get('s30_pro', {}).get('telephoto', {}).get('safe_radius', 2.0)

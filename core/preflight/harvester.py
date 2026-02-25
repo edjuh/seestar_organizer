@@ -2,8 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Filename: core/preflight/harvester.py
-Version: 1.2.8 (Kwetal)
-Role: Phase 1 - The Harvester (The Verified Pull)
+Version: 1.0.0 (Kwetal)
+Role: Preflight A - The Harvester
+Objective: Downloads active campaigns from AAVSO, vetoing targets outside FOV constraints.
 """
 
 import os

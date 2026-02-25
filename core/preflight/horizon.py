@@ -1,13 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Filename: core/horizon.py
-Objective: Veto targets based on local obstructions (Trees, Buildings).
+Filename: core/preflight/horizon.py
+Version: 1.0.0 (Kwetal)
+Role: Utility - Obstruction Mapper
+Objective: Veto targets based on local obstructions (Trees, Buildings) using Az/Alt mapping.
 """
 
-# Simple Azimuth: Min_Alt map
-# Example: Between 150° and 210° (South), I need at least 45° altitude to clear the roof.
+# Simple Azimuth: Min_Alt map for Haarlem obstructions
 OBSTRUCTIONS = [
-    {"az_start": 150, "az_end": 210, "min_alt": 45},
-    {"az_start": 300, "az_end": 350, "min_alt": 55}, # A big tree in the NW
+    {"az_start": 150, "az_end": 210, "min_alt": 45}, # Roof obstruction
+    {"az_start": 300, "az_end": 350, "min_alt": 55}, # Tree in NW
 ]
 
 def is_obstructed(az, alt):

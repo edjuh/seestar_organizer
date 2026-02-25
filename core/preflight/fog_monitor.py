@@ -1,9 +1,12 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
-Filename: core/fog_monitor.py
-Objective: Infrared sky-clarity monitor using MLX90614.
-Usage: if fog_monitor.is_sky_clear(): ...
-Note: A small Delta indicates clouds/fog; a large Delta indicates clear sky.
+Filename: core/preflight/fog_monitor.py
+Version: 1.0.0 (Kwetal)
+Role: Safety Gate - Clarity Provider
+Objective: Infrared sky-clarity monitor using MLX90614 to prevent imaging in fog.
 """
+
 import board
 import busio
 import adafruit_mlx90614
@@ -15,7 +18,6 @@ class FogMonitor:
         self.threshold = threshold
 
     def is_sky_clear(self):
-        # Delta = Ambient Temp - Sky (Object) Temp
         delta = self.sensor.ambient_temperature - self.sensor.object_temperature
         return delta > self.threshold
         

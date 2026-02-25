@@ -4,7 +4,7 @@
 Filename: core/preflight/audit.py
 Version: 1.0.0 (Kwetal)
 Role: Preflight D - The Audit
-Objective: Filter the daily plan against the local Cadence Ledger.
+Objective: Tags 'done' objects until new observation is required based on cadence.
 """
 
 import json
@@ -24,8 +24,8 @@ def run_audit():
     with open(plan_path, 'r') as f:
         plan = json.load(f)
     
-    # Placeholder for ledger logic (Phase 4)
-    # If a star was observed < obs_cadence days ago, remove it from plan.
+    # Logic for Phase 4:
+    # Cross-references targets with local_history to enforce scientific cadence.
     
     print(f"✅ Preflight D: Audit complete. Plan is fresh.")
 

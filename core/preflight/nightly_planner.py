@@ -1,27 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Filename: core/nightly_planner.py
-Version: 1.2.1
-Role: The Astronomer / Scheduler
-
-===============================================================================
-[ INFO BLOCK: PREFLIGHT PHASE C - THE SCHEDULER ]
-
-This module represents the final stage of the PREFLIGHT pipeline. It assumes
-the AAVSO Harvester (Preflight A) and Sequence Fetcher (Preflight B) have 
-already provided clean, FOV-safe data.
-
-Dynamic Logic & Scoring Engine:
-1. Dynamic Config: Reads True Base coordinates and limits from `config.toml`.
-2. Lunar Defense: Vetoes any target within the user-defined Moon avoidance radius.
-3. Photometry Gate: Vetoes any target lacking a local comparison sequence file.
-4. Scoring Algorithm:
-   - Base: + Peak Altitude (Tie-breaker for atmospheric clarity).
-   - Westward Drift: +500 pts if the target is lower at dawn than at dusk (Catch it now).
-   - Priority: +1000 pts if flagged by AAVSO as an active alert/campaign.
-5. The Cap: Exports only the Top 20 highest-scoring targets to `tonights_plan.json`.
-===============================================================================
+Filename: core/preflight/nightly_planner.py
+Version: 1.0.0 (Kwetal)
+Role: Preflight C - The Scheduler
+Objective: Scores surviving targets against tonight's specific ephemeris and Haarlem horizon.
 """
 
 import os
@@ -48,9 +31,9 @@ def load_observatory_config():
         loc = config.get('location', {})
         hw = config.get('hardware', {})
         
-        lat = loc.get('lat')
-        lon = loc.get('lon')
-        alt_limit = loc.get('horizon_limit', 30.0)
+        lat = loc.get('latitude') # Standardizing to config keys
+        lon = loc.get('longitude')
+        alt_limit = loc.get('min_altitude', 30.0)
         default_exp = hw.get('default_exposure', 10)
         moon_limit = loc.get('moon_avoidance', 30.0) 
         
@@ -75,7 +58,6 @@ def generate_plan():
     targets_file = os.path.join(base_dir, "targets.json")
     comp_dir = os.path.join(base_dir, "comp_stars")
     plan_file = os.path.join(base_dir, "tonights_plan.json")
-    history_file = os.path.join(base_dir, "local_history.json") 
     
     if not os.path.exists(targets_file):
         logger.error(f"Missing master targets file: {targets_file}")
@@ -83,11 +65,6 @@ def generate_plan():
     
     with open(targets_file, 'r') as f:
         master_targets = json.load(f)
-        
-    local_history = {}
-    if os.path.exists(history_file):
-        with open(history_file, 'r') as f:
-            local_history = json.load(f)
 
     obs = ephem.Observer()
     obs.lat, obs.lon, obs.elevation = lat, lon, 0
@@ -184,7 +161,7 @@ def generate_plan():
     with open(plan_file, 'w') as f:
         json.dump(tonights_plan, f, indent=2)
     
-    logger.info(f"Plan generated! Top {len(top_targets)} targets locked (from {len(scored_targets)} viable).")
+    logger.info(f"Plan generated! Top {len(top_targets)} targets locked.")
     for t in top_targets[:5]:
         logger.info(f"  -> {t['name']} (Score: {t['score']})")
 
