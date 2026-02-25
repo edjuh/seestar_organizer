@@ -31,14 +31,15 @@ def load_observatory_config():
         loc = config.get('location', {})
         hw = config.get('hardware', {})
         
-        lat = loc.get('latitude') # Standardizing to config keys
-        lon = loc.get('longitude')
-        alt_limit = loc.get('min_altitude', 30.0)
+        # Aligning with your specific config.toml keys
+        lat = loc.get('lat') 
+        lon = loc.get('lon')
+        alt_limit = loc.get('horizon_limit', 30.0)
         default_exp = hw.get('default_exposure', 10)
         moon_limit = loc.get('moon_avoidance', 30.0) 
         
         if lat is None or lon is None:
-            logger.error("Latitude/Longitude missing in config.toml [location] block.")
+            logger.error("Latitude/Longitude (lat/lon) missing in config.toml [location] block.")
             sys.exit(1)
             
         return str(lat), str(lon), float(alt_limit), int(default_exp), float(moon_limit)
@@ -162,8 +163,6 @@ def generate_plan():
         json.dump(tonights_plan, f, indent=2)
     
     logger.info(f"Plan generated! Top {len(top_targets)} targets locked.")
-    for t in top_targets[:5]:
-        logger.info(f"  -> {t['name']} (Score: {t['score']})")
 
 if __name__ == "__main__":
     generate_plan()

@@ -327,10 +327,6 @@
         "last_data_point": 1626558165,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772042775
-            ],
-            [
                 "TARGET_RISES",
                 1772072407
             ]
@@ -1463,10 +1459,6 @@
         "last_data_point": 1736388728,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772042775
-            ],
-            [
                 "TARGET_RISES",
                 1772072407
             ]
@@ -1495,10 +1487,6 @@
         "last_data_point": 1605816536,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772042775
-            ],
-            [
                 "TARGET_RISES",
                 1772072407
             ]
@@ -1526,10 +1514,6 @@
         "priority": true,
         "last_data_point": 1635700080,
         "observability_times": [
-            [
-                "TARGET_SETS",
-                1772042775
-            ],
             [
                 "TARGET_RISES",
                 1772072407
@@ -6256,8 +6240,8 @@
         "last_data_point": 1616225782,
         "observability_times": [
             [
-                "TARGET_RISES",
-                1772046441
+                "TARGET_IS_ALWAYS_UP",
+                null
             ]
         ],
         "solar_conjunction": false
@@ -8736,10 +8720,6 @@
         "last_data_point": 1770271957,
         "observability_times": [
             [
-                "TARGET_RISES",
-                1772043975
-            ],
-            [
                 "TARGET_SETS",
                 1772061667
             ]
@@ -8936,12 +8916,7 @@
         "other_info": "[[Alert Notice 652 https://www.aavso.org/aavso-alert-notice-652]]",
         "priority": false,
         "last_data_point": 1734801599,
-        "observability_times": [
-            [
-                "TARGET_SETS",
-                1772047664
-            ]
-        ],
+        "observability_times": [],
         "solar_conjunction": false
     },
     {
@@ -10064,10 +10039,6 @@
         "last_data_point": 1684121709,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772046301
-            ],
-            [
                 "TARGET_RISES",
                 1772067669
             ]
@@ -10183,10 +10154,6 @@
         "priority": false,
         "last_data_point": 1768073322,
         "observability_times": [
-            [
-                "TARGET_SETS",
-                1772046281
-            ],
             [
                 "TARGET_RISES",
                 1772068638
@@ -16515,7 +16482,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061467
+                1772061466
             ]
         ],
         "solar_conjunction": false
@@ -16543,7 +16510,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061467
+                1772061466
             ]
         ],
         "solar_conjunction": false
@@ -18275,7 +18242,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058669
+                1772058668
             ]
         ],
         "solar_conjunction": false
@@ -18303,7 +18270,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058669
+                1772058668
             ]
         ],
         "solar_conjunction": false
@@ -18331,7 +18298,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058669
+                1772058668
             ]
         ],
         "solar_conjunction": false
@@ -18359,7 +18326,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058669
+                1772058668
             ]
         ],
         "solar_conjunction": false
@@ -22480,10 +22447,6 @@
         "last_data_point": 1768698472,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772049379
-            ],
-            [
                 "TARGET_RISES",
                 1772070861
             ]
@@ -26430,10 +26393,6 @@
         "last_data_point": 1770488868,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772049829
-            ],
-            [
                 "TARGET_RISES",
                 1772079190
             ]
@@ -30158,10 +30117,6 @@
         "last_data_point": 1757909006,
         "observability_times": [
             [
-                "TARGET_SETS",
-                1772041829
-            ],
-            [
                 "TARGET_RISES",
                 1772068817
             ]
@@ -30189,10 +30144,6 @@
         "priority": true,
         "last_data_point": 1758339412,
         "observability_times": [
-            [
-                "TARGET_SETS",
-                1772041829
-            ],
             [
                 "TARGET_RISES",
                 1772068817
@@ -30249,10 +30200,6 @@
         "priority": true,
         "last_data_point": 1769358555,
         "observability_times": [
-            [
-                "TARGET_SETS",
-                1772041829
-            ],
             [
                 "TARGET_RISES",
                 1772068817

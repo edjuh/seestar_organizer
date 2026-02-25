@@ -155,3 +155,5 @@
 2026-02-25 19:42:49,822 [INFO] 📡 [34/34] Querying: NSV 25032 at (302.82621, -0.82147)
 2026-02-25 19:42:51,006 [WARNING] ⚠️ NSV 25032: NO comparison stars found within 2.0° of target.
 2026-02-25 19:42:51,008 [INFO] ✅ Saved. 0 comps found in field. Sleeping 31.4s...
+2026-02-25 21:16:17,050 [INFO] ✅ All targets already synced.
+2026-02-25 21:19:43,784 [INFO] ✅ All targets already synced.
