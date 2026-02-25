@@ -35,8 +35,8 @@ from api.alpaca_client import AlpacaClient
 
 # Gracefully import environmental monitors
 try:
-    from core import weather
-    from core import fog_monitor
+    from core from core.preflight import weather
+    from core from core.preflight import fog_monitor
 except ImportError as e:
     logger.warning(f"Butler: Could not load environmental modules: {e}")
     weather = None

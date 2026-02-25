@@ -6,7 +6,7 @@ import json
 import math
 from pathlib import Path
 from core.logger import log_event
-from core.master_analyst import master_analyst
+from core.master_analyst from core.postflight import master_analyst
 from core.photometry_engine import phot_engine
 
 class CalibrationEngine:

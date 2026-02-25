@@ -4,7 +4,7 @@ Objective: High-level plate-solving coordinator for narrow-field Seestar frames.
 """
 from pathlib import Path
 from core.logger import log_event
-from core.analyst import analyst
+from core.analyst from core.postflight import analyst
 from core.pixel_mapper import get_pixel_coords
 from utils.astro import ra_to_decimal, dec_to_decimal
 

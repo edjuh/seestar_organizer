@@ -4,7 +4,7 @@ Version: 1.1.0
 Role: The Night's Conductor
 Objective: Prioritizes targets and creates a time-slotted mission plan.
 """
-from core.vault_manager import vault_manager
+from core.vault_manager from core.flight import vault_manager
 from astropy.time import Time, TimeDelta
 from astropy.coordinates import SkyCoord, AltAz
 import astropy.units as u

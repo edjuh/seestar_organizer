@@ -15,6 +15,7 @@
 * `utils/check_headers.py`: No objective defined.
 * `utils/cleanup.py`: Housekeeping for temporary files and logs.
 * `utils/fetch_sequences.py`: Downloads specific V-band comparison sequences for identified targets.
+* `utils/fix_imports.py`: No objective defined.
 * `utils/generate_manifest.py`: Automatically rebuild the FILE_MANIFEST.md by parsing '
 * `utils/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
 * `utils/undo_header_mess.py`: No objective defined.

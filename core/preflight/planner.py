@@ -6,7 +6,7 @@ Objective: Calculates darkness windows for Haarlem for any given date.
 """
 from astropy.coordinates import get_sun, AltAz
 from astropy.time import Time
-from core.vault_manager import vault_manager
+from core.vault_manager from core.flight import vault_manager
 import astropy.units as u
 
 class NightPlanner:
