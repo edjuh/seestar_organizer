@@ -1,0 +1,118 @@
+{
+    "chartid": "X41914AND",
+    "image_uri": "https://apps.aavso.org/vsp/chart/X41914AND.png?format=json",
+    "star": null,
+    "fov": 180.0,
+    "maglimit": 15.0,
+    "title": "",
+    "comment": "",
+    "resolution": 150,
+    "dss": false,
+    "special": null,
+    "photometry": [
+        {
+            "auid": "000-BBV-264",
+            "ra": "14:15:01.56",
+            "dec": "23:41:09.8",
+            "label": "68",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 6.769,
+                    "error": 0.1
+                },
+                {
+                    "band": "U",
+                    "mag": 7.222,
+                    "error": 0.15
+                },
+                {
+                    "band": "B",
+                    "mag": 7.092,
+                    "error": 0.1
+                },
+                {
+                    "band": "Rc",
+                    "mag": 6.583,
+                    "error": 0.15
+                },
+                {
+                    "band": "J",
+                    "mag": 6.091,
+                    "error": 0.013
+                },
+                {
+                    "band": "H",
+                    "mag": 5.987,
+                    "error": 0.017
+                },
+                {
+                    "band": "K",
+                    "mag": 5.933,
+                    "error": 0.013
+                }
+            ],
+            "comments": "  "
+        },
+        {
+            "auid": "000-BQB-517",
+            "ra": "14:11:35.60",
+            "dec": "26:28:02.0",
+            "label": "142",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 14.215,
+                    "error": 0.003
+                },
+                {
+                    "band": "B",
+                    "mag": 14.82,
+                    "error": 0.004
+                },
+                {
+                    "band": "Rc",
+                    "mag": 13.855,
+                    "error": 0.004
+                },
+                {
+                    "band": "Ic",
+                    "mag": 13.517,
+                    "error": 0.005
+                }
+            ],
+            "comments": ""
+        },
+        {
+            "auid": "000-BQB-518",
+            "ra": "14:11:39.75",
+            "dec": "26:20:45.5",
+            "label": "148",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 14.798,
+                    "error": 0.003
+                },
+                {
+                    "band": "B",
+                    "mag": 15.444,
+                    "error": 0.004
+                },
+                {
+                    "band": "Rc",
+                    "mag": 14.41,
+                    "error": 0.004
+                },
+                {
+                    "band": "Ic",
+                    "mag": 14.046,
+                    "error": 0.005
+                }
+            ],
+            "comments": ""
+        }
+    ],
+    "ra": "14:10:23.93",
+    "dec": "25:05:30.0"
+}

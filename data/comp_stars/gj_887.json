@@ -1,0 +1,111 @@
+{
+    "chartid": "X41914AMN",
+    "image_uri": "https://apps.aavso.org/vsp/chart/X41914AMN.png?format=json",
+    "star": null,
+    "fov": 180.0,
+    "maglimit": 15.0,
+    "title": "",
+    "comment": "",
+    "resolution": 150,
+    "dss": false,
+    "special": null,
+    "photometry": [
+        {
+            "auid": "000-BMS-346",
+            "ra": "23:02:34.09",
+            "dec": "-36:25:15.1",
+            "label": "65",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 6.526,
+                    "error": 0.032
+                },
+                {
+                    "band": "B",
+                    "mag": 7.517,
+                    "error": 0.047
+                }
+            ],
+            "comments": ""
+        },
+        {
+            "auid": "000-BMS-347",
+            "ra": "23:02:54.83",
+            "dec": "-36:28:57.4",
+            "label": "83",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 8.338,
+                    "error": 0.033
+                },
+                {
+                    "band": "B",
+                    "mag": 9.226,
+                    "error": 0.05
+                }
+            ],
+            "comments": ""
+        },
+        {
+            "auid": "000-BMS-348",
+            "ra": "23:03:33.98",
+            "dec": "-36:44:30.1",
+            "label": "90",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 8.964,
+                    "error": 0.034
+                },
+                {
+                    "band": "B",
+                    "mag": 10.328,
+                    "error": 0.062
+                }
+            ],
+            "comments": ""
+        },
+        {
+            "auid": "000-BMS-349",
+            "ra": "23:04:48.81",
+            "dec": "-35:39:35.4",
+            "label": "95",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 9.486,
+                    "error": 0.036
+                },
+                {
+                    "band": "B",
+                    "mag": 10.142,
+                    "error": 0.057
+                }
+            ],
+            "comments": ""
+        },
+        {
+            "auid": "000-BMS-350",
+            "ra": "23:07:23.42",
+            "dec": "-36:17:15.9",
+            "label": "97",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 9.732,
+                    "error": 0.04
+                },
+                {
+                    "band": "B",
+                    "mag": 10.539,
+                    "error": 0.068
+                }
+            ],
+            "comments": ""
+        }
+    ],
+    "ra": "23:05:52.04",
+    "dec": "-35:51:11.1"
+}

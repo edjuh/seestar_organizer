@@ -1,0 +1,64 @@
+{
+    "chartid": "X41914AML",
+    "image_uri": "https://apps.aavso.org/vsp/chart/X41914AML.png?format=json",
+    "star": null,
+    "fov": 180.0,
+    "maglimit": 15.0,
+    "title": "",
+    "comment": "",
+    "resolution": 150,
+    "dss": false,
+    "special": null,
+    "photometry": [
+        {
+            "auid": "000-BMB-813",
+            "ra": "05:50:53.22",
+            "dec": "-52:06:31.9",
+            "label": "52",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 5.164,
+                    "error": 0.005
+                },
+                {
+                    "band": "U",
+                    "mag": 6.875,
+                    "error": 0.009
+                },
+                {
+                    "band": "B",
+                    "mag": 6.151,
+                    "error": 0.007
+                }
+            ],
+            "comments": ""
+        },
+        {
+            "auid": "000-BMB-816",
+            "ra": "05:54:10.81",
+            "dec": "-50:21:45.2",
+            "label": "65",
+            "bands": [
+                {
+                    "band": "V",
+                    "mag": 6.528,
+                    "error": 0.023
+                },
+                {
+                    "band": "U",
+                    "mag": 8.043,
+                    "error": 0.028
+                },
+                {
+                    "band": "B",
+                    "mag": 7.427,
+                    "error": 0.023
+                }
+            ],
+            "comments": ""
+        }
+    ],
+    "ra": "86.82121",
+    "dec": "-51.0665"
+}

@@ -22,7 +22,7 @@
       "exposure_sec": 60,
       "frames": 180,
       "transit_alt": 75.57,
-      "filter": "B",
+      "filter": "Spectroscopy",
       "score": 1575.6
     },
     {
@@ -72,7 +72,7 @@
       "exposure_sec": 60,
       "frames": 180,
       "transit_alt": 52.97,
-      "filter": "B",
+      "filter": "Spectroscopy",
       "score": 1553.0
     },
     {
@@ -122,18 +122,8 @@
       "exposure_sec": 60,
       "frames": 180,
       "transit_alt": 69.38,
-      "filter": "V",
+      "filter": "Visual",
       "score": 1069.4
-    },
-    {
-      "name": "NSV 6224",
-      "ra": 13.398761,
-      "dec": 54.92536,
-      "exposure_sec": 60,
-      "frames": 180,
-      "transit_alt": 65.19,
-      "filter": "Spectroscopy",
-      "score": 1065.2
     },
     {
       "name": "SN 2023ixf",
@@ -142,7 +132,7 @@
       "exposure_sec": 60,
       "frames": 180,
       "transit_alt": 59.49,
-      "filter": "B",
+      "filter": "Spectroscopy",
       "score": 1059.5
     },
     {
@@ -166,16 +156,6 @@
       "score": 1047.1
     },
     {
-      "name": "GP Com",
-      "ra": 13.095111,
-      "dec": 18.01772,
-      "exposure_sec": 60,
-      "frames": 180,
-      "transit_alt": 44.63,
-      "filter": "V",
-      "score": 1044.6
-    },
-    {
       "name": "ome Dra",
       "ra": 17.615858,
       "dec": 68.75797,
@@ -184,6 +164,16 @@
       "transit_alt": 42.87,
       "filter": "Spectroscopy",
       "score": 1042.9
+    },
+    {
+      "name": "d Boo",
+      "ra": 14.173314,
+      "dec": 25.09167,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 41.33,
+      "filter": "Spectroscopy",
+      "score": 1041.3
     },
     {
       "name": "V338 Boo",
@@ -204,6 +194,16 @@
       "transit_alt": 37.82,
       "filter": "V",
       "score": 1037.8
+    },
+    {
+      "name": "V844 Her",
+      "ra": 16.417153,
+      "dec": 39.15733,
+      "exposure_sec": 60,
+      "frames": 180,
+      "transit_alt": 31.37,
+      "filter": "Visual",
+      "score": 1031.4
     }
   ]
 }
