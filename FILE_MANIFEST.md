@@ -5,7 +5,7 @@
 ## 📂 Core
 * `core/__init__.py`: No objective defined.
 * `core/aavso_client.py`: AAVSO VSP API interface with intelligent error parsing and FOV scaling.
-* `core/analyst.py`: No objective defined.
+* `core/analyst.py`: Analyzes FITS image quality, FWHM, and basic observational metrics.
 * `core/calibration_engine.py`: Manages Zero-Point (ZP) offsets and flat-field corrections for the IMX585.
 * `core/dashboard.py`: Terminal User Interface (TUI) for real-time system monitoring.
 * `core/env_loader.py`: Centralized configuration and environment variable manager.
@@ -13,14 +13,14 @@
 * `core/fog_monitor.py`: Infrared sky-clarity monitor using MLX90614.
 * `core/gps.py`: Manages geographic coordinates for astronomical calculations.
 * `core/hardware_profiles.py`: Define sensor specs for Annie (S50), Williamina (S30-Pro), and Henrietta (S30-Pro Fast).
-* `core/harvester.py`: No objective defined.
+* `core/harvester.py`: Core engine for harvesting and parsing AAVSO target alerts and sequences.
 * `core/horizon.py`: Veto targets based on local obstructions (Trees, Buildings).
 * `core/librarian.py`: Monthly cron tool to fetch NEW targets from AAVSO.
 * `core/logger.py`: System-wide logging with automatic file rotation.
 * `core/master_analyst.py`: High-level plate-solving coordinator for narrow-field Seestar frames.
 * `core/nightly_planner.py`: Filter the AAVSO target library for visibility from Haarlem tonight.
 * `core/notifier.py`: Outbound alert management via Telegram and system bells.
-* `core/orchestrator.py`: No objective defined.
+* `core/orchestrator.py`: Main operational loop. Enforces hardware safety before executing sequence targets.
 * `core/photometry_engine.py`: Instrumental flux extraction and science-grade lightcurve generation.
 * `core/pixel_mapper.py`: Converts celestial WCS coordinates to local sensor pixel X/Y coordinates.
 * `core/planner.py`: Calculates darkness windows for Haarlem for any given date.
@@ -37,14 +37,17 @@
 
 ## 📂 Utils
 * `utils/astro.py`: Core library for RA/Dec parsing, sidereal time, and coordinate math.
+* `utils/auto_header.py`: No objective defined.
+* `utils/check_headers.py`: No objective defined.
 * `utils/cleanup.py`: Housekeeping for temporary files and logs.
 * `utils/fetch_sequences.py`: Downloads specific V-band comparison sequences for identified targets.
 * `utils/generate_manifest.py`: Automatically rebuild the FILE_MANIFEST.md by parsing '
 * `utils/harvest_aavso.py`: Automated scraping of AAVSO Alert Notices to populate the observation queue.
+* `utils/undo_header_mess.py`: No objective defined.
 * `utils/verify_library.py`: Audits the data/sequences vault for JSON integrity and missing target headers.
 
 ## 📂 Scripts
-* `scripts/dashboard.py`: No objective defined.
+* `scripts/dashboard.py`: Passive telemetry UI for observing the Alpaca bridge and mission plan.
 
 ## 📂 Tests
 

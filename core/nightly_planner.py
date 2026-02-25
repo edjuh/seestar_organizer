@@ -1,74 +1,107 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Filename: core/nightly_planner.py
-Version: 1.0.0
+Version: 1.1.0
+Role: The Astronomer
 Objective: Filter the AAVSO target library for visibility from Haarlem tonight.
-Usage: python3 -m core.nightly_planner
-Note: Filters for targets > 30 degrees altitude during astronomical night.
 """
 
+import os
 import json
+import ephem
 from datetime import datetime, timedelta
-from pathlib import Path
-from astropy.coordinates import SkyCoord, AltAz, EarthLocation
-from astropy.time import Time
-import astropy.units as u
-from core.gps import gps_location
-from core.logger import log_event
+import logging
 
-class NightlyPlanner:
-    def __init__(self):
-        self.location = gps_location.get_earth_location()
-        self.project_root = Path(__file__).parent.parent
-        self.min_altitude = 30 # Degrees
+logging.basicConfig(level=logging.INFO, format='%(levelname)s - %(message)s')
+logger = logging.getLogger("NightlyPlanner")
 
-    def generate_manifest(self):
-        targets_path = self.project_root / "data" / "targets.json"
-        if not targets_path.exists():
-            log_event("Planner failed: targets.json missing", level="error")
-            return []
+# 1. Haarlem Parameters
+HAARLEM_LAT = '52.38'
+HAARLEM_LON = '4.63'
+ALTITUDE_LIMIT = 30.0 # Degrees above horizon
 
-        with open(targets_path, 'r') as f:
-            all_targets = json.load(f)
+def get_haarlem_observer():
+    obs = ephem.Observer()
+    obs.lat = HAARLEM_LAT
+    obs.lon = HAARLEM_LON
+    obs.elevation = 0
+    # Set to current UTC time
+    obs.date = datetime.utcnow()
+    return obs
 
-        now = Time.now()
-        # Create a frame for 'now' at our location
-        altaz_frame = AltAz(obstime=now, location=self.location)
+def ensure_dummy_library(targets_file):
+    """Creates a dummy AAVSO library if you don't have one yet."""
+    if not os.path.exists(targets_file):
+        dummy_data = [
+            {"name": "V1159 Ori", "ra": "05:32:00", "dec": "-05:54:00", "exposure": 10, "count": 180},
+            {"name": "CH Cyg",    "ra": "19:24:33", "dec": "50:14:29",  "exposure": 10, "count": 180},
+            {"name": "SS Cyg",    "ra": "21:42:42", "dec": "43:35:09",  "exposure": 10, "count": 180}
+        ]
+        with open(targets_file, 'w') as f:
+            json.dump(dummy_data, f, indent=2)
+        logger.info("Created dummy targets.json for testing.")
+
+def generate_plan():
+    base_dir = "/home/ed/seestar_organizer/data"
+    targets_file = os.path.join(base_dir, "targets.json")
+    plan_file = os.path.join(base_dir, "tonights_plan.json")
+    
+    ensure_dummy_library(targets_file)
+    
+    with open(targets_file, 'r') as f:
+        master_targets = json.load(f)
+
+    obs = get_haarlem_observer()
+    sun = ephem.Sun()
+    
+    # Calculate tonight's Astronomical Twilight (Sun at -18 degrees)
+    obs.horizon = '-18'
+    try:
+        dusk = obs.next_setting(sun, use_center=True)
+        dawn = obs.next_rising(sun, use_center=True)
+    except ephem.AlwaysUpError:
+        logger.warning("Summer Solstice! It never gets truly dark tonight.")
+        return # Cannot observe
+
+    logger.info(f"Dark Window: {dusk.datetime().strftime('%H:%M')} UTC to {dawn.datetime().strftime('%H:%M')} UTC")
+    
+    # Set observer time to middle of the dark window to test altitude
+    mid_night = dusk.datetime() + (dawn.datetime() - dusk.datetime()) / 2
+    obs.date = mid_night
+    obs.horizon = str(ALTITUDE_LIMIT)
+
+    tonights_plan = {
+        "date": datetime.utcnow().strftime("%Y-%m-%d"),
+        "haarlem_dark_window": {"start": str(dusk), "end": str(dawn)},
+        "targets": []
+    }
+
+    for target in master_targets:
+        star = ephem.FixedBody()
+        star._ra = ephem.hours(target['ra'])
+        star._dec = ephem.degrees(target['dec'])
+        star.compute(obs)
         
-        tonights_plan = []
+        # Is it above our 30-degree horizon limit in the middle of the night?
+        alt_deg = float(star.alt) * 180.0 / ephem.pi
+        if alt_deg >= ALTITUDE_LIMIT:
+            tonights_plan["targets"].append({
+                "name": target['name'],
+                "ra": float(star._ra) * 12.0 / ephem.pi, # Convert rad to decimal hours for Alpaca
+                "dec": float(star._dec) * 180.0 / ephem.pi, # Convert rad to decimal degrees
+                "exposure_sec": target.get('exposure', 10),
+                "frames": target.get('count', 180),
+                "transit_alt": round(alt_deg, 2)
+            })
+            logger.info(f"✅ {target['name']} passes (Alt: {alt_deg:.1f}°)")
+        else:
+            logger.warning(f"❌ {target['name']} fails horizon veto (Alt: {alt_deg:.1f}°)")
 
-        print(f"🔭 Alexander Pieps is calculating for {len(all_targets)} targets...")
-
-        for t in all_targets:
-            try:
-                # Convert RA/Dec to SkyCoord
-                coord = SkyCoord(ra=t['ra']*u.deg, dec=t['dec']*u.deg, frame='icrs')
-                altaz = coord.transform_to(altaz_frame)
-
-                # Check if it's currently above our minimum threshold
-                if altaz.alt.degree > self.min_altitude:
-                    tonights_plan.append({
-                        "star_name": t['star_name'],
-                        "ra": t['ra'],
-                        "dec": t['dec'],
-                        "altitude": round(altaz.alt.degree, 1),
-                        "azimuth": round(altaz.az.degree, 1),
-                        "magnitude": t.get('magnitude', 'N/A')
-                    })
-            except Exception as e:
-                continue
-
-        # Sort by altitude (highest first)
-        tonights_plan.sort(key=lambda x: x['altitude'], reverse=True)
-
-        # Save the plan
-        plan_path = self.project_root / "data" / "tonights_plan.json"
-        with open(plan_path, 'w') as f:
-            json.dump(tonights_plan, f, indent=4)
-
-        log_event(f"Generated plan with {len(tonights_plan)} observable targets.")
-        return tonights_plan
+    with open(plan_file, 'w') as f:
+        json.dump(tonights_plan, f, indent=2)
+    
+    logger.info(f"Plan generated! {len(tonights_plan['targets'])} targets locked.")
 
 if __name__ == "__main__":
-    planner = NightlyPlanner()
-    plan = planner.generate_manifest()
-    print(f"✅ Created plan with {len(plan)} targets for Haarlem.")
+    generate_plan()
