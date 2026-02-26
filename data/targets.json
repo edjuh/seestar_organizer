@@ -22,7 +22,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772063788
+                1772149952
             ]
         ],
         "solar_conjunction": false
@@ -97,11 +97,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 727 https://www.aavso.org/aavso-alert-notice-727]]\r\n[[Alert Notice 514 https://www.aavso.org/aavso-alert-notice-514]]\r\n[[Special Notice #402 https://www.aavso.org/aavso-special-notice-402]]",
         "priority": false,
-        "last_data_point": 1771791287,
+        "last_data_point": 1772041966,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772067298
+                1772153462
             ]
         ],
         "solar_conjunction": false
@@ -245,11 +245,11 @@
         "filter": "B",
         "other_info": "time series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]] \nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910568,
+        "last_data_point": 1771934060,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -273,7 +273,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 812 https://www.aavso.org/aavso-alert-notice-812]]\n[[Alert Notice 503 https://www.aavso.org/aavso-alert-notice-503]]\nnot active:\n[[Special Notice #409 https://www.aavso.org/aavso-special-notice-409]]\n[[Special Notice #411 https://www.aavso.org/aavso-special-notice-411]]",
         "priority": true,
-        "last_data_point": 1771915825,
+        "last_data_point": 1771999753,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -300,7 +300,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062790
+                1772148954
             ]
         ],
         "solar_conjunction": false
@@ -327,8 +327,12 @@
         "last_data_point": 1626558165,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772128939
+            ],
+            [
                 "TARGET_RISES",
-                1772072407
+                1772158571
             ]
         ],
         "solar_conjunction": false
@@ -430,7 +434,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772063788
+                1772149952
             ]
         ],
         "solar_conjunction": false
@@ -742,7 +746,7 @@
         "filter": "V",
         "other_info": "V preferred\ncommonly called J1407\n[[Alert Notice 462 https://www.aavso.org/aavso-alert-notice-462]]",
         "priority": true,
-        "last_data_point": 1771922803,
+        "last_data_point": 1772009203,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -815,7 +819,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062790
+                1772148954
             ]
         ],
         "solar_conjunction": false
@@ -843,7 +847,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062790
+                1772148954
             ]
         ],
         "solar_conjunction": false
@@ -923,11 +927,11 @@
         "filter": "R",
         "other_info": "Rc (not Johnson)\ntime series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910622,
+        "last_data_point": 1771934415,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -948,14 +952,14 @@
         "obs_section": [
             "Alerts / Campaigns"
         ],
-        "filter": "V",
-        "other_info": "time series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
+        "filter": "I",
+        "other_info": "Ic (not Johnson)\ntime series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910521,
+        "last_data_point": 1771934591,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -1071,7 +1075,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 812 https://www.aavso.org/aavso-alert-notice-812]]\n[[Alert Notice 503 https://www.aavso.org/aavso-alert-notice-503]]\nnot active:\n[[Special Notice #409 https://www.aavso.org/aavso-special-notice-409]]\n[[Special Notice #411 https://www.aavso.org/aavso-special-notice-411]]",
         "priority": true,
-        "last_data_point": 1771915886,
+        "last_data_point": 1771999816,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -1117,11 +1121,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 727 https://www.aavso.org/aavso-alert-notice-727]]\r\n[[Alert Notice 514 https://www.aavso.org/aavso-alert-notice-514]]\r\n[[Special Notice #402 https://www.aavso.org/aavso-special-notice-402]]",
         "priority": false,
-        "last_data_point": 1771824163,
+        "last_data_point": 1772041889,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772067298
+                1772153462
             ]
         ],
         "solar_conjunction": false
@@ -1145,11 +1149,11 @@
         "filter": "R",
         "other_info": "Rc (not Johnson)\r\n[[Alert Notice 727 https://www.aavso.org/aavso-alert-notice-727]]\r\n[[Alert Notice 514 https://www.aavso.org/aavso-alert-notice-514]]\r\n[[Special Notice #402 https://www.aavso.org/aavso-special-notice-402]]",
         "priority": false,
-        "last_data_point": 1771791314,
+        "last_data_point": 1772042035,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772067298
+                1772153462
             ]
         ],
         "solar_conjunction": false
@@ -1173,11 +1177,11 @@
         "filter": "I",
         "other_info": "Ic (not Johnson)\r\n[[Alert Notice 727 https://www.aavso.org/aavso-alert-notice-727]]\r\n[[Alert Notice 514 https://www.aavso.org/aavso-alert-notice-514]]\r\n[[Special Notice #402 https://www.aavso.org/aavso-special-notice-402]]",
         "priority": false,
-        "last_data_point": 1771791334,
+        "last_data_point": 1771959064,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772067298
+                1772153462
             ]
         ],
         "solar_conjunction": false
@@ -1459,8 +1463,12 @@
         "last_data_point": 1736388728,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772128939
+            ],
+            [
                 "TARGET_RISES",
-                1772072407
+                1772158571
             ]
         ],
         "solar_conjunction": false
@@ -1487,8 +1495,12 @@
         "last_data_point": 1605816536,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772128939
+            ],
+            [
                 "TARGET_RISES",
-                1772072407
+                1772158571
             ]
         ],
         "solar_conjunction": false
@@ -1515,8 +1527,12 @@
         "last_data_point": 1635700080,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772128939
+            ],
+            [
                 "TARGET_RISES",
-                1772072407
+                1772158571
             ]
         ],
         "solar_conjunction": false
@@ -1706,11 +1722,11 @@
         "filter": "V",
         "other_info": "= Barnard's star\n[[Alert Notice 583 https://www.aavso.org/aavso-alert-notice-583]]",
         "priority": true,
-        "last_data_point": 1770633707,
+        "last_data_point": 1771842988,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1771816695
+                1772161351
             ]
         ],
         "solar_conjunction": false
@@ -1734,7 +1750,7 @@
         "filter": "V",
         "other_info": "= V645 Cen\n[[Alert Notice 583 https://www.aavso.org/aavso-alert-notice-583]]",
         "priority": false,
-        "last_data_point": 1771877307,
+        "last_data_point": 1771960171,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -1876,7 +1892,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058267
+                1772144432
             ]
         ],
         "solar_conjunction": false
@@ -1904,7 +1920,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058267
+                1772144432
             ]
         ],
         "solar_conjunction": false
@@ -1932,7 +1948,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058267
+                1772144432
             ]
         ],
         "solar_conjunction": false
@@ -1960,7 +1976,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058267
+                1772144432
             ]
         ],
         "solar_conjunction": false
@@ -2200,7 +2216,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772054380
+                1772140544
             ]
         ],
         "solar_conjunction": false
@@ -2390,11 +2406,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 771 https:www.aavso.org/aavso-alert-notice-771]]\nnot active:\n[[Alert Notice 757 https:www.aavso.org/aavso-alert-notice-757]]\n[[Alert Notice 744 https:www.aavso.org/aavso-alert-notice-744]]\n [[Alert Notice 590 https:www.aavso.org/aavso-alert-notice-590]]",
         "priority": true,
-        "last_data_point": 1771926045,
+        "last_data_point": 1772012443,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772068852
+                1772155016
             ]
         ],
         "solar_conjunction": false
@@ -2418,11 +2434,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 771 https:www.aavso.org/aavso-alert-notice-771]]\nnot active:\n[[Alert Notice 757 https:www.aavso.org/aavso-alert-notice-757]]\n[[Alert Notice 744 https:www.aavso.org/aavso-alert-notice-744]]\n [[Alert Notice 590 https:www.aavso.org/aavso-alert-notice-590]]",
         "priority": true,
-        "last_data_point": 1771909016,
+        "last_data_point": 1772012537,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772068852
+                1772155016
             ]
         ],
         "solar_conjunction": false
@@ -2446,11 +2462,11 @@
         "filter": "I",
         "other_info": "[[Alert Notice 771 https:www.aavso.org/aavso-alert-notice-771]]\nnot active:\n[[Alert Notice 757 https:www.aavso.org/aavso-alert-notice-757]]\n[[Alert Notice 744 https:www.aavso.org/aavso-alert-notice-744]]\n [[Alert Notice 590 https:www.aavso.org/aavso-alert-notice-590]]",
         "priority": true,
-        "last_data_point": 1771925972,
+        "last_data_point": 1772012372,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772068852
+                1772155016
             ]
         ],
         "solar_conjunction": false
@@ -2789,7 +2805,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065132
+                1772151296
             ]
         ],
         "solar_conjunction": false
@@ -2818,7 +2834,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065132
+                1772151296
             ]
         ],
         "solar_conjunction": false
@@ -2874,7 +2890,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065194
+                1772151358
             ]
         ],
         "solar_conjunction": false
@@ -2902,7 +2918,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065194
+                1772151358
             ]
         ],
         "solar_conjunction": false
@@ -3171,11 +3187,11 @@
         "filter": "Visual",
         "other_info": "V, then U, then other bands. Visual also welcome.\n[[Alert Notice 608 https://www.aavso.org/aavso-alert-notice-608]]",
         "priority": false,
-        "last_data_point": 1771532156,
+        "last_data_point": 1771962782,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772051886
+                1772138050
             ]
         ],
         "solar_conjunction": false
@@ -4240,7 +4256,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772059275
+                1772145440
             ]
         ],
         "solar_conjunction": false
@@ -4268,7 +4284,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772059275
+                1772145440
             ]
         ],
         "solar_conjunction": false
@@ -4296,7 +4312,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772059275
+                1772145440
             ]
         ],
         "solar_conjunction": false
@@ -5062,7 +5078,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772075716
+                1772161880
             ]
         ],
         "solar_conjunction": false
@@ -5174,7 +5190,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772075716
+                1772161880
             ]
         ],
         "solar_conjunction": false
@@ -5202,7 +5218,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772075716
+                1772161880
             ]
         ],
         "solar_conjunction": false
@@ -5230,7 +5246,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772075716
+                1772161880
             ]
         ],
         "solar_conjunction": false
@@ -6240,8 +6256,8 @@
         "last_data_point": 1616225782,
         "observability_times": [
             [
-                "TARGET_IS_ALWAYS_UP",
-                null
+                "TARGET_RISES",
+                1772132605
             ]
         ],
         "solar_conjunction": false
@@ -6629,7 +6645,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772072222
+                1772158386
             ]
         ],
         "solar_conjunction": false
@@ -6657,7 +6673,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772072222
+                1772158386
             ]
         ],
         "solar_conjunction": false
@@ -6685,7 +6701,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772072222
+                1772158386
             ]
         ],
         "solar_conjunction": false
@@ -6713,7 +6729,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772072222
+                1772158386
             ]
         ],
         "solar_conjunction": false
@@ -6940,7 +6956,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772070558
+                1772156722
             ]
         ],
         "solar_conjunction": false
@@ -7052,7 +7068,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066579
+                1772152744
             ]
         ],
         "solar_conjunction": false
@@ -8717,11 +8733,15 @@
         "filter": "V",
         "other_info": "[[Alert Notice 661 https://www.aavso.org/aavso-alert-notice-661]]\n[[Alert Notice 659 https://www.aavso.org/aavso-alert-notice-659]]\n[[Alert Notice 652 https://www.aavso.org/aavso-alert-notice-652]]",
         "priority": false,
-        "last_data_point": 1770271957,
+        "last_data_point": 1771990150,
         "observability_times": [
             [
+                "TARGET_RISES",
+                1772130139
+            ],
+            [
                 "TARGET_SETS",
-                1772061667
+                1772147831
             ]
         ],
         "solar_conjunction": false
@@ -8916,7 +8936,12 @@
         "other_info": "[[Alert Notice 652 https://www.aavso.org/aavso-alert-notice-652]]",
         "priority": false,
         "last_data_point": 1734801599,
-        "observability_times": [],
+        "observability_times": [
+            [
+                "TARGET_SETS",
+                1772133828
+            ]
+        ],
         "solar_conjunction": false
     },
     {
@@ -9200,7 +9225,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061411
+                1772147575
             ]
         ],
         "solar_conjunction": false
@@ -9228,7 +9253,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061411
+                1772147575
             ]
         ],
         "solar_conjunction": false
@@ -9256,7 +9281,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061411
+                1772147575
             ]
         ],
         "solar_conjunction": false
@@ -9284,7 +9309,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061409
+                1772147573
             ]
         ],
         "solar_conjunction": false
@@ -9312,7 +9337,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061409
+                1772147573
             ]
         ],
         "solar_conjunction": false
@@ -9340,7 +9365,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061409
+                1772147573
             ]
         ],
         "solar_conjunction": false
@@ -9368,7 +9393,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066131
+                1772152295
             ]
         ],
         "solar_conjunction": false
@@ -9452,7 +9477,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066131
+                1772152295
             ]
         ],
         "solar_conjunction": false
@@ -9536,7 +9561,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059364
+                1772145528
             ]
         ],
         "solar_conjunction": false
@@ -9592,7 +9617,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062608
+                1772148772
             ]
         ],
         "solar_conjunction": false
@@ -9648,7 +9673,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772074981
+                1772161145
             ]
         ],
         "solar_conjunction": false
@@ -9760,7 +9785,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772076333
+                1772162497
             ]
         ],
         "solar_conjunction": false
@@ -9928,7 +9953,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772073145
+                1772159309
             ]
         ],
         "solar_conjunction": false
@@ -9984,7 +10009,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772072970
+                1772159134
             ]
         ],
         "solar_conjunction": false
@@ -10039,8 +10064,12 @@
         "last_data_point": 1684121709,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772132465
+            ],
+            [
                 "TARGET_RISES",
-                1772067669
+                1772153833
             ]
         ],
         "solar_conjunction": false
@@ -10155,8 +10184,12 @@
         "last_data_point": 1768073322,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772132445
+            ],
+            [
                 "TARGET_RISES",
-                1772068638
+                1772154802
             ]
         ],
         "solar_conjunction": false
@@ -10552,11 +10585,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083580
+                1772169745
             ],
             [
                 "TARGET_SETS",
-                1772085657
+                1772171821
             ]
         ],
         "solar_conjunction": false
@@ -10584,11 +10617,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083580
+                1772169745
             ],
             [
                 "TARGET_SETS",
-                1772085657
+                1772171821
             ]
         ],
         "solar_conjunction": false
@@ -10616,11 +10649,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083580
+                1772169745
             ],
             [
                 "TARGET_SETS",
-                1772085657
+                1772171821
             ]
         ],
         "solar_conjunction": false
@@ -10894,11 +10927,11 @@
         "filter": "B",
         "other_info": "time series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910568,
+        "last_data_point": 1771934060,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -10922,11 +10955,11 @@
         "filter": "V",
         "other_info": "time series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910521,
+        "last_data_point": 1771934269,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -10950,11 +10983,11 @@
         "filter": "R",
         "other_info": "time series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910622,
+        "last_data_point": 1771934415,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -10978,11 +11011,11 @@
         "filter": "V",
         "other_info": "time series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771910521,
+        "last_data_point": 1771934269,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -11006,11 +11039,11 @@
         "filter": "I",
         "other_info": "Ic (not Johnson)\ntime series S/N=75 or better\n[[Alert Notices 672 https://www.aavso.org/aavso-alert-notice-672]], [[579 https://www.aavso.org/aavso-alert-notice-579]], [[542 https://www.aavso.org/aavso-alert-notice-542]], [[532 https://www.aavso.org/aavso-alert-notice-532]]\nAdopted by Tabby Boyajian",
         "priority": true,
-        "last_data_point": 1771848310,
+        "last_data_point": 1771934591,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772069537
+                1772155701
             ]
         ],
         "solar_conjunction": false
@@ -12620,7 +12653,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 691 https://www.aavso.org/aavso-alert-notice-691]]",
         "priority": true,
-        "last_data_point": 1771788004,
+        "last_data_point": 1771995531,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -12643,7 +12676,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 691 https://www.aavso.org/aavso-alert-notice-691]]",
         "priority": true,
-        "last_data_point": 1771787967,
+        "last_data_point": 1771995462,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -13611,7 +13644,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772078929
+                1772165093
             ]
         ],
         "solar_conjunction": false
@@ -13751,7 +13784,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772078929
+                1772165093
             ]
         ],
         "solar_conjunction": false
@@ -13863,7 +13896,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772080006
+                1772166170
             ]
         ],
         "solar_conjunction": false
@@ -13891,7 +13924,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772080006
+                1772166170
             ]
         ],
         "solar_conjunction": false
@@ -13919,7 +13952,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772080006
+                1772166170
             ]
         ],
         "solar_conjunction": false
@@ -15201,7 +15234,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083133
+                1772169297
             ]
         ],
         "solar_conjunction": false
@@ -15229,7 +15262,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083133
+                1772169297
             ]
         ],
         "solar_conjunction": false
@@ -15354,7 +15387,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083347
+                1772169511
             ]
         ],
         "solar_conjunction": false
@@ -15382,7 +15415,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772083347
+                1772169511
             ]
         ],
         "solar_conjunction": false
@@ -15507,11 +15540,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772055941
+                1772142105
             ],
             [
                 "TARGET_SETS",
-                1772085330
+                1772171494
             ]
         ],
         "solar_conjunction": false
@@ -15539,11 +15572,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772055941
+                1772142105
             ],
             [
                 "TARGET_SETS",
-                1772085330
+                1772171494
             ]
         ],
         "solar_conjunction": false
@@ -15571,11 +15604,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772055941
+                1772142105
             ],
             [
                 "TARGET_SETS",
-                1772085330
+                1772171494
             ]
         ],
         "solar_conjunction": false
@@ -15603,11 +15636,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772055941
+                1772142105
             ],
             [
                 "TARGET_SETS",
-                1772085330
+                1772171494
             ]
         ],
         "solar_conjunction": false
@@ -15635,11 +15668,11 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772055941
+                1772142105
             ],
             [
                 "TARGET_SETS",
-                1772085330
+                1772171494
             ]
         ],
         "solar_conjunction": false
@@ -16482,7 +16515,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061466
+                1772147631
             ]
         ],
         "solar_conjunction": false
@@ -16510,7 +16543,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061466
+                1772147631
             ]
         ],
         "solar_conjunction": false
@@ -16566,7 +16599,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061385
+                1772147549
             ]
         ],
         "solar_conjunction": false
@@ -16594,7 +16627,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061385
+                1772147549
             ]
         ],
         "solar_conjunction": false
@@ -16650,7 +16683,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061476
+                1772147641
             ]
         ],
         "solar_conjunction": false
@@ -16678,7 +16711,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061476
+                1772147641
             ]
         ],
         "solar_conjunction": false
@@ -16930,7 +16963,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772080994
+                1772167158
             ]
         ],
         "solar_conjunction": false
@@ -17258,11 +17291,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733260,
+        "last_data_point": 1771910483,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058518
+                1772144682
             ]
         ],
         "solar_conjunction": false
@@ -17286,11 +17319,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733345,
+        "last_data_point": 1771910707,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058518
+                1772144682
             ]
         ],
         "solar_conjunction": false
@@ -17314,11 +17347,11 @@
         "filter": "R",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733429,
+        "last_data_point": 1771910962,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058518
+                1772144682
             ]
         ],
         "solar_conjunction": false
@@ -17342,11 +17375,11 @@
         "filter": "I",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733514,
+        "last_data_point": 1771911408,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058518
+                1772144682
             ]
         ],
         "solar_conjunction": false
@@ -17430,7 +17463,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059090
+                1772145254
             ]
         ],
         "solar_conjunction": false
@@ -17458,7 +17491,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059090
+                1772145254
             ]
         ],
         "solar_conjunction": false
@@ -17486,7 +17519,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059090
+                1772145254
             ]
         ],
         "solar_conjunction": false
@@ -17514,7 +17547,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059090
+                1772145254
             ]
         ],
         "solar_conjunction": false
@@ -17594,11 +17627,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771895612,
+        "last_data_point": 1772016736,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058746
+                1772144910
             ]
         ],
         "solar_conjunction": false
@@ -17622,11 +17655,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771895924,
+        "last_data_point": 1772016561,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058746
+                1772144910
             ]
         ],
         "solar_conjunction": false
@@ -17654,7 +17687,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058746
+                1772144910
             ]
         ],
         "solar_conjunction": false
@@ -17682,7 +17715,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058746
+                1772144910
             ]
         ],
         "solar_conjunction": false
@@ -17766,7 +17799,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059039
+                1772145203
             ]
         ],
         "solar_conjunction": false
@@ -17794,7 +17827,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059039
+                1772145203
             ]
         ],
         "solar_conjunction": false
@@ -17822,7 +17855,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059039
+                1772145203
             ]
         ],
         "solar_conjunction": false
@@ -17850,7 +17883,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772059039
+                1772145203
             ]
         ],
         "solar_conjunction": false
@@ -17927,14 +17960,70 @@
         "obs_section": [
             "Alerts / Campaigns"
         ],
-        "filter": "I",
+        "filter": "B",
         "other_info": "[[Alert Notice 763 https://www.aavso.org/aavso-alert-notice-763]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": true,
-        "last_data_point": 1771733514,
+        "last_data_point": 1771734277,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058505
+                1772144669
+            ]
+        ],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "V505 Ori",
+        "ra": 84.61358,
+        "dec": -2.75269,
+        "constellation": "Ori",
+        "var_type": "CTTS",
+        "min_mag": 17.2,
+        "min_mag_band": "V",
+        "max_mag": 14.1,
+        "max_mag_band": "V",
+        "period": null,
+        "obs_cadence": 5.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "V",
+        "other_info": "[[Alert Notice 763 https://www.aavso.org/aavso-alert-notice-763]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
+        "priority": true,
+        "last_data_point": 1771734542,
+        "observability_times": [
+            [
+                "TARGET_SETS",
+                1772144669
+            ]
+        ],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "V505 Ori",
+        "ra": 84.61358,
+        "dec": -2.75269,
+        "constellation": "Ori",
+        "var_type": "CTTS",
+        "min_mag": 17.2,
+        "min_mag_band": "V",
+        "max_mag": 14.1,
+        "max_mag_band": "V",
+        "period": null,
+        "obs_cadence": 5.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "R",
+        "other_info": "[[Alert Notice 763 https://www.aavso.org/aavso-alert-notice-763]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
+        "priority": true,
+        "last_data_point": 1771734856,
+        "observability_times": [
+            [
+                "TARGET_SETS",
+                1772144669
             ]
         ],
         "solar_conjunction": false
@@ -17986,67 +18075,11 @@
         "filter": "I",
         "other_info": "[[Alert Notice 763 https://www.aavso.org/aavso-alert-notice-763]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": true,
-        "last_data_point": 1771733514,
+        "last_data_point": 1771735169,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058505
-            ]
-        ],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "V505 Ori",
-        "ra": 84.61358,
-        "dec": -2.75269,
-        "constellation": "Ori",
-        "var_type": "CTTS",
-        "min_mag": 17.2,
-        "min_mag_band": "V",
-        "max_mag": 14.1,
-        "max_mag_band": "V",
-        "period": null,
-        "obs_cadence": 5.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "I",
-        "other_info": "[[Alert Notice 763 https://www.aavso.org/aavso-alert-notice-763]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
-        "priority": true,
-        "last_data_point": 1771733514,
-        "observability_times": [
-            [
-                "TARGET_SETS",
-                1772058505
-            ]
-        ],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "V505 Ori",
-        "ra": 84.61358,
-        "dec": -2.75269,
-        "constellation": "Ori",
-        "var_type": "CTTS",
-        "min_mag": 17.2,
-        "min_mag_band": "V",
-        "max_mag": 14.1,
-        "max_mag_band": "V",
-        "period": null,
-        "obs_cadence": 5.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "I",
-        "other_info": "[[Alert Notice 763 https://www.aavso.org/aavso-alert-notice-763]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
-        "priority": true,
-        "last_data_point": 1771733514,
-        "observability_times": [
-            [
-                "TARGET_SETS",
-                1772058505
+                1772144669
             ]
         ],
         "solar_conjunction": false
@@ -18070,11 +18103,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771895612,
+        "last_data_point": 1772016736,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058738
+                1772144902
             ]
         ],
         "solar_conjunction": false
@@ -18098,11 +18131,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771895924,
+        "last_data_point": 1772016561,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058738
+                1772144902
             ]
         ],
         "solar_conjunction": false
@@ -18126,11 +18159,11 @@
         "filter": "R",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771793100,
+        "last_data_point": 1771963785,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058738
+                1772144902
             ]
         ],
         "solar_conjunction": false
@@ -18154,11 +18187,11 @@
         "filter": "I",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771896237,
+        "last_data_point": 1771963850,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058738
+                1772144902
             ]
         ],
         "solar_conjunction": false
@@ -18238,11 +18271,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 728 https://www.aavso.org/aavso-alert-notice-728]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733260,
+        "last_data_point": 1771910483,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058668
+                1772144833
             ]
         ],
         "solar_conjunction": false
@@ -18266,11 +18299,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 728 https://www.aavso.org/aavso-alert-notice-728]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733345,
+        "last_data_point": 1771910707,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058668
+                1772144833
             ]
         ],
         "solar_conjunction": false
@@ -18294,11 +18327,11 @@
         "filter": "R",
         "other_info": "[[Alert Notice 728 https://www.aavso.org/aavso-alert-notice-728]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733429,
+        "last_data_point": 1771910962,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058668
+                1772144833
             ]
         ],
         "solar_conjunction": false
@@ -18322,11 +18355,11 @@
         "filter": "I",
         "other_info": "[[Alert Notice 728 https://www.aavso.org/aavso-alert-notice-728]]\n[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771733514,
+        "last_data_point": 1771911408,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058668
+                1772144833
             ]
         ],
         "solar_conjunction": false
@@ -18410,7 +18443,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058829
+                1772144993
             ]
         ],
         "solar_conjunction": false
@@ -18438,7 +18471,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058829
+                1772144993
             ]
         ],
         "solar_conjunction": false
@@ -18466,7 +18499,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058829
+                1772144993
             ]
         ],
         "solar_conjunction": false
@@ -18494,7 +18527,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058829
+                1772144993
             ]
         ],
         "solar_conjunction": false
@@ -18574,11 +18607,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771589031,
+        "last_data_point": 1772016385,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058971
+                1772145136
             ]
         ],
         "solar_conjunction": false
@@ -18602,11 +18635,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 725 https://www.aavso.org/aavso-alert-notice-725]]",
         "priority": false,
-        "last_data_point": 1771589660,
+        "last_data_point": 1772016207,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058971
+                1772145136
             ]
         ],
         "solar_conjunction": false
@@ -18634,7 +18667,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058971
+                1772145136
             ]
         ],
         "solar_conjunction": false
@@ -18662,7 +18695,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058971
+                1772145136
             ]
         ],
         "solar_conjunction": false
@@ -18746,7 +18779,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058485
+                1772144649
             ]
         ],
         "solar_conjunction": false
@@ -18774,7 +18807,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058485
+                1772144649
             ]
         ],
         "solar_conjunction": false
@@ -19106,7 +19139,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 774 https://www.aavso.org/aavso-alert-notice-774]]\n[[Alert Notice 770 https://www.aavso.org/aavso-alert-notice-770]]\nnot active\n[[Alert Notice 737 https://www.aavso.org/aavso-alert-notice-737]]\n[[Alert Notice 733 https://www.aavso.org/aavso-alert-notice-733]]\n[[Alert Notice 731 https://www.aavso.org/aavso-alert-notice-731]]",
         "priority": true,
-        "last_data_point": 1771779597,
+        "last_data_point": 1771948406,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -19129,7 +19162,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 774 https://www.aavso.org/aavso-alert-notice-774]]\n[[Alert Notice 770 https://www.aavso.org/aavso-alert-notice-770]]\nnot active\n[[Alert Notice 737 https://www.aavso.org/aavso-alert-notice-737]]\n[[Alert Notice 733 https://www.aavso.org/aavso-alert-notice-733]]\n[[Alert Notice 731 https://www.aavso.org/aavso-alert-notice-731]]",
         "priority": true,
-        "last_data_point": 1771779886,
+        "last_data_point": 1771948696,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -19340,7 +19373,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772077648
+                1772163812
             ]
         ],
         "solar_conjunction": false
@@ -19396,7 +19429,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772077648
+                1772163812
             ]
         ],
         "solar_conjunction": false
@@ -19473,10 +19506,10 @@
         "obs_section": [
             "Alerts / Campaigns"
         ],
-        "filter": "Spectroscopy",
+        "filter": "V",
         "other_info": "V1405 Cas\n[[Alert Notice 742 https://www.aavso.org/aavso-alert-notice-742]]\n[[Alert Notice 735 https://www.aavso.org/aavso-alert-notice-735]]",
         "priority": true,
-        "last_data_point": 1771789161,
+        "last_data_point": 1771957372,
         "observability_times": [
             [
                 "TARGET_IS_ALWAYS_UP",
@@ -19588,7 +19621,7 @@
         "filter": "Spectroscopy",
         "other_info": "V1405 Cas\n[[Alert Notice 742 https://www.aavso.org/aavso-alert-notice-742]]\n[[Alert Notice 735 https://www.aavso.org/aavso-alert-notice-735]]",
         "priority": true,
-        "last_data_point": 1771789161,
+        "last_data_point": 1771957372,
         "observability_times": [
             [
                 "TARGET_IS_ALWAYS_UP",
@@ -20628,7 +20661,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1770811090,
+        "last_data_point": 1771927939,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20651,7 +20684,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1770810851,
+        "last_data_point": 1771927702,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20812,7 +20845,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1771582292,
+        "last_data_point": 1772013855,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20835,7 +20868,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1771582115,
+        "last_data_point": 1772013677,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20904,7 +20937,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1771871763,
+        "last_data_point": 1772013855,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20927,7 +20960,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1771872031,
+        "last_data_point": 1772013677,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20950,7 +20983,7 @@
         "filter": "R",
         "other_info": "Rc\n[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1771859640,
+        "last_data_point": 1771945413,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -20973,7 +21006,7 @@
         "filter": "I",
         "other_info": "Ic\n[[Alert Notice 741 https://www.aavso.org/aavso-alert-notice-741]]",
         "priority": false,
-        "last_data_point": 1771859185,
+        "last_data_point": 1771995678,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -21180,7 +21213,7 @@
         "filter": "Spectroscopy",
         "other_info": "N Cas 2021\n[[Alert Notice 742 https://www.aavso.org/aavso-alert-notice-742]]\n[[Alert Notice 735 https://www.aavso.org/aavso-alert-notice-735]]",
         "priority": true,
-        "last_data_point": 1771789161,
+        "last_data_point": 1771957372,
         "observability_times": [
             [
                 "TARGET_IS_ALWAYS_UP",
@@ -21501,18 +21534,18 @@
         "obs_section": [
             "Alerts / Campaigns"
         ],
-        "filter": "Spectroscopy",
+        "filter": "Visual",
         "other_info": "[[Alert Notice 746 https://www.aavso.org/aavso-alert-notice-746]]",
         "priority": true,
-        "last_data_point": 1771723080,
+        "last_data_point": 1772016359,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066147
+                1772152311
             ],
             [
                 "TARGET_RISES",
-                1772070974
+                1772157138
             ]
         ],
         "solar_conjunction": false
@@ -21536,15 +21569,15 @@
         "filter": "Spectroscopy",
         "other_info": "[[Alert Notice 746 https://www.aavso.org/aavso-alert-notice-746]]",
         "priority": true,
-        "last_data_point": 1771723080,
+        "last_data_point": 1772016359,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066147
+                1772152311
             ],
             [
                 "TARGET_RISES",
-                1772070974
+                1772157138
             ]
         ],
         "solar_conjunction": false
@@ -21656,7 +21689,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772081700
+                1772167864
             ]
         ],
         "solar_conjunction": false
@@ -21684,7 +21717,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772081700
+                1772167864
             ]
         ],
         "solar_conjunction": false
@@ -21908,7 +21941,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063984
+                1772150148
             ]
         ],
         "solar_conjunction": false
@@ -21936,7 +21969,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063984
+                1772150148
             ]
         ],
         "solar_conjunction": false
@@ -21964,7 +21997,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063984
+                1772150148
             ]
         ],
         "solar_conjunction": false
@@ -21992,7 +22025,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063984
+                1772150148
             ]
         ],
         "solar_conjunction": false
@@ -22240,11 +22273,11 @@
         "filter": "V",
         "other_info": "also CV\n[[Alert Notice 753 https://www.aavso.org/aavso-alert-notice-753]]",
         "priority": true,
-        "last_data_point": 1771890603,
+        "last_data_point": 1771920823,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772073189
+                1772159353
             ]
         ],
         "solar_conjunction": false
@@ -22300,7 +22333,11 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772058482
+                1772144646
+            ],
+            [
+                "TARGET_RISES",
+                1772172119
             ]
         ],
         "solar_conjunction": false
@@ -22447,8 +22484,12 @@
         "last_data_point": 1768698472,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772135543
+            ],
+            [
                 "TARGET_RISES",
-                1772070861
+                1772157025
             ]
         ],
         "solar_conjunction": false
@@ -23758,7 +23799,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066532
+                1772152696
             ]
         ],
         "solar_conjunction": false
@@ -23786,7 +23827,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066532
+                1772152696
             ]
         ],
         "solar_conjunction": false
@@ -23814,7 +23855,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066532
+                1772152696
             ]
         ],
         "solar_conjunction": false
@@ -23842,7 +23883,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066532
+                1772152696
             ]
         ],
         "solar_conjunction": false
@@ -23870,7 +23911,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066532
+                1772152696
             ]
         ],
         "solar_conjunction": false
@@ -23982,7 +24023,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772063259
+                1772149424
             ]
         ],
         "solar_conjunction": false
@@ -24010,7 +24051,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772063259
+                1772149424
             ]
         ],
         "solar_conjunction": false
@@ -24066,7 +24107,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772071868
+                1772158032
             ]
         ],
         "solar_conjunction": false
@@ -24094,7 +24135,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772071868
+                1772158032
             ]
         ],
         "solar_conjunction": false
@@ -24150,7 +24191,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772080900
+                1772167064
             ]
         ],
         "solar_conjunction": false
@@ -24178,7 +24219,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772080900
+                1772167064
             ]
         ],
         "solar_conjunction": false
@@ -24456,7 +24497,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076210
+                1772162374
             ]
         ],
         "solar_conjunction": false
@@ -24480,11 +24521,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 830 https://www.aavso.org/aavso-alert-notice-830]]\r\nnot active: [[Alert Notice 759 https://www.aavso.org/aavso-alert-notice-759]]",
         "priority": true,
-        "last_data_point": 1771791075,
+        "last_data_point": 1771958821,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076210
+                1772162374
             ]
         ],
         "solar_conjunction": false
@@ -24512,7 +24553,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076210
+                1772162374
             ]
         ],
         "solar_conjunction": false
@@ -24624,7 +24665,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772061092
+                1772147257
             ]
         ],
         "solar_conjunction": false
@@ -24729,10 +24770,79 @@
         "obs_section": [
             "Alerts / Campaigns"
         ],
-        "filter": "Spectroscopy",
+        "filter": "B",
         "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
         "priority": true,
-        "last_data_point": 1771923659,
+        "last_data_point": 1772010019,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "EX Lup",
+        "ra": 240.77283,
+        "dec": -40.30697,
+        "constellation": "Lup",
+        "var_type": "EXOR",
+        "min_mag": 14.3,
+        "min_mag_band": "V",
+        "max_mag": 8.5,
+        "max_mag_band": "V",
+        "period": null,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "V",
+        "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
+        "priority": true,
+        "last_data_point": 1772009973,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "EX Lup",
+        "ra": 240.77283,
+        "dec": -40.30697,
+        "constellation": "Lup",
+        "var_type": "EXOR",
+        "min_mag": 14.3,
+        "min_mag_band": "V",
+        "max_mag": 8.5,
+        "max_mag_band": "V",
+        "period": null,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "R",
+        "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
+        "priority": true,
+        "last_data_point": 1772010055,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "EX Lup",
+        "ra": 240.77283,
+        "dec": -40.30697,
+        "constellation": "Lup",
+        "var_type": "EXOR",
+        "min_mag": 14.3,
+        "min_mag_band": "V",
+        "max_mag": 8.5,
+        "max_mag_band": "V",
+        "period": null,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "I",
+        "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
+        "priority": true,
+        "last_data_point": 1772009940,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -24801,76 +24911,7 @@
         "filter": "Spectroscopy",
         "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
         "priority": true,
-        "last_data_point": 1771923659,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "EX Lup",
-        "ra": 240.77283,
-        "dec": -40.30697,
-        "constellation": "Lup",
-        "var_type": "EXOR",
-        "min_mag": 14.3,
-        "min_mag_band": "V",
-        "max_mag": 8.5,
-        "max_mag_band": "V",
-        "period": null,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
-        "priority": true,
-        "last_data_point": 1771923659,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "EX Lup",
-        "ra": 240.77283,
-        "dec": -40.30697,
-        "constellation": "Lup",
-        "var_type": "EXOR",
-        "min_mag": 14.3,
-        "min_mag_band": "V",
-        "max_mag": 8.5,
-        "max_mag_band": "V",
-        "period": null,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
-        "priority": true,
-        "last_data_point": 1771923659,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "EX Lup",
-        "ra": 240.77283,
-        "dec": -40.30697,
-        "constellation": "Lup",
-        "var_type": "EXOR",
-        "min_mag": 14.3,
-        "min_mag_band": "V",
-        "max_mag": 8.5,
-        "max_mag_band": "V",
-        "period": null,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "[[Alert Notice 773 https://www.aavso.org/aavso-alert-notice-773]]",
-        "priority": true,
-        "last_data_point": 1771923659,
+        "last_data_point": 1772010055,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -24985,7 +25026,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 776 https://www.aavso.org/aavso-alert-notice-776]]",
         "priority": true,
-        "last_data_point": 1771583342,
+        "last_data_point": 1772014911,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -25008,7 +25049,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 776 https://www.aavso.org/aavso-alert-notice-776]]",
         "priority": true,
-        "last_data_point": 1771583165,
+        "last_data_point": 1772014733,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -25054,7 +25095,7 @@
         "filter": "B",
         "other_info": "[[Alert Notice 776 https://www.aavso.org/aavso-alert-notice-776]]",
         "priority": true,
-        "last_data_point": 1771583342,
+        "last_data_point": 1772014911,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -25077,7 +25118,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 776 https://www.aavso.org/aavso-alert-notice-776]]",
         "priority": true,
-        "last_data_point": 1771583165,
+        "last_data_point": 1772014733,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -25173,7 +25214,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772066519
+                1772152683
             ]
         ],
         "solar_conjunction": false
@@ -25201,7 +25242,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772066519
+                1772152683
             ]
         ],
         "solar_conjunction": false
@@ -25257,7 +25298,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772066519
+                1772152683
             ]
         ],
         "solar_conjunction": false
@@ -26050,7 +26091,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066536
+                1772152700
             ]
         ],
         "solar_conjunction": false
@@ -26390,11 +26431,15 @@
         "filter": "B",
         "other_info": "[[Alert Notice 789 https://www.aavso.org/aavso-alert-notice-789]]",
         "priority": false,
-        "last_data_point": 1770488868,
+        "last_data_point": 1771957261,
         "observability_times": [
             [
+                "TARGET_SETS",
+                1772135993
+            ],
+            [
                 "TARGET_RISES",
-                1772079190
+                1772165354
             ]
         ],
         "solar_conjunction": false
@@ -26418,15 +26463,15 @@
         "filter": "V",
         "other_info": "[[Alert Notice 789 https://www.aavso.org/aavso-alert-notice-789]]",
         "priority": false,
-        "last_data_point": 1770488854,
+        "last_data_point": 1771957165,
         "observability_times": [
             [
                 "TARGET_SETS",
-                1771791337
+                1772135993
             ],
             [
                 "TARGET_RISES",
-                1771820698
+                1772165354
             ]
         ],
         "solar_conjunction": false
@@ -26992,7 +27037,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065293
+                1772151457
             ]
         ],
         "solar_conjunction": false
@@ -27020,7 +27065,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065293
+                1772151457
             ]
         ],
         "solar_conjunction": false
@@ -27048,7 +27093,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065293
+                1772151457
             ]
         ],
         "solar_conjunction": false
@@ -27076,7 +27121,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065293
+                1772151457
             ]
         ],
         "solar_conjunction": false
@@ -27104,7 +27149,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772065293
+                1772151457
             ]
         ],
         "solar_conjunction": false
@@ -27216,7 +27261,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063934
+                1772150098
             ]
         ],
         "solar_conjunction": false
@@ -27244,7 +27289,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063934
+                1772150098
             ]
         ],
         "solar_conjunction": false
@@ -27272,7 +27317,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063934
+                1772150098
             ]
         ],
         "solar_conjunction": false
@@ -27328,7 +27373,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772056063
+                1772142227
             ]
         ],
         "solar_conjunction": false
@@ -27356,7 +27401,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772056063
+                1772142227
             ]
         ],
         "solar_conjunction": false
@@ -27384,7 +27429,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772056063
+                1772142227
             ]
         ],
         "solar_conjunction": false
@@ -27468,7 +27513,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772067915
+                1772154079
             ]
         ],
         "solar_conjunction": false
@@ -27552,7 +27597,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062701
+                1772148865
             ]
         ],
         "solar_conjunction": false
@@ -27580,7 +27625,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062701
+                1772148865
             ]
         ],
         "solar_conjunction": false
@@ -27608,7 +27653,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772062701
+                1772148865
             ]
         ],
         "solar_conjunction": false
@@ -27664,7 +27709,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772063984
+                1772150148
             ]
         ],
         "solar_conjunction": false
@@ -27940,7 +27985,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772053827
+                1772139991
             ]
         ],
         "solar_conjunction": false
@@ -27968,7 +28013,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772053827
+                1772139991
             ]
         ],
         "solar_conjunction": false
@@ -27996,7 +28041,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772053827
+                1772139991
             ]
         ],
         "solar_conjunction": false
@@ -28024,7 +28069,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772053827
+                1772139991
             ]
         ],
         "solar_conjunction": false
@@ -28080,7 +28125,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066627
+                1772152791
             ]
         ],
         "solar_conjunction": false
@@ -28108,7 +28153,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772066627
+                1772152791
             ]
         ],
         "solar_conjunction": false
@@ -28160,7 +28205,7 @@
         "filter": "R",
         "other_info": "[[Alert Notice 812 https://www.aavso.org/aavso-alert-notice-812]]\n[[Alert Notice 503 https://www.aavso.org/aavso-alert-notice-503]]\nnot active:\n[[Special Notice #409 https://www.aavso.org/aavso-special-notice-409]]\n[[Special Notice #411 https://www.aavso.org/aavso-special-notice-411]]",
         "priority": true,
-        "last_data_point": 1771587380,
+        "last_data_point": 1772018867,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -28533,11 +28578,11 @@
         "filter": "B",
         "other_info": "[[Alert Notice 819 https://www.aavso.org/aavso-alert-notice-819]]",
         "priority": false,
-        "last_data_point": 1771847237,
+        "last_data_point": 1771933029,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772078551
+                1772164715
             ]
         ],
         "solar_conjunction": false
@@ -28561,11 +28606,11 @@
         "filter": "V",
         "other_info": "[[Alert Notice 819 https://www.aavso.org/aavso-alert-notice-819]]",
         "priority": false,
-        "last_data_point": 1771847385,
+        "last_data_point": 1771933177,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772078551
+                1772164715
             ]
         ],
         "solar_conjunction": false
@@ -28617,11 +28662,11 @@
         "filter": "I",
         "other_info": "[[Alert Notice 819 https://www.aavso.org/aavso-alert-notice-819]]",
         "priority": false,
-        "last_data_point": 1771847508,
+        "last_data_point": 1771933311,
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772078551
+                1772164715
             ]
         ],
         "solar_conjunction": false
@@ -29478,7 +29523,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772074832
+                1772160996
             ]
         ],
         "solar_conjunction": false
@@ -29534,7 +29579,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076083
+                1772162247
             ]
         ],
         "solar_conjunction": false
@@ -29562,7 +29607,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076083
+                1772162247
             ]
         ],
         "solar_conjunction": false
@@ -29590,7 +29635,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076083
+                1772162247
             ]
         ],
         "solar_conjunction": false
@@ -29618,7 +29663,7 @@
         "observability_times": [
             [
                 "TARGET_SETS",
-                1772076083
+                1772162247
             ]
         ],
         "solar_conjunction": false
@@ -29884,7 +29929,7 @@
         "filter": "V",
         "other_info": "[[Alert Notice 863 https://www.aavso.org/aavso-alert-notice-863]]\r\n[[Alert Notice 861 https://www.aavso.org/aavso-alert-notice-861]]\r\n[[Alert Notice 838 https://www.aavso.org/aavso-alert-notice-838]]",
         "priority": true,
-        "last_data_point": 1771915254,
+        "last_data_point": 1772017742,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -30118,7 +30163,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772068817
+                1772154981
             ]
         ],
         "solar_conjunction": false
@@ -30146,7 +30191,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772068817
+                1772154981
             ]
         ],
         "solar_conjunction": false
@@ -30202,7 +30247,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772068817
+                1772154981
             ]
         ],
         "solar_conjunction": false
@@ -31545,7 +31590,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772059975
+                1772146139
             ]
         ],
         "solar_conjunction": false
@@ -31629,7 +31674,7 @@
         "observability_times": [
             [
                 "TARGET_RISES",
-                1772080182
+                1772166347
             ]
         ],
         "solar_conjunction": false
@@ -31721,6 +31766,52 @@
     {
         "star_name": "V462 Lup",
         "ra": 227.01362,
+        "dec": -40.14308,
+        "constellation": "Lup",
+        "var_type": "NA",
+        "min_mag": 18.5,
+        "min_mag_band": "V",
+        "max_mag": 5.2,
+        "max_mag_band": "V",
+        "period": 0.07488825,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "B",
+        "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]\r\n[[AAVSO Observing Campaign #898 https://apps.aavso.org/v2/campaigns/898]]",
+        "priority": true,
+        "last_data_point": 1771952928,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "V462 Lup",
+        "ra": 227.01362,
+        "dec": -40.14308,
+        "constellation": "Lup",
+        "var_type": "NA",
+        "min_mag": 18.5,
+        "min_mag_band": "V",
+        "max_mag": 5.2,
+        "max_mag_band": "V",
+        "period": 0.07488825,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "V",
+        "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]\r\n[[AAVSO Observing Campaign #898 https://apps.aavso.org/v2/campaigns/898]]",
+        "priority": true,
+        "last_data_point": 1771953151,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "V462 Lup",
+        "ra": 227.01362,
         "dec": -40.14156,
         "constellation": "Lup",
         "var_type": "NA",
@@ -31738,6 +31829,29 @@
         "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
         "priority": true,
         "last_data_point": 1771868694,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "V462 Lup",
+        "ra": 227.01362,
+        "dec": -40.14308,
+        "constellation": "Lup",
+        "var_type": "NA",
+        "min_mag": 18.5,
+        "min_mag_band": "V",
+        "max_mag": 5.2,
+        "max_mag_band": "V",
+        "period": 0.07488825,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "I",
+        "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]\r\n[[AAVSO Observing Campaign #898 https://apps.aavso.org/v2/campaigns/898]]",
+        "priority": true,
+        "last_data_point": 1771953366,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -31783,12 +31897,58 @@
         "filter": "Spectroscopy",
         "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
         "priority": true,
-        "last_data_point": 1771868694,
+        "last_data_point": 1771953366,
         "observability_times": [],
         "solar_conjunction": false
     },
     {
-        "star_name": "V462 Lup",
+        "star_name": "N Lup 2025",
+        "ra": 227.01362,
+        "dec": -40.14308,
+        "constellation": "Lup",
+        "var_type": "NA",
+        "min_mag": 18.5,
+        "min_mag_band": "V",
+        "max_mag": 5.2,
+        "max_mag_band": "V",
+        "period": 0.07488825,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "B",
+        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]\r\n[[AAVSO Observing Campaign #898 https://apps.aavso.org/v2/campaigns/898]]",
+        "priority": true,
+        "last_data_point": 1771952928,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "N Lup 2025",
+        "ra": 227.01362,
+        "dec": -40.14308,
+        "constellation": "Lup",
+        "var_type": "NA",
+        "min_mag": 18.5,
+        "min_mag_band": "V",
+        "max_mag": 5.2,
+        "max_mag_band": "V",
+        "period": 0.07488825,
+        "obs_cadence": 3.0,
+        "obs_mode": "All",
+        "obs_section": [
+            "Alerts / Campaigns"
+        ],
+        "filter": "V",
+        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]\r\n[[AAVSO Observing Campaign #898 https://apps.aavso.org/v2/campaigns/898]]",
+        "priority": true,
+        "last_data_point": 1771953151,
+        "observability_times": [],
+        "solar_conjunction": false
+    },
+    {
+        "star_name": "N Lup 2025",
         "ra": 227.01362,
         "dec": -40.14156,
         "constellation": "Lup",
@@ -31804,16 +31964,16 @@
             "Alerts / Campaigns"
         ],
         "filter": "Spectroscopy",
-        "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
+        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
         "priority": true,
         "last_data_point": 1771868694,
         "observability_times": [],
         "solar_conjunction": false
     },
     {
-        "star_name": "V462 Lup",
+        "star_name": "N Lup 2025",
         "ra": 227.01362,
-        "dec": -40.14156,
+        "dec": -40.14308,
         "constellation": "Lup",
         "var_type": "NA",
         "min_mag": 18.5,
@@ -31826,33 +31986,10 @@
         "obs_section": [
             "Alerts / Campaigns"
         ],
-        "filter": "Spectroscopy",
-        "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
+        "filter": "I",
+        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]\r\n[[AAVSO Observing Campaign #898 https://apps.aavso.org/v2/campaigns/898]]",
         "priority": true,
-        "last_data_point": 1771868694,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "V462 Lup",
-        "ra": 227.01362,
-        "dec": -40.14156,
-        "constellation": "Lup",
-        "var_type": "NA",
-        "min_mag": 18.5,
-        "min_mag_band": "V",
-        "max_mag": 5.2,
-        "max_mag_band": "V",
-        "period": 0.07488825,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "= N Lup 2025\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
-        "priority": true,
-        "last_data_point": 1771868694,
+        "last_data_point": 1771953366,
         "observability_times": [],
         "solar_conjunction": false
     },
@@ -31898,99 +32035,7 @@
         "filter": "Spectroscopy",
         "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
         "priority": true,
-        "last_data_point": 1771868694,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "N Lup 2025",
-        "ra": 227.01362,
-        "dec": -40.14156,
-        "constellation": "Lup",
-        "var_type": "NA",
-        "min_mag": 18.5,
-        "min_mag_band": "V",
-        "max_mag": 5.2,
-        "max_mag_band": "V",
-        "period": 0.07488825,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
-        "priority": true,
-        "last_data_point": 1771868694,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "N Lup 2025",
-        "ra": 227.01362,
-        "dec": -40.14156,
-        "constellation": "Lup",
-        "var_type": "NA",
-        "min_mag": 18.5,
-        "min_mag_band": "V",
-        "max_mag": 5.2,
-        "max_mag_band": "V",
-        "period": 0.07488825,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
-        "priority": true,
-        "last_data_point": 1771868694,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "N Lup 2025",
-        "ra": 227.01362,
-        "dec": -40.14156,
-        "constellation": "Lup",
-        "var_type": "NA",
-        "min_mag": 18.5,
-        "min_mag_band": "V",
-        "max_mag": 5.2,
-        "max_mag_band": "V",
-        "period": 0.07488825,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
-        "priority": true,
-        "last_data_point": 1771868694,
-        "observability_times": [],
-        "solar_conjunction": false
-    },
-    {
-        "star_name": "N Lup 2025",
-        "ra": 227.01362,
-        "dec": -40.14156,
-        "constellation": "Lup",
-        "var_type": "NA",
-        "min_mag": 18.5,
-        "min_mag_band": "V",
-        "max_mag": 5.2,
-        "max_mag_band": "V",
-        "period": 0.07488825,
-        "obs_cadence": 3.0,
-        "obs_mode": "All",
-        "obs_section": [
-            "Alerts / Campaigns"
-        ],
-        "filter": "Spectroscopy",
-        "other_info": "= V462 Lup\r\n[[AAVSO Observing Campaign #896 https://apps.aavso.org/v2/campaigns/896]]",
-        "priority": true,
-        "last_data_point": 1771868694,
+        "last_data_point": 1771953366,
         "observability_times": [],
         "solar_conjunction": false
     },

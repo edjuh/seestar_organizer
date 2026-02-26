@@ -44,7 +44,7 @@ except ImportError as e:
 
 def load_tonights_plan():
     """Reads the JSON plan prepared by the nightly_planner."""
-    plan_path = "/home/ed/seestar_organizer/data/tonights_plan.json"
+    plan_path = "/home/ed/seestar_organizer/core/flight/data/tonights_plan.json"
     if not os.path.exists(plan_path):
         return None
     try:

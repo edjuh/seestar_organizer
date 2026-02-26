@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 Filename: core/preflight/nightly_planner.py
-Version: 1.0.0 (Kwetal)
+Version: 1.1.0 (Kwetal)
 Role: Preflight C - The Scheduler
-Objective: Scores surviving targets against tonight's specific ephemeris and Haarlem horizon.
+Objective: Scores targets against Haarlem ephemeris and lands plan in the Flight Data deck.
 """
 
 import os
@@ -31,15 +31,14 @@ def load_observatory_config():
         loc = config.get('location', {})
         hw = config.get('hardware', {})
         
-        # Aligning with your specific config.toml keys
         lat = loc.get('lat') 
         lon = loc.get('lon')
         alt_limit = loc.get('horizon_limit', 30.0)
-        default_exp = hw.get('default_exposure', 10)
+        default_exp = hw.get('default_exposure', 60) # Updated for standard science frames
         moon_limit = loc.get('moon_avoidance', 30.0) 
         
         if lat is None or lon is None:
-            logger.error("Latitude/Longitude (lat/lon) missing in config.toml [location] block.")
+            logger.error("Latitude/Longitude missing in config.toml.")
             sys.exit(1)
             
         return str(lat), str(lon), float(alt_limit), int(default_exp), float(moon_limit)
@@ -55,14 +54,20 @@ def generate_plan():
     lat, lon, alt_limit, default_exp, moon_limit = load_observatory_config()
     logger.info(f"Observer: {lat}°N, {lon}°E | Horizon: {alt_limit}° | Moon Avoid: {moon_limit}°")
 
-    base_dir = "/home/ed/seestar_organizer/data"
-    targets_file = os.path.join(base_dir, "targets.json")
-    comp_dir = os.path.join(base_dir, "comp_stars")
-    plan_file = os.path.join(base_dir, "tonights_plan.json")
+    # Path Logic: Data (Input) vs Flight Data (Output)
+    base_data_dir = "/home/ed/seestar_organizer/data"
+    flight_data_dir = "/home/ed/seestar_organizer/core/flight/data"
+    
+    targets_file = os.path.join(base_data_dir, "targets.json")
+    comp_dir = os.path.join(base_data_dir, "comp_stars")
+    plan_file = os.path.join(flight_data_dir, "tonights_plan.json")
     
     if not os.path.exists(targets_file):
         logger.error(f"Missing master targets file: {targets_file}")
         sys.exit(1)
+        
+    if not os.path.exists(flight_data_dir):
+        os.makedirs(flight_data_dir, exist_ok=True)
     
     with open(targets_file, 'r') as f:
         master_targets = json.load(f)
@@ -70,19 +75,17 @@ def generate_plan():
     obs = ephem.Observer()
     obs.lat, obs.lon, obs.elevation = lat, lon, 0
     obs.date = datetime.now(timezone.utc)
-    sun = ephem.Sun()
-    moon = ephem.Moon()
+    sun, moon = ephem.Sun(), ephem.Moon()
     
     obs.horizon = '-18'
     try:
         dusk = obs.next_setting(sun, use_center=True)
         dawn = obs.next_rising(sun, use_center=True)
     except ephem.AlwaysUpError:
-        logger.warning("Summer Solstice! It never gets truly dark tonight.")
+        logger.warning("Summer Solstice condition detected.")
         return 
 
     logger.info(f"Dark Window: {dusk.datetime().strftime('%H:%M')} UTC to {dawn.datetime().strftime('%H:%M')} UTC")
-    
     mid_night = dusk.datetime() + (dawn.datetime() - dusk.datetime()) / 2
     obs.horizon = str(alt_limit)
 
@@ -91,15 +94,12 @@ def generate_plan():
 
     for target in master_targets:
         t_name = target.get('star_name')
-        t_ra_deg = target.get('ra')
-        t_dec_deg = target.get('dec')
+        t_ra_deg, t_dec_deg = target.get('ra'), target.get('dec')
         
-        if not t_name or t_ra_deg is None or t_dec_deg is None:
-            continue
-            
-        if t_name in seen_targets:
+        if not t_name or t_ra_deg is None or t_dec_deg is None or t_name in seen_targets:
             continue
 
+        # Comparison Star Check (Integrity Check)
         expected_comp_file = os.path.join(comp_dir, format_filename(t_name))
         if not os.path.exists(expected_comp_file):
             continue
@@ -120,10 +120,8 @@ def generate_plan():
         if alt_mid < alt_limit:
             continue
 
-        score = 0
-        if target.get('priority') is True:
-            score += 1000
-            
+        score = 1000 if target.get('priority') is True else 0
+        
         obs.date = dusk
         star.compute(obs)
         alt_dusk = float(star.alt) * 180.0 / ephem.pi
@@ -132,15 +130,12 @@ def generate_plan():
         star.compute(obs)
         alt_dawn = float(star.alt) * 180.0 / ephem.pi
         
-        if alt_dusk > alt_dawn:
-            score += 500
-            
+        if alt_dusk > alt_dawn: score += 500
         score += alt_mid
-        alpaca_ra = float(t_ra_deg) / 15.0 
         
         scored_targets.append({
             "name": t_name,
-            "ra": round(alpaca_ra, 6), 
+            "ra": round(float(t_ra_deg) / 15.0, 6), 
             "dec": round(float(t_dec_deg), 6),
             "exposure_sec": default_exp,
             "frames": 180, 
@@ -162,7 +157,7 @@ def generate_plan():
     with open(plan_file, 'w') as f:
         json.dump(tonights_plan, f, indent=2)
     
-    logger.info(f"Plan generated! Top {len(top_targets)} targets locked.")
+    logger.info(f"Aeronautical Plan generated: {plan_file}")
 
 if __name__ == "__main__":
     generate_plan()
