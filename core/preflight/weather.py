@@ -19,8 +19,8 @@ class Weather:
         with open(config_path, "rb") as f:
             cfg = tomllib.load(f)
             
-        self.lat = float(cfg['location']['latitude'])
-        self.lon = float(cfg['location']['longitude'])
+        self.lat = float(cfg['location']['lat'])
+        self.lon = float(cfg['location']['lon'])
         self.max_clouds = float(cfg.get('safety', {}).get('max_cloud_cover', 40.0))
         self.check_hours = 3
 

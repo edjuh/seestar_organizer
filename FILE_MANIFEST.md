@@ -10,15 +10,18 @@
 * `core/preflight/harvester.py`: Downloads active campaigns from AAVSO, vetoing targets outside FOV constraints.
 * `core/preflight/horizon.py`: Veto targets based on local obstructions (Trees, Buildings) using Az/Alt mapping.
 * `core/preflight/librarian.py`: Monthly cron tool to fetch NEW targets from AAVSO.
-* `core/preflight/nightly_planner.py`: Scores surviving targets against tonight's specific ephemeris and Haarlem horizon.
+* `core/preflight/nightly_planner.py`: Scores targets against Haarlem ephemeris and lands plan in the Flight Data deck.
 * `core/preflight/preflight_master.py`: Orchestrates the full Preflight sequence (A-D) to validate the pipeline state.
 * `core/preflight/weather.py`: Predictive ensemble weather monitoring (Open-Meteo + Buienradar).
 
 ## 🚀 FLIGHT (Nighttime)
+* `core/flight/block_injector.py`: No objective defined.
 * `core/flight/env_loader.py`: Centralized configuration and environment variable manager.
+* `core/flight/fill_the_night.py`: No objective defined.
+* `core/flight/get_manifest.py`: No objective defined.
 * `core/flight/hardware_profiles.py`: Define sensor specs for Annie (S50), Williamina (S30-Pro), and Henrietta (S30-Pro Fast).
-* `core/flight/orchestrator.py`: Main operational loop. Enforces hardware safety before executing sequence targets.
-* `core/flight/sequence_engine.py`: Prioritizes targets and creates a time-slotted mission plan.
+* `core/flight/orchestrator.py`: Executes missions using a standardized API contract.
+* `core/flight/sequence_engine.py`: Prioritizes targets without crashing on vault attributes.
 * `core/flight/vault_manager.py`: Maps to the user's existing config.toml structure.
 
 ## 🛬 POSTFLIGHT (Processing)

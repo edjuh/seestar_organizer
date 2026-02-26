@@ -31,17 +31,15 @@ This document outlines the architectural journey of the S30-PRO autonomous obser
 * **v0.6 Insp. Priembickel:** Hardening and Git strictness.
 * **v0.7 Argus:** The all-seeing autonomous observer.
 * **v0.8 Lieven Brekel:** Mid-sequence weather aborts and WCS bridge hardening.
-* **v0.9 Terpen Tijn (CURRENT):** "Het is prut!" Westward priority active. Sub-pixel centroiding, dynamic CFA debayering, and stable Alpaca handshake for AAVSO targets.
-
-## 🚀 Near-Term Milestones (The Specialists)
+* **v0.9 Terpen Tijn:** "Het is prut!" Westward priority active. Sub-pixel centroiding, dynamic CFA debayering, and stable Alpaca handshake for AAVSO targets.
 * **v1.0 Kwetal:** Converting the Orchestrator into a bulletproof `systemd` background daemon.
+## 🚀 Near-Term Milestones (The Specialists)
 * **v1.1 Pee Pastinakel:** Dynamic aperture scaling (PSF fitting) and saturation detection.
 
 ---
 
 ## 🌲 Epoch 1: Het Kleine Volkje (v1.x)
 *The invisible, tireless workers in the background. Focuses on system resilience and background magic.*
-* **v1.0 Kwetal:** Converting the Orchestrator into a bulletproof `systemd` background daemon.
 * **v1.1 Pee Pastinakel:** "Talks to the plants" (environmental sensor tuning).
 * **v1.2 Garmt:** A down-to-earth, stable baseline update.
 * **v1.3 Monkel:** *"Een mens kan ook nooit eens rustig..."* Fixing daemon interruption bugs.
