@@ -11,7 +11,7 @@
 * `core/preflight/horizon.py`: Veto targets based on local obstructions (Trees, Buildings) using Az/Alt mapping.
 * `core/preflight/librarian.py`: Monthly cron tool to fetch NEW targets from AAVSO.
 * `core/preflight/nightly_planner.py`: Scores surviving targets against tonight's specific ephemeris and Haarlem horizon.
-* `core/preflight/preflight_master.py`: Orchestrates the full Preflight sequence and validates the pipeline state.
+* `core/preflight/preflight_master.py`: Orchestrates the full Preflight sequence (A-D) to validate the pipeline state.
 * `core/preflight/weather.py`: Predictive ensemble weather monitoring (Open-Meteo + Buienradar).
 
 ## 🚀 FLIGHT (Nighttime)
@@ -37,4 +37,5 @@
 * `utils/cleanup.py`: Housekeeping for temporary files and logs.
 * `utils/fix_imports.py`: No objective defined.
 * `utils/generate_manifest.py`: Automatically rebuild the FILE_MANIFEST.md by parsing file headers across all core phases.
+* `utils/inject_location.py`: Dynamically synchronizes Bridge/Simulator location using config.toml as the source of truth.
 * `utils/undo_header_mess.py`: No objective defined.
