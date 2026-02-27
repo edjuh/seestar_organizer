@@ -1,10 +1,20 @@
-.venv/
-__pycache__/
-*.pyc
+# Credentials
 config.toml
-logs/*.log
-data/sequences/*.json
-FILE_MANIFEST.md.bak
+*.key
+
+# Environments & Tests
 venv/
+.venv/
 tests/
-engine.log
+__pycache__/
+
+# Logs & Caches
+logs/*.log
+core/flight/data/*.json
+core/preflight/data/*.json
+
+# Data Funnel (Track the structure, not the data)
+data/*.json
+data/sequences/*.json
+/mnt/usb_buffer/
+/mnt/astronas/

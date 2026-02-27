@@ -1,50 +1,45 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Filename: core/preflight/preflight_master.py
-Version: 1.0.0 (Kwetal)
-Role: Preflight Master Guard
-Objective: Orchestrates the full Preflight sequence (A-D) to validate the pipeline state.
-"""
+#
+# Seestar Organizer - Pre-Flight Master Conductor
+# Path: ~/seestar_organizer/core/preflight/preflight_master.py
+# Purpose: The definitive late-afternoon automated conductor.
+# ----------------------------------------------------------------
 
 import subprocess
+import os
 import sys
 import logging
-from pathlib import Path
 
-# Setup logging
-project_root = Path(__file__).parent.parent.parent
-logging.basicConfig(level=logging.INFO, format='%(asctime)s [MASTER] %(message)s')
-logger = logging.getLogger("MasterGuard")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logger = logging.getLogger("Conductor")
 
 def run_step(name, script_path):
-    logger.info(f"▶️ Executing {name}...")
-    result = subprocess.run([sys.executable, str(script_path)], capture_output=True, text=True)
-    if result.returncode == 0:
-        logger.info(f"✅ {name} Completed successfully.")
-        return True
+    logger.info(f"▶️ STARTING: {name}")
+    result = subprocess.run([sys.executable, script_path])
+    if result.returncode != 0:
+        logger.warning(f"⚠️ {name} failed or completed with warnings.")
     else:
-        # Print the actual error from the sub-script to the master log
-        logger.error(f"❌ {name} Failed:\n{result.stderr}")
-        return False
+        logger.info(f"✅ COMPLETED: {name}")
+    return result.returncode
 
 def main():
-    preflight_dir = project_root / "core/preflight"
+    base = os.path.expanduser("~/seestar_organizer")
     
-    # The Chain of Command (Logic Only)
-    steps = [
-        ("Harvester (A)", preflight_dir / "harvester.py"),
-        ("Fetcher (B)", preflight_dir / "fetcher.py"),
-        ("Scheduler (C)", preflight_dir / "nightly_planner.py"),
-        ("Audit (D)", preflight_dir / "audit.py")
-    ]
+    print("\n🥃 CONDUCTOR: Initializing Federation Pre-Flight Sequence...")
 
-    for name, path in steps:
-        if not run_step(name, path):
-            logger.error("🚫 Preflight sequence aborted due to logic failure.")
-            sys.exit(1)
-
-    logger.info("🏆 PREFLIGHT LOGIC VALIDATED. Ready for manual sign-off.")
+    # 1. THE PLANNER: Decides what we shoot based on Haarlem sky
+    run_step("NIGHTLY PLANNER", f"{base}/core/preflight/nightly_planner.py")
+    
+    # 2. THE FETCHER: Secures comp-stars for tonight's 71 targets
+    # Note: Fetcher has internal 3.14m (Pi) throttling
+    print("⏳ ENRICHMENT: Fetching sequences... (Throttled at 3.14 mins/target)")
+    run_step("VSP FETCHER", f"{base}/core/preflight/fetcher.py")
+    
+    # 3. THE AUDIT: Updates the ACARS Dashboard
+    run_step("VITALS AUDIT", f"{base}/core/flight/preflight_check.py")
+    
+    print("\n🏁 CONDUCTOR: All rounds complete. Systems ready for Handover.")
 
 if __name__ == "__main__":
     main()

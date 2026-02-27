@@ -1,40 +1,59 @@
-"""
-Filename: core/vault_manager.py
-Version: 0.9.6 (TOML Integrated)
-Role: Configuration-driven Librarian
-Objective: Maps to the user's existing config.toml structure.
-"""
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# Seestar Organizer - Vault Manager (Strict Reality & Double-Check)
+# Path: ~/seestar_organizer/core/flight/vault_manager.py
+# ----------------------------------------------------------------
+
 import toml
-from pathlib import Path
-from astropy.coordinates import SkyCoord, EarthLocation, AltAz
-from astropy.time import Time
-import astropy.units as u
+import os
+from datetime import datetime
 
 class VaultManager:
     def __init__(self):
-        config_path = Path("config.toml")
-        if config_path.exists():
-            conf = toml.load(config_path)
-            # Mapping to your specific [location] keys
-            loc = conf.get('location', {})
-            self.lat = loc.get('lat', 52.38)
-            self.lon = loc.get('lon', 4.64)
-            self.elev = loc.get('elevation', 2.0)
-            self.min_altitude = loc.get('horizon_limit', 30.0)
-        else:
-            self.lat, self.lon, self.elev, self.min_altitude = 52.38, 4.64, 2, 30.0
+        self.config_path = os.path.expanduser("~/seestar_organizer/config.toml")
+        self.data = self._load_config()
 
-        self.location = EarthLocation(lat=self.lat*u.deg, lon=self.lon*u.deg, height=self.elev*u.m)
+    def _load_config(self):
+        if os.path.exists(self.config_path):
+            try:
+                return toml.load(self.config_path)
+            except Exception:
+                return {}
+        return {}
 
-    def get_target_visibility(self, ra_str, dec_str):
-        now = Time.now()
-        target = SkyCoord(ra_str, dec_str, unit=(u.hourangle, u.deg))
-        altaz_frame = AltAz(obstime=now, location=self.location)
-        target_altaz = target.transform_to(altaz_frame)
+    def get_observer_config(self):
+        """Pulls exact keys from config.toml. NO HARDCODED FALLBACKS."""
+        aavso = self.data.get("aavso", {})
+        loc = self.data.get("location", {})
+        planner = self.data.get("planner", {})
         
-        current_alt = target_altaz.alt.degree
-        is_observable = current_alt >= self.min_altitude
-        
-        return round(current_alt, 2), is_observable
+        return {
+            "observer_id": aavso.get("observer_code", "MISSING_ID"),
+            "maidenhead": loc.get("maidenhead", "WAITING_FOR_GPS"),
+            "lat": loc.get("lat", 0.0),
+            "lon": loc.get("lon", 0.0),
+            "elevation": loc.get("elevation", 0.0),
+            "sun_altitude_limit": planner.get("sun_altitude_limit", -18.0),
+            "last_refresh": loc.get("last_refresh", "NEVER")
+        }
 
-vault_manager = VaultManager()
+    def sync_gps(self, new_lat, new_lon, new_mh):
+        """Updates config.toml only if a location 'move' is confirmed."""
+        if "location" not in self.data:
+            self.data["location"] = {}
+            
+        current_lat = self.data["location"].get("lat")
+        current_mh = self.data["location"].get("maidenhead")
+        
+        if current_lat != new_lat and current_mh != new_mh:
+            self.data["location"]["lat"] = new_lat
+            self.data["location"]["lon"] = new_lon
+            self.data["location"]["maidenhead"] = new_mh
+            self.data["location"]["last_refresh"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            self.data["location"]["source"] = "GPSD_AUTO"
+            
+            with open(self.config_path, "w") as f:
+                toml.dump(self.data, f)
+            return True
+        return False

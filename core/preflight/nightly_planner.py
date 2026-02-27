@@ -1,163 +1,110 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Filename: core/preflight/nightly_planner.py
-Version: 1.1.0 (Kwetal)
-Role: Preflight C - The Scheduler
-Objective: Scores targets against Haarlem ephemeris and lands plan in the Flight Data deck.
-"""
+#
+# Seestar Organizer - Nightly Planner (Path-Aware)
+# Path: ~/seestar_organizer/core/preflight/nightly_planner.py
+# Purpose: Scores targets against Haarlem ephemeris and generates tonights_plan.json.
+# ----------------------------------------------------------------
 
 import os
 import sys
 import json
 import toml
 import ephem
-from datetime import datetime, timezone
 import logging
+from datetime import datetime, timezone
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("NightlyPlanner")
 
-def load_observatory_config():
-    config_path = "/home/ed/seestar_organizer/config.toml"
-    if not os.path.exists(config_path):
-        logger.error(f"Config file missing at {config_path}")
+def load_config():
+    path = os.path.expanduser("~/seestar_organizer/config.toml")
+    if not os.path.exists(path):
+        logger.error("config.toml missing.")
         sys.exit(1)
-        
+    with open(path, 'r') as f:
+        return toml.load(f)
+
+def get_astronomical_dark(obs, sun_limit):
+    """Calculates UTC dusk and dawn for the given sun altitude limit."""
+    observer = ephem.Observer()
+    observer.lat = str(obs['lat'])
+    observer.lon = str(obs['lon'])
+    observer.elevation = obs['elevation']
+    observer.horizon = str(sun_limit)
+    
     try:
-        with open(config_path, 'r') as f:
-            config = toml.load(f)
-            
-        loc = config.get('location', {})
-        hw = config.get('hardware', {})
-        
-        lat = loc.get('lat') 
-        lon = loc.get('lon')
-        alt_limit = loc.get('horizon_limit', 30.0)
-        default_exp = hw.get('default_exposure', 60) # Updated for standard science frames
-        moon_limit = loc.get('moon_avoidance', 30.0) 
-        
-        if lat is None or lon is None:
-            logger.error("Latitude/Longitude missing in config.toml.")
-            sys.exit(1)
-            
-        return str(lat), str(lon), float(alt_limit), int(default_exp), float(moon_limit)
-        
+        dusk = observer.next_setting(ephem.Sun(), use_center=True)
+        dawn = observer.next_rising(ephem.Sun(), use_center=True)
+        return dusk, dawn
     except Exception as e:
-        logger.error(f"Failed to parse config.toml: {e}")
-        sys.exit(1)
+        logger.error(f"Darkness calculation failed: {e}")
+        return None, None
 
-def format_filename(star_name):
-    return star_name.lower().replace(" ", "_") + ".json"
+def execute_planning():
+    config = load_config()
+    loc = config.get('location', {})
+    storage = config.get('storage', {})
+    hw = config.get('hardware', {})
+    planner_cfg = config.get('planner', {})
 
-def generate_plan():
-    lat, lon, alt_limit, default_exp, moon_limit = load_observatory_config()
-    logger.info(f"Observer: {lat}°N, {lon}°E | Horizon: {alt_limit}° | Moon Avoid: {moon_limit}°")
+    # 1. Resolve Dynamic Paths
+    target_dir = os.path.expanduser(storage.get('target_dir', '~/seestar_organizer/data'))
+    input_file = os.path.join(target_dir, "observable_targets.json")
+    output_file = os.path.join(target_dir, "tonights_plan.json")
 
-    # Path Logic: Data (Input) vs Flight Data (Output)
-    base_data_dir = "/home/ed/seestar_organizer/data"
-    flight_data_dir = "/home/ed/seestar_organizer/core/flight/data"
-    
-    targets_file = os.path.join(base_data_dir, "targets.json")
-    comp_dir = os.path.join(base_data_dir, "comp_stars")
-    plan_file = os.path.join(flight_data_dir, "tonights_plan.json")
-    
-    if not os.path.exists(targets_file):
-        logger.error(f"Missing master targets file: {targets_file}")
-        sys.exit(1)
-        
-    if not os.path.exists(flight_data_dir):
-        os.makedirs(flight_data_dir, exist_ok=True)
-    
-    with open(targets_file, 'r') as f:
-        master_targets = json.load(f)
+    if not os.path.exists(input_file):
+        logger.error(f"Input file missing: {input_file}")
+        return
 
-    obs = ephem.Observer()
-    obs.lat, obs.lon, obs.elevation = lat, lon, 0
-    obs.date = datetime.now(timezone.utc)
-    sun, moon = ephem.Sun(), ephem.Moon()
-    
-    obs.horizon = '-18'
-    try:
-        dusk = obs.next_setting(sun, use_center=True)
-        dawn = obs.next_rising(sun, use_center=True)
-    except ephem.AlwaysUpError:
-        logger.warning("Summer Solstice condition detected.")
-        return 
+    # 2. Setup Ephemeris
+    sun_limit = planner_cfg.get('sun_altitude_limit', -18.0)
+    dusk, dawn = get_astronomical_dark(loc, sun_limit)
+    if not dusk: return
 
-    logger.info(f"Dark Window: {dusk.datetime().strftime('%H:%M')} UTC to {dawn.datetime().strftime('%H:%M')} UTC")
-    mid_night = dusk.datetime() + (dawn.datetime() - dusk.datetime()) / 2
-    obs.horizon = str(alt_limit)
+    # 3. Process Funnel
+    with open(input_file, 'r') as f:
+        targets = json.load(f)
 
-    scored_targets = []
-    seen_targets = set()
+    scored_plan = []
+    observer = ephem.Observer()
+    observer.lat, observer.lon = str(loc['lat']), str(loc['lon'])
+    observer.elevation = loc['elevation']
+    observer.date = dusk # Start scoring at dusk
 
-    for target in master_targets:
-        t_name = target.get('star_name')
-        t_ra_deg, t_dec_deg = target.get('ra'), target.get('dec')
-        
-        if not t_name or t_ra_deg is None or t_dec_deg is None or t_name in seen_targets:
-            continue
-
-        # Comparison Star Check (Integrity Check)
-        expected_comp_file = os.path.join(comp_dir, format_filename(t_name))
-        if not os.path.exists(expected_comp_file):
-            continue
-
+    for t in targets:
         star = ephem.FixedBody()
-        star._ra = float(t_ra_deg) * ephem.pi / 180.0
-        star._dec = float(t_dec_deg) * ephem.pi / 180.0
+        star._ra = ephem.hours(t['ra'] / 15.0) # RA is in deg in your JSON
+        star._dec = ephem.degrees(t['dec'])
+        star.compute(observer)
+
+        alt = float(star.alt) * 180.0 / ephem.pi
         
-        obs.date = mid_night
-        star.compute(obs)
-        moon.compute(obs)
-        separation = ephem.separation(star, moon) * 180.0 / ephem.pi
-        
-        if separation < moon_limit:
-            continue
-            
-        alt_mid = float(star.alt) * 180.0 / ephem.pi
-        if alt_mid < alt_limit:
+        # Apply the 30-degree science limit
+        if alt < loc.get('horizon_limit', 30.0):
             continue
 
-        score = 1000 if target.get('priority') is True else 0
+        # Simple Scoring: Priority + Altitude
+        score = (1000 if t.get('priority') else 0) + alt
         
-        obs.date = dusk
-        star.compute(obs)
-        alt_dusk = float(star.alt) * 180.0 / ephem.pi
-        
-        obs.date = dawn
-        star.compute(obs)
-        alt_dawn = float(star.alt) * 180.0 / ephem.pi
-        
-        if alt_dusk > alt_dawn: score += 500
-        score += alt_mid
-        
-        scored_targets.append({
-            "name": t_name,
-            "ra": round(float(t_ra_deg) / 15.0, 6), 
-            "dec": round(float(t_dec_deg), 6),
-            "exposure_sec": default_exp,
-            "frames": 180, 
-            "transit_alt": round(alt_mid, 2),
-            "filter": target.get('filter', 'V'),
+        scored_plan.append({
+            "name": t['star_name'],
+            "ra": t['ra'],
+            "dec": t['dec'],
+            "exposure_sec": hw.get('default_exposure', 60),
+            "frames": 60, # Standard science block
+            "alt_at_dusk": round(alt, 2),
             "score": round(score, 1)
         })
-        seen_targets.add(t_name)
 
-    scored_targets.sort(key=lambda x: x['score'], reverse=True)
-    top_targets = scored_targets[:20]
+    # Sort by score (High to Low)
+    scored_plan.sort(key=lambda x: x['score'], reverse=True)
 
-    tonights_plan = {
-        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
-        "local_dark_window": {"start": str(dusk), "end": str(dawn)},
-        "targets": top_targets
-    }
-
-    with open(plan_file, 'w') as f:
-        json.dump(tonights_plan, f, indent=2)
+    # 4. Save Final Manifest
+    with open(output_file, 'w') as f:
+        json.dump(scored_plan, f, indent=4)
     
-    logger.info(f"Aeronautical Plan generated: {plan_file}")
+    logger.info(f"Successfully generated tonights_plan.json with {len(scored_plan)} targets.")
 
 if __name__ == "__main__":
-    generate_plan()
+    execute_planning()
