@@ -1,75 +1,81 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Filename: core/flight/orchestrator.py
-Version: 4.0.0 (The Federation Pilot)
-Role: The Pilot
-Objective: Executes missions using a standardized API contract.
-"""
+#
+# Seestar Organizer - Flight Orchestrator (Sim-Enabled)
+# Path: ~/seestar_organizer/core/flight/orchestrator.py
+# ----------------------------------------------------------------
+
 import os
+import sys
 import json
 import time
 import logging
-from core.flight.sequence_engine import sequence_engine
-from api.alpaca_client import AlpacaClient
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger("Butler")
+# Ensure core access
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+from core.flight.vault_manager import VaultManager
 
-def run_orchestrator():
-    client = AlpacaClient()
-    plan_path = "/home/ed/seestar_organizer/core/flight/data/tonights_plan.json"
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - [%(levelname)s] - %(message)s')
+logger = logging.getLogger("Orchestrator")
 
-    logger.info("Butler: Waking up. Initializing Mission Control.")
+class Orchestrator:
+    def __init__(self):
+        self.vault = VaultManager()
+        self.state_file = os.path.expanduser("~/seestar_organizer/core/flight/data/system_state.json")
+        
+        # Storage Setup
+        storage = self.vault.data.get('storage', {})
+        self.usb_path = storage.get('primary_dir', '/mnt/usb_buffer')
+        self.lifeboat_path = os.path.expanduser(storage.get('lifeboat_dir', '~/seestar_organizer/data/local_buffer'))
+        self.active_storage = self._resolve_storage()
 
-    while True:
-        if not client.is_connected():
-            logger.warning("Butler: Waiting for Alpaca Bridge...")
-            time.sleep(10)
-            continue
+    def _resolve_storage(self):
+        if os.path.exists(self.usb_path) and os.access(self.usb_path, os.W_OK):
+            return self.usb_path
+        else:
+            os.makedirs(self.lifeboat_path, exist_ok=True)
+            return self.lifeboat_path
 
-        if not os.path.exists(plan_path):
-            logger.error(f"Butler: No flight plan found at {plan_path}")
-            time.sleep(60)
-            continue
+    def update_dashboard(self, status, target="None", message=""):
+        """Broadcasts state to the Dashboard."""
+        state = {
+            "status": status,
+            "target": target,
+            "message": message,
+            "timestamp": time.time()
+        }
+        with open(self.state_file, 'w') as f:
+            json.dump(state, f)
 
-        try:
-            with open(plan_path, 'r') as f:
-                full_plan = json.load(f)
+    def execute_plan(self):
+        plan_path = os.path.expanduser("~/seestar_organizer/data/tonights_plan.json")
+        with open(plan_path, 'r') as f:
+            targets = json.load(f)
+
+        logger.info(f"🚀 STARTING MISSION SIMULATION: {len(targets)} Targets.")
+
+        for target in targets:
+            name = target['name']
             
-            targets = full_plan.get('targets', [])
-            active_plan = sequence_engine.build_night_plan(targets)
+            # 1. SLEWING
+            self.update_dashboard("🛰️ SLEWING", name, f"Moving to RA:{target['ra']} Dec:{target['dec']}")
+            time.sleep(3) # SIM SPEED
             
-            if not active_plan:
-                logger.info("Butler: No observable targets in window. Standing by.")
-                time.sleep(300)
-                continue
+            # 2. CENTERING
+            self.update_dashboard("🎯 CENTERING", name, "Plate-solving FOV...")
+            time.sleep(2)
+            
+            # 3. INTEGRATING
+            self.update_dashboard("📸 INTEGRATING", name, f"Capture: {target['frames']} x {target['exposure_sec']}s")
+            time.sleep(5) # Simulation of the first few frames
+            
+            # 4. SYNCING
+            self.update_dashboard("💾 SYNCING", name, f"Transferring FITS to {os.path.basename(self.active_storage)}")
+            time.sleep(2)
 
-            logger.info(f"Butler: Engaging {len(active_plan)} targets.")
-
-            for target in active_plan:
-                logger.info(f"🚀 [FLIGHT] Mission Start: {target['name']}")
-                
-                # Using the Clean API: RA/Dec can be floats or strings
-                success = client.start_1x1_mosaic(
-                    target_name=target['name'],
-                    ra=target['ra'],
-                    dec=target['dec']
-                )
-                
-                if success:
-                    logger.info(f"✅ [FLIGHT] {target['name']} successfully injected into Federation.")
-                else:
-                    logger.error(f"❌ [FLIGHT] {target['name']} injection failed.")
-
-                # Dwell time for simulator event transition
-                time.sleep(30)
-
-        except Exception as e:
-            logger.error(f"Butler: Critical Flight Error: {e}")
-
-        logger.info("Butler: Cycle complete. Reviewing plan in 5 minutes.")
-        time.sleep(300)
+        self.update_dashboard("🅿️ PARKED", "OFF-DUTY", "Mission Complete. All targets processed.")
+        logger.info("🏁 MISSION COMPLETE.")
 
 if __name__ == "__main__":
-    run_orchestrator()
+    engine = Orchestrator()
+    engine.execute_plan()
