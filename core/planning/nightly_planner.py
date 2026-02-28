@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Objective: Score 1,240 targets against tonights sky and pick the Top 20.
+"""
+"""
 Filename: core/planning/nightly_planner.py
 Version: 1.0.0 (Kwetal)
 Role: Preflight C - The Scheduler
-Objective: Score 1,240 targets against tonight's sky and pick the Top 20.
 """
 
 import json

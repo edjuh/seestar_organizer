@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Audits the nightly plan for freshness and quantity.
+"""
 #
 # Seestar Organizer - Target Manifest Evaluator
 # Path: ~/seestar_organizer/core/preflight/target_evaluator.py
-# Purpose: Audits the nightly plan for freshness and quantity.
 # ----------------------------------------------------------------
 
 import json

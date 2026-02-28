@@ -2,9 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Filename: core/preflight/audit.py
-Version: 1.0.0 (Kwetal)
-Role: Preflight D - The Audit
-Objective: Tags 'done' objects until new observation is required based on cadence.
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Tags done objects until new observation is required based on cadence.
 """
 
 import json

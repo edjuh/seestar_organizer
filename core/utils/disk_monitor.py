@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Verifies NAS and local USB/buffer storage availability across all flight phases.
+"""
 #
 # Seestar Organizer - Universal Disk Monitor
 # Path: ~/seestar_organizer/core/utils/disk_monitor.py
-# Purpose: Verifies NAS and local USB/buffer storage availability across all flight phases.
 # ----------------------------------------------------------------
 
 import os

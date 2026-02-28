@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Stress-test utility to saturate the Federation schedule for maximum night capacity.
+"""
 #
 # Seestar Organizer - Full Night Stress Loader
 # Path: ~/seestar_organizer/core/flight/fill_the_night.py
-# Purpose: Stress-test utility to saturate the Federation schedule for maximum night capacity.
 # ----------------------------------------------------------------
 import requests
 import json

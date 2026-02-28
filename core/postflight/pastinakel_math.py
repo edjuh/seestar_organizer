@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Logic for saturation detection and dynamic aperture scaling.
+"""
 #
 # Seestar Organizer - Pastinakel Math (v1.1)
 # Path: ~/seestar_organizer/core/postflight/pastinakel_math.py
-# Purpose: Logic for saturation detection and dynamic aperture scaling.
 # ----------------------------------------------------------------
 
 def check_saturation(pixel_data, ceiling=60000):

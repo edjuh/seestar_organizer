@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
-# Seestar Organizer - Vault Manager (Strict Reality & Double-Check)
-# Path: ~/seestar_organizer/core/flight/vault_manager.py
-# ----------------------------------------------------------------
+"""
+Filename: core/flight/vault_manager.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Manages secure access to observational metadata and synchronizes GPS coordinates with config.toml.
+"""
 
 import toml
 import os
@@ -23,7 +24,6 @@ class VaultManager:
         return {}
 
     def get_observer_config(self):
-        """Pulls exact keys from config.toml. NO HARDCODED FALLBACKS."""
         aavso = self.data.get("aavso", {})
         loc = self.data.get("location", {})
         planner = self.data.get("planner", {})
@@ -39,7 +39,6 @@ class VaultManager:
         }
 
     def sync_gps(self, new_lat, new_lon, new_mh):
-        """Updates config.toml only if a location 'move' is confirmed."""
         if "location" not in self.data:
             self.data["location"] = {}
             

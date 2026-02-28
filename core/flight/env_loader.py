@@ -1,6 +1,8 @@
 """
-Filename: core/env_loader.py
 Objective: Centralized configuration and environment variable manager.
+"""
+"""
+Filename: core/env_loader.py
 Usage: from core.env_loader import cfg
 Note: Ensures AAVSO_TARGET_KEY and other secrets are present at runtime.
 """

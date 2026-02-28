@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Executes full system validation including Targets, GPS, Bridge, Weather, and Disk.
+"""
 #
 # Seestar Organizer - Pre-Flight Check
 # Path: ~/seestar_organizer/core/flight/preflight_check.py
-# Purpose: Executes full system validation including Targets, GPS, Bridge, Weather, and Disk.
 # ----------------------------------------------------------------
 
 import json

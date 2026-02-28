@@ -1,7 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Filename: core/selector.py
+Version: 1.2.0 (Pee Pastinakel)
 Objective: Prioritize targets setting in the West during the dark window.
 """
+
 import os
 import json
 from core.ephemeris import observer
@@ -31,7 +35,7 @@ class Selector:
                     raw_data = json.load(f)
                 
                 # Handle AAVSO list-wrapped JSON
-                data = raw_data[0] if isinstance(raw_data, list) else raw_data
+                data = raw_data if isinstance(raw_data, list) else raw_data
                 ra, dec = data.get('ra'), data.get('dec')
                 if ra is None or dec is None: continue
                 
@@ -55,3 +59,8 @@ class Selector:
 
         targets_found.sort(key=lambda x: x['priority_score'], reverse=True)
         return targets_found
+
+if __name__ == "__main__":
+    selector = Selector()
+    plan = selector.get_night_plan()
+    print(f"✅ Selector: Found {len(plan)} valid targets.")

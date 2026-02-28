@@ -1,8 +1,10 @@
 """
+Objective: Prioritizes targets without crashing on vault attributes.
+"""
+"""
 Filename: core/flight/sequence_engine.py
 Version: 1.2.1 (Resilient Logic)
 Role: The Night's Conductor
-Objective: Prioritizes targets without crashing on vault attributes.
 """
 import logging
 

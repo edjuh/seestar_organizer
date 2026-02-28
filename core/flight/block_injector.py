@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Transforms tonights_plan.json into 15-minute science blocks using config-driven coordinates.
+"""
 #
 # Seestar Organizer - Flight Block Injector
 # Path: ~/seestar_organizer/core/flight/block_injector.py
-# Purpose: Transforms tonights_plan.json into 15-minute science blocks using config-driven coordinates.
 # ----------------------------------------------------------------
 import requests
 import json

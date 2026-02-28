@@ -1,44 +1,88 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# Seestar Organizer - Post-Flight Quality Control Analyzer
+"""
+Objective: Validates FITS headers and calculates basic QC metrics.
+"""
+#
+# Seestar Organizer - Post-Flight Analyst
 # Path: ~/seestar_organizer/core/postflight/analyzer.py
-# Purpose: Simulates PSF/SNR analysis to test the v1.1 Dashboard feedback loop.
 # ----------------------------------------------------------------
-import json
+
 import os
-import random
-import time
+import sys
+import json
+import logging
+import toml
+from astropy.io import fits
+import numpy as np
 
-STATE_FILE = os.path.expanduser("~/seestar_organizer/core/flight/data/system_state.json")
-QC_REPORT = os.path.expanduser("~/seestar_organizer/core/postflight/data/qc_report.json")
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - [%(levelname)s] - %(message)s')
+logger = logging.getLogger("Analyst")
 
-def analyze():
-    # 1. Read what the telescope is currently doing
-    try:
-        with open(STATE_FILE, 'r') as f:
-            state = json.load(f)
-    except:
-        state = {"status": "STANDBY", "target": "None"}
+class Analyst:
+    def __init__(self):
+        self.config = self._load_config()
+        storage = self.config.get('storage', {})
+        # Check Primary, then Lifeboat
+        usb = storage.get('primary_dir', '/mnt/usb_buffer')
+        lifeboat = os.path.expanduser(storage.get('lifeboat_dir', '~/seestar_organizer/data/local_buffer'))
+        
+        self.source_path = usb if os.path.exists(usb) and any(f.endswith('.fits') for f in os.listdir(usb)) else lifeboat
+        self.report_path = os.path.expanduser("~/seestar_organizer/core/postflight/data/qc_report.json")
 
-    # 2. Generate a Science-Ready QC report
-    # In v1.1, this will be replaced by actual FITS header checks
-    quality = "OK" if random.random() > 0.15 else "FAIL"
-    
-    report = {
-        "last_capture": state.get("target", "None"),
-        "quality": quality,
-        "frames_valid": random.randint(3, 4) if quality == "OK" else random.randint(0, 2),
-        "snr_avg": round(random.uniform(15.5, 45.2), 2),
-        "message": "PSF fitting stable" if quality == "OK" else "High cloud interference"
-    }
+    def _load_config(self):
+        path = os.path.expanduser("~/seestar_organizer/config.toml")
+        return toml.load(open(path))
 
-    os.makedirs(os.path.dirname(QC_REPORT), exist_ok=True)
-    with open(QC_REPORT, 'w') as f:
-        json.dump(report, f)
-    
-    print(f"📊 QC Updated: {report['last_capture']} -> {report['quality']}")
+    def analyze_frame(self, filepath):
+        """Extracts metadata and basic SNR from a single FITS file."""
+        try:
+            with fits.open(filepath) as hdul:
+                header = hdul.header
+                data = hdul.data
+                
+                # Metadata extraction
+                obj_name = header.get('OBJECT', 'Unknown')
+                exp_time = header.get('EXPTIME', 0)
+                date_obs = header.get('DATE-OBS', 'N/A')
+                
+                # Basic SNR Estimation
+                # (Simple: Mean of signal / StdDev of background)
+                mean_signal = np.mean(data)
+                std_bg = np.std(data)
+                snr = mean_signal / std_bg if std_bg > 0 else 0
+                
+                return {
+                    "file": os.path.basename(filepath),
+                    "target": obj_name,
+                    "exposure": exp_time,
+                    "timestamp": date_obs,
+                    "snr": round(float(snr), 2),
+                    "status": "PASS" if snr > 5 else "FAIL" # Scientific floor
+                }
+        except Exception as e:
+            logger.error(f"Error analyzing {filepath}: {e}")
+            return None
+
+    def run_batch(self):
+        if not os.path.exists(self.source_path):
+            logger.warning(f"Source path {self.source_path} not found.")
+            return
+
+        fits_files = [f for f in os.listdir(self.source_path) if f.endswith('.fits')]
+        logger.info(f"🔍 Analyzing {len(fits_files)} frames in {self.source_path}...")
+
+        results = []
+        for f in fits_files:
+            report = self.analyze_frame(os.path.join(self.source_path, f))
+            if report:
+                results.append(report)
+
+        with open(self.report_path, 'w') as f:
+            json.dump(results, f, indent=4)
+        
+        logger.info(f"✅ QC Report generated: {self.report_path}")
 
 if __name__ == "__main__":
-    while True:
-        analyze()
-        time.sleep(10) # Update every 10 seconds to keep the dash fresh
+    analyst = Analyst()
+    analyst.run_batch()

@@ -1,32 +1,36 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Filename: utils/auto_header.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Injects standardized file headers into Python scripts across the project.
+"""
+
 import os
 import glob
 
 def inject_headers(base_dir):
     search_pattern = os.path.join(base_dir, '**/*.py')
     py_files = glob.glob(search_pattern, recursive=True)
-    
     fixed_count = 0
 
     for filepath in py_files:
-        if 'venv' in filepath or '.pyenv' in filepath or '__pycache__' in filepath:
+        if any(x in filepath for x in ['venv', '.pyenv', '__pycache__']):
             continue
             
         with open(filepath, 'r', encoding='utf-8') as f:
             content = f.read()
-            
-        if '# Purpose:' not in content:
             rel_path = os.path.relpath(filepath, base_dir)
             
-            # Construct the clean header
             header = f"""#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# -----------------------------------------------------------------------------
-# Filename: {rel_path}
-# Purpose:  [TODO: Define the single responsibility of this module]
-# -----------------------------------------------------------------------------
+\"\"\"
+Filename: {rel_path}
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Standardized script header.
+\"\"\"
 
 """
-            # Remove existing shebangs or encodings to prevent duplicates
             clean_content = content.replace("#!/usr/bin/env python3\n", "").replace("# -*- coding: utf-8 -*-\n", "")
             
             with open(filepath, 'w', encoding='utf-8') as f:

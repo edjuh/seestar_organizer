@@ -1,94 +1,131 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Fetches AAVSO data with query-string auth and a file-lock to prevent collisions.
+"""
 #
-# Seestar Organizer - VSP Sequence Fetcher
+# Seestar Organizer - VSP Sequence Fetcher (v2.6)
 # Path: ~/seestar_organizer/core/preflight/fetcher.py
-# Purpose: Secures AAVSO comparison star sequences for the nightly plan.
 # ----------------------------------------------------------------
 
 import os
-import sys
 import json
 import time
-import toml
 import urllib.request
-import base64
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger("VSP_Fetcher")
 
-def load_config():
-    path = os.path.expanduser("~/seestar_organizer/config.toml")
-    with open(path, 'r') as f:
-        return toml.load(f)
+LOCK_FILE = os.path.expanduser("~/.vsp_fetcher.lock")
 
-def fetch_sequence(star_name, config):
-    """Hits AAVSO VSP API for a specific target."""
-    aavso = config.get('aavso', {})
-    storage = config.get('storage', {})
+def acquire_lock():
+    if os.path.exists(LOCK_FILE):
+        # Check if process is actually running (stale lock check)
+        with open(LOCK_FILE, 'r') as f:
+            try:
+                pid = int(f.read().strip())
+                os.kill(pid, 0) # Check if PID exists
+                return False
+            except (ValueError, OSError):
+                os.remove(LOCK_FILE) # Stale lock
     
-    # API Params from api_protocol.md
-    api_key = aavso.get('target_key') # The AAVSO_TARGET_KEY
-    url = f"https://app.aavso.org/vsp/api/chart/?star={star_name.replace(' ', '+')}&format=json&fov=60&maglimit=18.0"
-    
-    # Auth: Basic (Username: key, Password: api_token)
-    auth_str = f"{api_key}:api_token"
-    encoded_auth = base64.b64encode(auth_str.encode()).decode()
+    with open(LOCK_FILE, 'w') as f:
+        f.write(str(os.getpid()))
+    return True
+
+def release_lock():
+    if os.path.exists(LOCK_FILE):
+        os.remove(LOCK_FILE)
+
+def load_env():
+    env_path = os.path.expanduser("~/seestar_organizer/.env")
+    if os.path.exists(env_path):
+        with open(env_path, 'r') as f:
+            for line in f:
+                if line.strip() and not line.startswith('#') and '=' in line:
+                    key, val = line.strip().split('=', 1)
+                    os.environ[key.strip()] = val.strip().strip('"\'')
+
+def fetch_sequence(star_name):
+    api_key = os.environ.get("AAVSO_TARGET_KEY")
+    if not api_key:
+        logger.error("❌ AAVSO_TARGET_KEY not found!")
+        return False
+
+    url = (
+        "https://apps.aavso.org/vsp/api/chart/"
+        f"?star={star_name.replace(' ', '+')}"
+        f"&format=json&fov=60&maglimit=18.0"
+        f"&api_key={api_key.strip()}"
+    )
 
     req = urllib.request.Request(url)
-    req.add_header("Authorization", f"Basic {encoded_auth}")
-    
+    req.add_header("User-Agent", "SeestarOrganizer/2.6 (Contact: ed@S30-pro)")
+
     try:
         with urllib.request.urlopen(req, timeout=30) as response:
             data = json.loads(response.read().decode())
-            
-            # Save to the authoritative sequence directory
-            seq_dir = os.path.expanduser(storage.get('sequence_dir', '~/seestar_organizer/data/sequences'))
+            if not isinstance(data, dict) or "photometry" not in data:
+                return False
+
+            normalized = {
+                "target": {
+                    "star": data.get("star"),
+                    "auid": data.get("auid"),
+                    "ra_hms": data.get("ra"),
+                    "dec_dms": data.get("dec")
+                },
+                "chart": {
+                    "chart_id": data.get("chartid"),
+                    "fov_arcmin": data.get("fov"),
+                    "maglimit": data.get("maglimit")
+                },
+                "comparison_stars": data.get("photometry", [])
+            }
+
+            seq_dir = os.path.expanduser('~/seestar_organizer/data/comp_stars')
             os.makedirs(seq_dir, exist_ok=True)
-            
-            filename = f"{star_name.lower().replace(' ', '_')}.json"
-            save_path = os.path.join(seq_dir, filename)
-            
+            save_path = os.path.join(seq_dir, f"{star_name.lower().replace(' ', '_')}.json")
+
             with open(save_path, 'w') as f:
-                json.dump(data, f, indent=4)
-            
-            logger.info(f"✅ Secured sequence for {star_name}")
+                json.dump(normalized, f, indent=4)
+
+            logger.info(f"✅ Secured {len(normalized['comparison_stars'])} comps for {star_name}")
             return True
     except Exception as e:
-        logger.error(f"❌ Failed to fetch {star_name}: {e}")
+        logger.error(f"❌ Fetch failed for {star_name}: {e}")
         return False
 
 def run_enrichment():
-    config = load_config()
-    storage = config.get('storage', {})
-    target_dir = os.path.expanduser(storage.get('target_dir', '~/seestar_organizer/data'))
-    seq_dir = os.path.expanduser(storage.get('sequence_dir', '~/seestar_organizer/data/sequences'))
-    plan_path = os.path.join(target_dir, "tonights_plan.json")
-
-    if not os.path.exists(plan_path):
-        logger.error("No nightly plan found. Run the planner first.")
+    if not acquire_lock():
+        logger.warning("🛑 Another fetcher is running. Exiting.")
         return
 
-    with open(plan_path, 'r') as f:
-        plan = json.load(f)
+    try:
+        load_env()
+        target_dir = os.path.expanduser('~/seestar_organizer/data')
+        plan_path = os.path.join(target_dir, "campaign_targets.json")
+        if not os.path.exists(plan_path): return
 
-    logger.info(f"Starting enrichment for {len(plan)} targets...")
-    
-    for entry in plan:
-        star = entry['name']
-        filename = f"{star.lower().replace(' ', '_')}.json"
-        
-        if os.path.exists(os.path.join(seq_dir, filename)):
-            continue # Already have it
+        with open(plan_path, 'r') as f:
+            campaign = json.load(f)
             
-        logger.info(f"Targeting: {star}...")
-        success = fetch_sequence(star, config)
-        
-        if success:
-            # Mandatory throttling from api_protocol.md
-            logger.info("Respecting VSP Throttling: 188.4s sleep...")
-            time.sleep(188.4)  # Pi-Minutes Throttling
+        targets = campaign.get('targets', [])
+        seq_dir = os.path.expanduser('~/seestar_organizer/data/comp_stars')
+
+        for entry in targets:
+            star = entry.get('star_name') or entry.get('name')
+            if not star: continue
+            
+            if os.path.exists(os.path.join(seq_dir, f"{star.lower().replace(' ', '_')}.json")):
+                continue
+
+            if fetch_sequence(star):
+                logger.info("Throttling: 31.4s sleep...")
+                time.sleep(31.4)
+    finally:
+        release_lock()
 
 if __name__ == "__main__":
     run_enrichment()

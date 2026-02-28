@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Calculates astronomical dark, fetches Open-Meteo & Buienradar forecasts, and returns a UTF-8 evaluated status.
+"""
 #
 # Seestar Organizer - Predictive Weather Oracle
 # Path: ~/seestar_organizer/core/preflight/weather.py
-# Purpose: Calculates astronomical dark, fetches Open-Meteo & Buienradar forecasts, and returns a UTF-8 evaluated status.
 # ----------------------------------------------------------------
 
 import json

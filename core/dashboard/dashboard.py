@@ -1,6 +1,8 @@
 """
-Filename: core/dashboard.py
 Objective: Terminal User Interface (TUI) for real-time system monitoring.
+"""
+"""
+Filename: core/dashboard.py
 Usage: dashboard.refresh()
 Note: Optimized for 'screen' sessions to provide high-glanceability status.
 """

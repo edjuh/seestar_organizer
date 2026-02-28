@@ -1,12 +1,25 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Filename: utils/cleanup.py
-Objective: Housekeeping for temporary files and logs.
-Usage: python3 -m utils.cleanup
-Note: Run weekly to prevent SD card bloat.
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Housekeeping utility for purging temporary files and rotating stale logs to prevent storage bloat.
 """
+
 import os
+import time
 from pathlib import Path
 
 def purge_temp():
-    # Logic to find and delete *.tmp and stale logs
-    pass
+    root_dir = Path(__file__).parent.parent
+    log_dir = root_dir / "logs"
+    print(f"🧹 Cleaning logs in {log_dir}...")
+    if log_dir.exists():
+        for log in log_dir.glob("*.log"):
+            if time.time() - log.stat().st_mtime > 604800: # 7 days
+                log.unlink()
+                print(f"   🗑️ Removed stale log: {log.name}")
+    print("✅ Cleanup complete.")
+
+if __name__ == "__main__":
+    purge_temp()

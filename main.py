@@ -1,11 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Filename: main.py
-Objective: Primary entry point for the Seestar Sentry daemon; manages the Williamina and Annie hardware loops.
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Primary entry point for the Seestar Sentry daemon; orchestrates weather gates, solar gates, and hardware observation loops.
 """
-"""
-Filename: main.py
-Objective: The primary entry point for the Sentry daemon; coordinates all specialist modules.
-"""
+
 import time
 import os
 from core.weather import weather
@@ -15,7 +15,6 @@ from core.alpaca_client import alpaca
 from core.logger import log_event
 
 def verify_inventory():
-    """Check if we have targets to work with before starting."""
     vault_path = "data/sequences/"
     if not os.path.exists(vault_path):
         log_event(f"CRITICAL: Vault path {vault_path} missing!", level="error")
@@ -26,13 +25,11 @@ def verify_inventory():
     return count
 
 def run_cycle():
-    # Load simulation and override flags
     sim_mode = os.getenv("SIMULATION_MODE", "False").lower() == "true"
     dark_mode = os.getenv("DARKNESS_OVERRIDE", "False").lower() == "true"
     
     log_event(f"Kwetal: Cycle start (Sim: {sim_mode}, Dark: {dark_mode})")
 
-    # 1. Weather Gate
     if sim_mode:
         log_event("Kwetal: SIMULATION ACTIVE - Ignoring real weather.")
     else:
@@ -41,7 +38,6 @@ def run_cycle():
             alpaca.park_telescope()
             return
 
-    # 2. Solar Gate
     is_dark = observer.is_dark_enough()
     if not (sim_mode or dark_mode or is_dark):
         log_event(f"Kwetal: Sun is at {observer.sun_alt:.1f}°. Waiting for darkness.")
@@ -49,10 +45,9 @@ def run_cycle():
     elif sim_mode:
          log_event(f"Kwetal: SIMULATION ACTIVE - Ignoring Sun at {observer.sun_alt:.1f}°.")
 
-    # 3. Priority Target Selection (Westward-First)
     plan = selector.get_night_plan()
     if plan:
-        target = plan[0]  # Top priority is the first in the sorted list
+        target = plan
         log_event(f"Kwetal: Selected priority target {target['display_name']} at {target['alt']:.1f}° (Az: {target['az']:.1f}°).")
         alpaca.start_observation(target)
     else:

@@ -25,7 +25,8 @@
                 1772149952
             ]
         ],
-        "solar_conjunction": false
+        "solar_conjunction": false,
+        "last_observed": "2026-02-28"
     },
     {
         "star_name": "AG Dra",
@@ -437,7 +438,8 @@
                 1772149952
             ]
         ],
-        "solar_conjunction": false
+        "solar_conjunction": false,
+        "last_observed": "2026-02-28"
     },
     {
         "star_name": "AG Dra",
@@ -577,7 +579,8 @@
                 1772063788
             ]
         ],
-        "solar_conjunction": false
+        "solar_conjunction": false,
+        "last_observed": "2026-02-28"
     },
     {
         "star_name": "CH Cyg",
@@ -605,7 +608,8 @@
                 1772063788
             ]
         ],
-        "solar_conjunction": false
+        "solar_conjunction": false,
+        "last_observed": "2026-02-28"
     },
     {
         "star_name": "CH Cyg",
@@ -633,7 +637,8 @@
                 1772063788
             ]
         ],
-        "solar_conjunction": false
+        "solar_conjunction": false,
+        "last_observed": "2026-02-28"
     },
     {
         "star_name": "AG Peg",

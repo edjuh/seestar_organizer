@@ -1,1 +1,10 @@
-{"last_capture": "None", "quality": "FAIL", "frames_valid": 0, "snr_avg": 40.75, "message": "High cloud interference"}
+[
+    {
+        "file": "ch_cyg_stack.fits",
+        "target": "CH Cyg",
+        "exposure": 60,
+        "timestamp": "2026-02-28",
+        "snr": 36.5,
+        "status": "PASS"
+    }
+]

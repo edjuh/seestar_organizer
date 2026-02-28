@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Filename: core/preflight/harvester.py
-Version: 1.0.0 (Kwetal)
-Role: Preflight A - The Harvester
+Version: 1.2.0 (Pee Pastinakel)
 Objective: Downloads active campaigns from AAVSO, vetoing targets outside FOV constraints.
 """
 
@@ -95,7 +94,7 @@ def harvest():
             logger.info(f"✅ Pull Verified. {len(stats['updated'])} refreshed. {len(stats['new'])} added.")
             
             if stats["new"]:
-                logger.info(f"✨ New Target Confirmed: {stats['new'][0]}")
+                logger.info(f"✨ New Target Confirmed: {stats['new']}")
             
         else:
             logger.error(f"❌ API Rejected request: {response.status_code}")

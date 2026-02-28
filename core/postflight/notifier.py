@@ -1,6 +1,8 @@
 """
-Filename: core/notifier.py
 Objective: Outbound alert management via Telegram and system bells.
+"""
+"""
+Filename: core/notifier.py
 Usage: notifier.send_alert("Fog detected! Closing shutter.")
 Note: Requires TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in .env.
 """

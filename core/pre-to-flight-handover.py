@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
-# Seestar Organizer - Pre-to-Flight Handover Gatekeeper
-# Path: ~/seestar_organizer/core/pre-to-flight-handover.py
-# Purpose: Evaluates the final preflight vitals. If safe, authorizes the FLIGHT phase. If unsafe, aborts the mission.
-# ----------------------------------------------------------------
+"""
+Filename: core/pre-to-flight-handover.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Evaluates final preflight vitals to authorize the transition to the FLIGHT phase or abort the mission if unsafe.
+"""
 
 import json
 import os
@@ -56,7 +56,6 @@ def execute_handover():
         print("✅ HANDOVER APPROVED. All systems nominal.")
         print("🚀 Passing control to the Flight Engine...")
         print("==========================================\n")
-        # In the future, this is where we would trigger core/flight/master.py
         sys.exit(0)
 
 if __name__ == "__main__":

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
-# Seestar Organizer - Federation ACARS Overseer (Dynamic v1.1)
-# Path: ~/seestar_organizer/dashboard/app.py
-# Purpose: Mission Control dashboard using real vault data and GPS fix states.
-# ----------------------------------------------------------------
+"""
+Filename: dashboard/app.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Mission Control dashboard using real vault data and GPS fix states.
+"""
 
 from flask import Flask, render_template
 import json

@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 Filename: core/sequence_repository.py
-Objective: Local cache manager for AAVSO V-band comparison sequences.
-Usage: repo = SequenceRepository(); seq = repo.get_sequence("CH Cyg")
-Note: Reduces API load and allows offline planning.
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Local cache manager for AAVSO V-band comparison sequences, reducing API overhead for offline planning.
 """
+
 import json
 from pathlib import Path
 
@@ -25,4 +27,6 @@ class SequenceRepository:
         with open(self.data_dir / "targets.json", 'r') as f:
             return json.load(f)
 
-repo = SequenceRepository()
+if __name__ == "__main__":
+    repo = SequenceRepository()
+    print(f"✅ Sequence Repository: Initialized at {repo.seq_dir}")

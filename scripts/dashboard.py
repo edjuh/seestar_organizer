@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Filename: scripts/dashboard.py
-Version: 1.2.0
-Role: The Watchdog
+Version: 1.2.0 (Pee Pastinakel)
 Objective: Passive telemetry UI for observing the Alpaca bridge and mission plan.
 """
 
@@ -22,7 +21,7 @@ def get_last_log_line(log_path):
         return "Waiting for Orchestrator..."
     try:
         with open(log_path, "r") as f:
-            last_line = collections.deque(f, maxlen=1)[0]
+            last_line = collections.deque(f, maxlen=1)
             return last_line.strip()[25:]
     except Exception:
         return "Error reading log..."
@@ -37,7 +36,7 @@ def get_plan_summary():
             targets = plan.get("targets", [])
             if not targets:
                 return "Plan empty."
-            next_target = targets[0]["name"]
+            next_target = targets["name"]
             return f"{len(targets)} targets queued (Next: {next_target})"
     except Exception:
         return "Error parsing plan."

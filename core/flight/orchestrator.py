@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
-# Seestar Organizer - Flight Orchestrator (Sim-Enabled)
-# Path: ~/seestar_organizer/core/flight/orchestrator.py
-# ----------------------------------------------------------------
+"""
+Filename: core/flight/orchestrator.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Primary flight control daemon that manages hardware states (Slewing, Centering, Integrating) and broadcasts telemetry to the dashboard.
+"""
 
 import os
 import sys
@@ -23,7 +24,6 @@ class Orchestrator:
         self.vault = VaultManager()
         self.state_file = os.path.expanduser("~/seestar_organizer/core/flight/data/system_state.json")
         
-        # Storage Setup
         storage = self.vault.data.get('storage', {})
         self.usb_path = storage.get('primary_dir', '/mnt/usb_buffer')
         self.lifeboat_path = os.path.expanduser(storage.get('lifeboat_dir', '~/seestar_organizer/data/local_buffer'))
@@ -37,7 +37,6 @@ class Orchestrator:
             return self.lifeboat_path
 
     def update_dashboard(self, status, target="None", message=""):
-        """Broadcasts state to the Dashboard."""
         state = {
             "status": status,
             "target": target,
@@ -56,20 +55,12 @@ class Orchestrator:
 
         for target in targets:
             name = target['name']
-            
-            # 1. SLEWING
             self.update_dashboard("🛰️ SLEWING", name, f"Moving to RA:{target['ra']} Dec:{target['dec']}")
-            time.sleep(3) # SIM SPEED
-            
-            # 2. CENTERING
+            time.sleep(3)
             self.update_dashboard("🎯 CENTERING", name, "Plate-solving FOV...")
             time.sleep(2)
-            
-            # 3. INTEGRATING
             self.update_dashboard("📸 INTEGRATING", name, f"Capture: {target['frames']} x {target['exposure_sec']}s")
-            time.sleep(5) # Simulation of the first few frames
-            
-            # 4. SYNCING
+            time.sleep(5)
             self.update_dashboard("💾 SYNCING", name, f"Transferring FITS to {os.path.basename(self.active_storage)}")
             time.sleep(2)
 

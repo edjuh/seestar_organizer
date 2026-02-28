@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Objective: Manages geographic coordinates using config.toml as the source of truth.
+"""
+"""
 Filename: core/preflight/gps.py
 Version: 1.0.0 (Kwetal)
 Role: Utility - Location Provider
-Objective: Manages geographic coordinates using config.toml as the source of truth.
 """
 
 import tomllib

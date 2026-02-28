@@ -1,6 +1,8 @@
 """
-Filename: core/hardware_profiles.py
 Objective: Define sensor specs for Annie (S50), Williamina (S30-Pro), and Henrietta (S30-Pro Fast).
+"""
+"""
+Filename: core/hardware_profiles.py
 """
 
 PROFILES = {

@@ -1,6 +1,8 @@
 """
-Filename: core/logger.py
 Objective: System-wide logging with automatic file rotation.
+"""
+"""
+Filename: core/logger.py
 Usage: from core.logger import log_event; log_event("Slew complete")
 Note: Retains 3 backup files of 5MB each.
 """

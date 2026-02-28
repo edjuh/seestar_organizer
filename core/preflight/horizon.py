@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Objective: Veto targets based on local obstructions (Trees, Buildings) using Az/Alt mapping.
+"""
+"""
 Filename: core/preflight/horizon.py
 Version: 1.0.0 (Kwetal)
 Role: Utility - Obstruction Mapper
-Objective: Veto targets based on local obstructions (Trees, Buildings) using Az/Alt mapping.
 """
 
 # Simple Azimuth: Min_Alt map for Haarlem obstructions

@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Filename: utils/fix_imports.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Automated namespace correction utility for project-wide absolute import resolution.
+"""
+
 import os
 import re
 
-# Map of where files currently live
 PILLAR_MAP = {
     "preflight": ["harvester", "nightly_planner", "weather", "fog_monitor", "gps", "horizon", "aavso_client", "librarian", "ephemeris", "planner", "scheduler"],
     "flight": ["orchestrator", "hardware_profiles", "sequence_engine", "vault_manager", "env_loader"],
@@ -17,7 +23,6 @@ def fix_file(filepath):
     new_content = content
     for pillar, modules in PILLAR_MAP.items():
         for mod in modules:
-            # Replace 'import module' or 'from module import' with pillar-aware absolute paths
             new_content = re.sub(fr'import {mod}\b', f'from core.{pillar} import {mod}', new_content)
             new_content = re.sub(fr'from {mod} import', f'from core.{pillar}.{mod} import', new_content)
     

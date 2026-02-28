@@ -1,5 +1,8 @@
 # 🗺️ S30-PRO Development Roadmap: The Rommeldam Epic
 
+> **Objective:** Tracks the architectural journey and future versioning milestones of the Seestar Federation, mapped to the characters of Marten Toonder's universe.
+> **Version:** 1.2.0 (Garmt / Pee Pastinakel)
+
 This document outlines the architectural journey of the S30-PRO autonomous observatory, structurally mapped to the characters of Marten Toonder's universe.
 
 ## ✅ Past Milestones (The Foundation)
@@ -14,15 +17,17 @@ This document outlines the architectural journey of the S30-PRO autonomous obser
 * **v0.8 Lieven Brekel:** Mid-sequence weather aborts and WCS bridge hardening.
 * **v0.9 Terpen Tijn:** "Het is prut!" Westward priority active. Sub-pixel centroiding, dynamic CFA debayering, and stable Alpaca handshake for AAVSO targets.
 * **v1.0 Kwetal:** Converting the Orchestrator into a bulletproof `systemd` background daemon.
+* **v1.1 Pee Pastinakel:** Dynamic aperture scaling (PSF fitting) and saturation detection.
+
 ## 🚀 Near-Term Milestones (The Specialists)
-* **v1.1 Pee Pastinakel (Current):** Dynamic aperture scaling (PSF fitting) and saturation detection.
+* **v1.2 Garmt (Current):** Unified PEP 257 standardization across the entire fleet. Implementation of the "Standardization Reaper" and full-sentence objective integration to prevent AI tripping.
 
 ---
 
 ## 🌲 Epoch 1: Het Kleine Volkje (v1.x)
 *The invisible, tireless workers in the background. Focuses on system resilience and background magic.*
 * **v1.1 Pee Pastinakel:** "Talks to the plants" (environmental sensor tuning).
-* **v1.2 Garmt:** A down-to-earth, stable baseline update.
+* **v1.2 Garmt:** A down-to-earth, stable baseline update. Standardized project-wide metadata and objective clarity.
 * **v1.3 Monkel:** *"Een mens kan ook nooit eens rustig..."* Fixing daemon interruption bugs.
 * **v1.4 Kriel:** A small, agile performance update.
 * **v1.5 Humpie:** A small, targeted interface/CLI fix.

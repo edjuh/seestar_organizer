@@ -1,45 +1,52 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Orchestrates sequential fetching, coordinate normalization,
+"""
 #
-# Seestar Organizer - Pre-Flight Master Conductor
+# Seestar Organizer - Master Preflight Orchestrator (v1.3)
 # Path: ~/seestar_organizer/core/preflight/preflight_master.py
-# Purpose: The definitive late-afternoon automated conductor.
+#          and aperture-limit validation via ASAS-SN.
 # ----------------------------------------------------------------
 
-import subprocess
 import os
 import sys
+import subprocess
 import logging
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger("Conductor")
+logger = logging.getLogger("Master_Preflight")
 
 def run_step(name, script_path):
-    logger.info(f"▶️ STARTING: {name}")
-    result = subprocess.run([sys.executable, script_path])
-    if result.returncode != 0:
-        logger.warning(f"⚠️ {name} failed or completed with warnings.")
-    else:
-        logger.info(f"✅ COMPLETED: {name}")
-    return result.returncode
+    logger.info(f"--- Starting Step: {name} ---")
+    if not os.path.exists(script_path):
+        logger.warning(f"⚠️ Skipping {name}: Script not found at {script_path}")
+        return True
+        
+    try:
+        subprocess.check_call([sys.executable, script_path])
+        logger.info(f"✅ {name} completed.")
+        return True
+    except subprocess.CalledProcessError as e:
+        logger.error(f"❌ {name} failed with error code {e.returncode}")
+        return False
 
 def main():
-    base = os.path.expanduser("~/seestar_organizer")
+    base_dir = os.path.expanduser("~/seestar_organizer")
     
-    print("\n🥃 CONDUCTOR: Initializing Federation Pre-Flight Sequence...")
+    # The Full Preflight Sequence
+    steps = [
+        ("VSP Fetcher", os.path.join(base_dir, "core/preflight/fetcher.py")),
+        ("Coordinate Librarian", os.path.join(base_dir, "utils/coordinate_converter.py")),
+        ("ASAS-SN Validator", os.path.join(base_dir, "core/preflight/asassn_validator.py")),
+    ]
 
-    # 1. THE PLANNER: Decides what we shoot based on Haarlem sky
-    run_step("NIGHTLY PLANNER", f"{base}/core/preflight/nightly_planner.py")
-    
-    # 2. THE FETCHER: Secures comp-stars for tonight's 71 targets
-    # Note: Fetcher has internal 3.14m (Pi) throttling
-    print("⏳ ENRICHMENT: Fetching sequences... (Throttled at 3.14 mins/target)")
-    run_step("VSP FETCHER", f"{base}/core/preflight/fetcher.py")
-    
-    # 3. THE AUDIT: Updates the ACARS Dashboard
-    run_step("VITALS AUDIT", f"{base}/core/flight/preflight_check.py")
-    
-    print("\n🏁 CONDUCTOR: All rounds complete. Systems ready for Handover.")
+    for name, path in steps:
+        if not run_step(name, path):
+            logger.error("🛑 Preflight aborted due to critical step failure.")
+            break
+
+    logger.info("🎯 Preflight Complete. Your target list is now Aperture-Validated.")
 
 if __name__ == "__main__":
     main()

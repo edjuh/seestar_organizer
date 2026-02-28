@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Secures data after a mission, stops hardware bridges, and triggers post-flight analysis.
+"""
 #
 # Seestar Organizer - Flight-to-Post Handover Gatekeeper
 # Path: ~/seestar_organizer/core/flight-to-post-handover.py
-# Purpose: Secures data after a mission, stops hardware bridges, and triggers post-flight analysis.
 # ----------------------------------------------------------------
 
 import os

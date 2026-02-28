@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Objective: Human-readable reporter for the current Alpaca Bridge flight schedule.
+"""
 #
 # Seestar Organizer - Flight Manifest Reporter
 # Path: ~/seestar_organizer/core/flight/get_manifest.py
-# Purpose: Human-readable reporter for the current Alpaca Bridge flight schedule.
 # ----------------------------------------------------------------
 import requests
 

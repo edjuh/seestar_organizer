@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-#
-# Seestar Organizer - Virtual Setup Auditor
-# Path: ~/seestar_organizer/utils/audit_setup.py
-# Purpose: Dumps current Horizon and Target configuration for architectural review.
-# ----------------------------------------------------------------
+"""
+Filename: utils/audit_setup.py
+Version: 1.2.0 (Pee Pastinakel)
+Objective: Dumps current Horizon and Target configuration for architectural review.
+"""
 
 import toml
 import os
@@ -18,13 +18,10 @@ def audit():
         return
 
     config = toml.load(config_path)
-    
-    # Audit Horizon
     planner = config.get("planner", {})
     horizon_file = planner.get("horizon_profile", "NOT_DEFINED")
     print(f"📍 Horizon Profile : {horizon_file}")
     
-    # Audit Targets
     target_dir = config.get("storage", {}).get("target_dir", "~/seestar_organizer/data/targets")
     target_path = os.path.expanduser(target_dir)
     print(f"🎯 Target Directory : {target_path}")
@@ -35,7 +32,6 @@ def audit():
     else:
         print("⚠️  WARNING: Target directory does not exist.")
 
-    # Check for existing Plan
     plan_path = os.path.expanduser("~/seestar_organizer/core/flight/data/nightly_plan.json")
     if os.path.exists(plan_path):
         print(f"📋 Nightly Plan    : FOUND ({os.path.getmtime(plan_path)} modified)")

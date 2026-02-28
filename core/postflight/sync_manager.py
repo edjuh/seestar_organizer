@@ -1,6 +1,8 @@
 """
-Filename: core/sync_manager.py
 Objective: Manages file synchronization between Seestar, Local Buffer, and NAS.
+"""
+"""
+Filename: core/sync_manager.py
 Usage: sync_manager.process_offload()
 Note: Verified move operations to prevent data corruption on SD card.
 """

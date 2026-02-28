@@ -1,6 +1,8 @@
 """
-Filename: core/validator.py
 Objective: Enforce data integrity constraints for the S30-PRO pipeline.
+"""
+"""
+Filename: core/validator.py
 """
 from pathlib import Path
 import json

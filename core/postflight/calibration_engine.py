@@ -1,6 +1,8 @@
 """
-Filename: core/calibration_engine.py
 Objective: Manages Zero-Point (ZP) offsets and flat-field corrections for the IMX585.
+"""
+"""
+Filename: core/calibration_engine.py
 """
 import json
 import math
