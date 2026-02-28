@@ -1,38 +1,23 @@
-cat << 'EOF' > ~/seestar_organizer/README.md
-# Seestar Organizer
+# 🔭 Seestar Organizer (v1.2.0 Garmt)
 
-> **Objective:** Primary documentation for the automated variable star observation pipeline, outlining the Modular 3-Block Architecture and Single Responsibility Principle.
-> **Version:** 1.2.0 (Garmt)
+> **Objective:** Primary documentation and entry gate for the automated S30-PRO variable star observation pipeline.
+> **Version:** 1.2.0 (Garmt / Pee Pastinakel)
 
 **Automated Variable Star Observation Pipeline**
 
-## 🔭 Project Overview
-This project automates the entire lifecycle of variable star observation: from planning and capture to photometry and final AAVSO submission. Optimized for the **ZWO Seestar S30-pro** and its **IMX585 sensor**.
+## 🏰 Architecture: The Rommeldam Federation
+This project utilizes a **Modular 3-Block Architecture** to manage the lifecycle of astronomical data. Following the **Single Responsibility Principle**, all logic is partitioned into Preflight, Flight, and Post-flight pillars.
 
-## 🏰 Architecture & The "Golden Bridge"
-Because the native Seestar app is a closed ecosystem, this project utilizes `seestar_alp` as a Chief of Staff to handle low-level hardware communication. To ensure strict stability, the v1.2 Garmt release enforces a **Modular 3-Block Architecture** based on the Single Responsibility Principle:
+## 🧠 The ET Protocol (Logic Hub)
+For technical deep-dives into our networking, state-machine logic, and AAVSO handshake protocols, see the **[Logic Directory](./logic/README.md)**.
 
-## 🛫 PREFLIGHT (Daytime Operations)
-*The hardware is off. The Pi prepares the data.*
-* **Phase 1: Planning & Vetting**
-    * **Preflight A (Harvester):** Downloads active campaigns from AAVSO, vetoing targets outside the Seestar's physical FOV constraints.
-    * **Preflight B (Fetcher):** Secures local AAVSO comparison star sequences (`comp_stars/*.json`), verifying reference stars are within the FOV.
-    * **Preflight C (Scheduler):** `nightly_planner.py` scores the surviving targets against tonight's specific ephemeris. It enforces Lunar avoidance, rewards Westward setting targets, and caps the daily itinerary to the Top 20 targets (`tonights_plan.json`).
-    * **Preflight D (Audit):** Tags 'done' objects until a new observation is required for slow-cadence targets.
+* **[Master Workflow](./logic/WORKFLOW.md)**: The end-to-end data lifecycle.
+* **[Data Mapping](./logic/data_mapping.md)**: Understanding the "Funnel" pattern.
+* **[API Protocols](./logic/api_protocol.md)**: Mandatory throttling and connection rules.
 
-## 🚀 FLIGHT (Nighttime Operations)
-*The hardware is active. The pipeline is closed.*
-* **Phase 2: Acquisition**
-    * The **Butler (`orchestrator.py`)** verifies the Safety Gate (Weather/Fog) and commands the **Communicator (`alpaca_client.py`)**.
-    * The 1x1 Mosaic payload is injected. The Seestar slews, auto-focuses, and captures raw FITS files without human intervention.
-
-## 🧪 POSTFLIGHT (Processing & Archiving)
-*The telescope slews to the next target. Data is processed asynchronously.*
-* **Phase 3: The Forge (Per-Object)**
-    * `sync_manager.py` pulls raw FITS. Calibration, stacking, and plate-solving are performed via ASTAP.
-    * `photometry_engine.py` extracts flux, cross-references `comp_stars`, and computes V-band magnitude.
-* **Phase 4: The Epilogue (Morning)**
-    * The system updates the local Cadence Ledger and formats data for AAVSO WebObs submission.
+## 🛫 System Entry Points
+* **Setup Wizard (`setup_wizard.py`)**: The interactive CLI for initial configuration.
+* **Kwetal Sentry (`main.py`)**: The primary background daemon managing hardware loops.
 
 ## 🍷 Slotwoord van een Heer van Stand
-"Het is een hele zorg, nietwaar? De sterrenhemel is onmetelijk en de techniek staat voor niets, maar men moet wel de juiste middelen hebben om de zaken in goede banen te leiden. Een heer weet wanneer hij moet delegeren; ik laat het sorteren en organiseren van de opnamen dan ook graag over aan deze voortreffelijke eenvoudige software. Het is, zoals mijn goede vader placht te zeggen, een kwestie van fijn van draad blijven. Mocht u onvolkomenheden aantreffen, schroom dan niet om een ambtelijk schrijven (of een Issue) achter te laten. Maar let wel: wij handelen hier volgens de regelen van het fatsoen!"
+"Het is een hele zorg, nietwaar? De sterrenhemel is onmetelijk en de techniek staat voor niets... wij handelen hier volgens de regelen van het fatsoen!"

@@ -2,20 +2,27 @@
 # -*- coding: utf-8 -*-
 """
 Filename: main.py
-Version: 1.2.0 (Pee Pastinakel)
-Objective: Primary entry point for the Seestar Sentry daemon; orchestrates weather gates, solar gates, and hardware observation loops.
+Version: 1.2.0 (Garmt)
+Objective: Primary entry point for the Seestar Sentry daemon; orchestrates the "Williamina" and "Annie" hardware loops with path-aware imports.
 """
 
 import time
 import os
-from core.weather import weather
-from core.ephemeris import observer
+import sys
+
+# Standardize the environment path so root can see the "Pillars"
+project_root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.join(project_root, 'core'))
+
+from core.preflight.weather import weather
+from core.preflight.ephemeris import observer
 from core.selector import selector
-from core.alpaca_client import alpaca
+from api.alpaca_client import alpaca
 from core.logger import log_event
 
 def verify_inventory():
-    vault_path = "data/sequences/"
+    """Check if we have targets to work with before starting."""
+    vault_path = os.path.join(project_root, "data/sequences/")
     if not os.path.exists(vault_path):
         log_event(f"CRITICAL: Vault path {vault_path} missing!", level="error")
         return 0
@@ -30,43 +37,35 @@ def run_cycle():
     
     log_event(f"Kwetal: Cycle start (Sim: {sim_mode}, Dark: {dark_mode})")
 
-    if sim_mode:
-        log_event("Kwetal: SIMULATION ACTIVE - Ignoring real weather.")
-    else:
-        if not weather.is_safe_to_image():
-            log_event("Kwetal: Weather UNSAFE. Commanding Lockdown.")
-            alpaca.park_telescope()
-            return
+    if not sim_mode and not weather.is_safe_to_image():
+        log_event("Kwetal: Weather UNSAFE. Commanding Lockdown.")
+        alpaca.park_telescope()
+        return
 
     is_dark = observer.is_dark_enough()
     if not (sim_mode or dark_mode or is_dark):
         log_event(f"Kwetal: Sun is at {observer.sun_alt:.1f}°. Waiting for darkness.")
         return 
-    elif sim_mode:
-         log_event(f"Kwetal: SIMULATION ACTIVE - Ignoring Sun at {observer.sun_alt:.1f}°.")
 
     plan = selector.get_night_plan()
     if plan:
         target = plan
-        log_event(f"Kwetal: Selected priority target {target['display_name']} at {target['alt']:.1f}° (Az: {target['az']:.1f}°).")
+        log_event(f"Kwetal: Selected priority target {target['display_name']} at {target['alt']:.1f}°.")
         alpaca.start_observation(target)
     else:
         log_event("Kwetal: No valid targets found in current sky window.")
 
 def main():
-    log_event("Kwetal Sentry: Initializing...")
-    
+    log_event("Kwetal Sentry: Initializing Garmt v1.2.0...")
     if verify_inventory() == 0:
         log_event("CRITICAL: No targets found. Exiting.", level="error")
-        return
+        sys.exit(1)
 
     while True:
         try:
             run_cycle()
         except Exception as e:
             log_event(f"Kwetal: Runtime Error: {e}", level="error")
-        
-        log_event("Kwetal: Cycle complete. Sleeping for 10 minutes.")
         time.sleep(600)
 
 if __name__ == "__main__":

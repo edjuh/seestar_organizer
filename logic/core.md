@@ -1,6 +1,7 @@
 # 🧠 S30-PRO Core Logic Flow
 
-This document defines the operational sequence of the SeestarJoost system.
+> **Objective:** Defines the linear chain of command and the guiding principles for the operational observatory pipeline.
+> **Version:** 1.2.0 (Garmt)
 
 ## 🛰️ Operational Pipeline
 The system follows a linear chain of command:

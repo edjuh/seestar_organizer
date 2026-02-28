@@ -1,4 +1,7 @@
-# 📡 AAVSO VSP API PROTOCOL (S30-PRO)
+# 📡 AAVSO VSP API PROTOCOL
+
+> **Objective:** Defines connection strings, required parameters, and mandatory throttling logic for AAVSO API interactions.
+> **Version:** 1.2.0 (Garmt)
 
 ## 🔗 The Connection String
 - **Canonical URL**: `https://app.aavso.org/vsp/api/chart/`

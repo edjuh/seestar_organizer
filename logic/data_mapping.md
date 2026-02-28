@@ -1,5 +1,8 @@
 # 🧠 S30-PRO Data Lifecycle
 
+> **Objective:** High-level overview of the Funnel pattern, tracking data from raw AAVSO fetch through refinement to final acquisition.
+> **Version:** 1.2.0 (Garmt)
+
 Data in SeestarJoost follows a "Funnel" pattern:
 
 1. **RAW FETCH**: `sync_catalog.py` pulls thousands of lines from AAVSO -> `targets.json`.
