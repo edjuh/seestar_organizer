@@ -62,6 +62,8 @@
 * `utils/undo_header_mess.py`: No objective defined.
 * `utils/wvs_ingester.py`: Downloads and parses the KNVWS Werkgroep Veranderlijke Sterren
 * `core/utils/disk_monitor.py`: Verifies NAS and local USB/buffer storage availability across all flight phases.
+* `core/utils/gps_monitor.py`: Monitors GPSD natively via TCP socket and updates RAM-disk status.
+* `core/utils/observer_math.py`: Calculates 6-character Maidenhead grid squares.
 * `core/flight-to-post-handover.py`: Secures data after a mission, stops hardware bridges, and triggers post-flight analysis.
 * `core/post_to_pre_feedback.py`: Updates targets.json with successful observation dates.
 * `core/pre-to-flight-handover.py`: Evaluates the final preflight vitals. If safe, authorizes the FLIGHT phase. If unsafe, aborts the mission.

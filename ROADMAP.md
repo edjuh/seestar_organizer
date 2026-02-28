@@ -1,4 +1,4 @@
-# 🗺️ S30-PRO Development Roadmap: The Rommeldam Epic
+🗺️ S30-PRO Development Roadmap: The Rommeldam Epic
 
 > **Objective:** Tracks the architectural journey and future versioning milestones of the Seestar Federation, mapped to the characters of Marten Toonder's universe.
 > **Version:** 1.2.0 (Garmt / Pee Pastinakel)
@@ -27,20 +27,20 @@ This document outlines the architectural journey of the S30-PRO autonomous obser
 ## 🌲 Epoch 1: Het Kleine Volkje (v1.x)
 *The invisible, tireless workers in the background. Focuses on system resilience and background magic.*
 * **v1.1 Pee Pastinakel:** "Talks to the plants" (environmental sensor tuning).
-* **v1.2 Garmt:** A down-to-earth, stable baseline update. Standardized project-wide metadata and objective clarity.
-* **v1.3 Monkel:** *"Een mens kan ook nooit eens rustig..."* Fixing daemon interruption bugs.
-* **v1.4 Kriel:** A small, agile performance update.
-* **v1.5 Humpie:** A small, targeted interface/CLI fix.
+* **v1.2 Garmt:** A down-to-earth, stable baseline update. Standardized project-metadata and objective clarity.
+* [x] **v1.3 Monkel:** *"Een mens kan ook nooit eens rustig..."* **The Discovery Phase.** Fixing daemon interruption bugs and implementing the Ziggo-subnet home/field detection.
+* **v1.4 Kriel:** Integration of `gpsd` for dynamic 6-char Maidenhead (JO22hj) updates in-memory.
+* **v1.5 Humpie:** Storage failover logic (85% NAS threshold to USB RAID 1).
 * **v1.6 Jochem:** Giving the background workers a bigger role.
-* **v1.7 Oene:** Short, strong, and highly optimized code refactoring.
+* **v1.7 Oene:** **The Clean Slate Milestone (March 5).** Full reinstallation on a fresh SD card to verify dependency and systemd integrity.
 * **v1.8 Snotolf:** An authentic, slightly spicy underlying system change.
-* **v1.9 Fliep:** The fast, final wrap-up version.
+* **v1.9 Fliep:** **The Deployment Master.** Goal: Seamless installation via `git clone` and a finalized `setup_wizard.py`.
 
 ---
 
 ## ☕ Epoch 2: The Women of Rommeldam (v2.x)
 *The caretakers and organizers. Focuses on bringing order, analysis, and presentation to the raw data.*
-* **v2.0 Anne Marie Doddel:** Real-time photometric analysis and beautiful AAVSO light-curves.
+* **v2.0 Anne Marie Doddel:** **The Hardened Observatory.** Real-time photometric analysis, hardware hardening, and beautiful AAVSO light-curves.
 * **v2.1 Anne-Miebetje:** The classic first sub-version refinement.
 * **v2.2 Wobbe:** A highly stable, technical build.
 * **v2.3 Wolle:** Dedicated to visual graph and plot updates.
