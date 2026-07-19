@@ -91,6 +91,9 @@ SeeVar is organized as a sovereign observing pipeline:
 2. **Flight**
    Executes one canonical target sequence per object using the `A1-A12` flight chain:
    target lock, safety gate, session init, slew, verify, settle, exposure planning, acquire, quality gate, and commit.
+   Each target writes a proof ledger in `data/flight_runs/`; success requires
+   the full connect, prepare, solve, track, expose, accept, and complete chain.
+   Partial target success is disabled by default.
 
 3. **Postflight**
    Processes captured frames using the `P1-P8` science chain:
@@ -108,6 +111,9 @@ SeeVar is organized as a sovereign observing pipeline:
 ## Hardware Interface
 
 SeeVar communicates with the Seestar through the official Alpaca REST interface exposed by the telescope firmware.
+The default control path remains firmware Alpaca. A dormant `seestar_alp`
+adapter can be enabled with `[seestar_alp].enabled = true` and
+`mode = "controlled"`; otherwise it is diagnostics-only.
 
 Confirmed device access includes:
 
@@ -300,9 +306,11 @@ plate_solve_timeout_sec    = 90
 plate_solve_cpulimit_sec   = 75
 ```
 
-The accountant tries the aligned stack first, then the newest calibrated single
-frames. When the cap is reached, the target fails honestly and processing moves
-on.
+For multi-frame targets, the accountant now requires a stacked product by
+default. Singles are not promoted to successful object previews unless
+`require_stacked_products = false` or the target only has one calibrated frame.
+Successful postflight should publish one accepted stacked FITS/JPEG/report per
+object.
 
 A7 in-flight pointing verification is separate from postflight. It is governed
 by `[flight]` and should fail fast:
@@ -311,6 +319,8 @@ by `[flight]` and should fail fast:
 [flight]
 pointing_plate_solve_timeout_sec  = 35
 pointing_plate_solve_cpulimit_sec = 30
+pointing_plate_solve_radius_deg   = 5
+pointing_plate_solve_fallback_radius_deg = 60
 pointing_max_retries              = 2
 pointing_gross_error_arcmin       = 180
 pointing_gross_max_retries        = 1
@@ -318,6 +328,8 @@ pointing_accept_target_in_frame   = true
 pointing_edge_margin_px           = 250
 verify_retention_sets            = 40
 frame_retry_limit                 = 0
+allow_partial_target_success      = false
+strict_target_proof_chain         = true
 ```
 
 When `pointing_accept_target_in_frame` is enabled, A7 accepts a solved frame if
@@ -325,6 +337,10 @@ the target coordinate lands inside the image with the configured edge margin,
 even when the solved frame center is outside the nominal pointing tolerance.
 That avoids over-correcting Seestar EQ runs where the target is usable for
 photometry but not perfectly centered.
+
+If `solve-field` returns success but writes no WCS, A7 retries the same verify
+frame once with `pointing_plate_solve_fallback_radius_deg`. Corrective recenter
+commands only run from a valid WCS solve; unsolved frames never update pointing.
 
 `verify_retention_sets` caps how many recent A7 verification bundles are kept
 in `data/verify_buffer`. Each bundle includes the verify FITS plus its

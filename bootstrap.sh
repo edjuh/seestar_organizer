@@ -775,7 +775,7 @@ function sanity_check {
 
   info "Python: $("$PYBIN" --version)"
 
-  "$PYBIN" -c "import astropy, photutils, numpy, flask, skyfield, toml, tomli_w, tomlkit, tomllib" \
+  "$PYBIN" -c "import alpaca, astropy, photutils, numpy, flask, skyfield, toml, tomli_w, tomlkit, tomllib" \
     && info "Core science imports OK" \
     || { warn "One or more core imports failed — review pip output above."; ok=false; }
 
