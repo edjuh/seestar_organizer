@@ -319,6 +319,8 @@ by `[flight]` and should fail fast:
 [flight]
 pointing_plate_solve_timeout_sec  = 35
 pointing_plate_solve_cpulimit_sec = 30
+pointing_plate_solve_radius_deg   = 5
+pointing_plate_solve_fallback_radius_deg = 60
 pointing_max_retries              = 2
 pointing_gross_error_arcmin       = 180
 pointing_gross_max_retries        = 1
@@ -335,6 +337,10 @@ the target coordinate lands inside the image with the configured edge margin,
 even when the solved frame center is outside the nominal pointing tolerance.
 That avoids over-correcting Seestar EQ runs where the target is usable for
 photometry but not perfectly centered.
+
+If `solve-field` returns success but writes no WCS, A7 retries the same verify
+frame once with `pointing_plate_solve_fallback_radius_deg`. Corrective recenter
+commands only run from a valid WCS solve; unsolved frames never update pointing.
 
 `verify_retention_sets` caps how many recent A7 verification bundles are kept
 in `data/verify_buffer`. Each bundle includes the verify FITS plus its

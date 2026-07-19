@@ -28,7 +28,16 @@ import astropy.units as u
 from astropy.coordinates import AltAz, EarthLocation, SkyCoord
 from astropy.io import fits
 from astropy.time import Time
-from alpaca.camera import Camera
+
+try:
+    from alpaca.camera import Camera
+except ModuleNotFoundError as e:
+    if e.name == "alpaca":
+        raise SystemExit(
+            "Missing Alpaca client module. Install SeeVar dependencies with "
+            "pip install -r requirements.txt (package: alpyca)."
+        ) from e
+    raise
 
 from core.flight.pilot import AcquisitionTarget, DiamondSequence
 from core.flight.pointing_model import build_pointing_model, normalize_ra_hours, save_pointing_model
@@ -310,7 +319,16 @@ def solve_wide_alignment_frame(fits_path: Path, target: AcquisitionTarget, args:
 
     wcs_path = fits_path.with_suffix(".wcs")
     if not wcs_path.exists():
-        return {"ok": False, "error": f"wide solve-field failed ({result.returncode})"}
+        if result.returncode == 0:
+            error = "wide solve-field returned rc=0 but produced no WCS"
+        else:
+            error = f"wide solve-field produced no WCS (rc={result.returncode})"
+        return {
+            "ok": False,
+            "error": error,
+            "stdout": (result.stdout or "").strip()[-300:],
+            "stderr": (result.stderr or "").strip()[-300:],
+        }
 
     hdr = fits.getheader(wcs_path, 0)
     solved_ra_deg = float(hdr.get("CRVAL1"))

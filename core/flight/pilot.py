@@ -173,7 +173,7 @@ CLIENT_ID = max(1, _cfg_int("alpaca_client_id", 42))
 VERIFY_EXPOSURE_SEC = max(0.5, _cfg_float("pointing_verify_exposure_sec", 2.0))
 VERIFY_EXPOSURE_RETRY_SEC = 2.0
 POINTING_TOLERANCE_ARCMIN = max(0.1, _cfg_float("pointing_tolerance_arcmin", 12.0))
-POINTING_MAX_RETRIES = max(0, _cfg_int("pointing_max_retries", 0))
+POINTING_MAX_RETRIES = max(0, _cfg_int("pointing_max_retries", 2))
 POINTING_GROSS_ERROR_ARCMIN = max(
     POINTING_TOLERANCE_ARCMIN,
     _cfg_float("pointing_gross_error_arcmin", 180.0),
@@ -185,6 +185,10 @@ VERIFY_RETENTION_SETS = max(1, _cfg_int("verify_retention_sets", 40))
 POINTING_MODEL_ENABLED = _cfg_bool("pointing_model_enabled", True)
 POINTING_MODEL_MAX_AGE_HOURS = max(0.1, _cfg_float("pointing_model_max_age_hours", 12.0))
 PLATESOLVE_RADIUS_DEG = max(0.1, _cfg_float("pointing_plate_solve_radius_deg", 5.0))
+PLATESOLVE_FALLBACK_RADIUS_DEG = max(
+    PLATESOLVE_RADIUS_DEG,
+    _cfg_float("pointing_plate_solve_fallback_radius_deg", 60.0),
+)
 PLATESOLVE_DOWNSAMPLE = max(1, _cfg_int("pointing_plate_solve_downsample", 1))
 PLATESOLVE_TIMEOUT = max(5, _cfg_int("pointing_plate_solve_timeout_sec", 35))
 PLATESOLVE_CPULIMIT = max(5, min(PLATESOLVE_TIMEOUT, _cfg_int("pointing_plate_solve_cpulimit_sec", 30)))
@@ -1143,20 +1147,36 @@ class DiamondSequence:
         wcs_path = fits_path.with_suffix(".wcs")
 
         if not wcs_path.exists():
+            if result.returncode == 0:
+                error = f"solve-field returned rc=0 but produced no WCS (radius={solve_radius:.1f} deg)"
+            else:
+                error = f"solve-field produced no WCS (rc={result.returncode}, radius={solve_radius:.1f} deg)"
             logger.warning(
-                "A7 solve-field failed: rc=%s stderr=%s",
-                result.returncode,
+                "A7 solve-field failed: %s stdout=%s stderr=%s",
+                error,
+                (result.stdout or "").strip()[-300:],
                 (result.stderr or "").strip()[-300:],
             )
             return {
                 "ok": False,
-                "error": f"solve-field failed ({result.returncode})",
+                "error": error,
+                "returncode": result.returncode,
+                "stdout": (result.stdout or "").strip()[-300:],
                 "stderr": (result.stderr or "").strip()[-300:],
             }
 
-        hdr = fits.getheader(wcs_path, 0)
-        solved_ra_deg = float(hdr.get("CRVAL1"))
-        solved_dec_deg = float(hdr.get("CRVAL2"))
+        try:
+            hdr = fits.getheader(wcs_path, 0)
+            solved_ra_deg = float(hdr["CRVAL1"])
+            solved_dec_deg = float(hdr["CRVAL2"])
+        except Exception as e:
+            return {
+                "ok": False,
+                "error": f"solve-field WCS is unusable: {e}",
+                "returncode": result.returncode,
+                "wcs_path": wcs_path,
+                "stderr": (result.stderr or "").strip()[-300:],
+            }
 
         target_coord = SkyCoord(ra=ra_deg * u.deg, dec=dec_deg * u.deg, frame="icrs")
         solved_coord = SkyCoord(ra=solved_ra_deg * u.deg, dec=solved_dec_deg * u.deg, frame="icrs")
@@ -1228,6 +1248,20 @@ class DiamondSequence:
 
         try:
             solve = self._solve_verify_frame(verify_fits, target)
+            if not solve.get("ok") and PLATESOLVE_FALLBACK_RADIUS_DEG > PLATESOLVE_RADIUS_DEG:
+                notify(
+                    "A7",
+                    "Verify solve produced no usable WCS; retrying same frame "
+                    f"with radius={PLATESOLVE_FALLBACK_RADIUS_DEG:.1f}°",
+                )
+                solve = self._solve_verify_frame(
+                    verify_fits,
+                    target,
+                    radius_deg=PLATESOLVE_FALLBACK_RADIUS_DEG,
+                    timeout_sec=max(PLATESOLVE_TIMEOUT, int(PLATESOLVE_TIMEOUT * 2)),
+                    cpulimit_sec=max(PLATESOLVE_CPULIMIT, int(PLATESOLVE_CPULIMIT * 2)),
+                    downsample=PLATESOLVE_DOWNSAMPLE,
+                )
             solve["verify_fits"] = verify_fits
             if solve.get("ok"):
                 notify("A7", f"Solve success error={solve['error_arcmin']:.2f} arcmin")

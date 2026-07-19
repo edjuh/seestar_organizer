@@ -125,6 +125,7 @@ pointing_verify_exposure_sec       = 2.0
 pointing_plate_solve_timeout_sec   = 35
 pointing_plate_solve_cpulimit_sec  = 30
 pointing_plate_solve_radius_deg    = 5.0
+pointing_plate_solve_fallback_radius_deg = 60.0
 pointing_plate_solve_downsample    = 1
 pointing_tolerance_arcmin          = 12.0
 pointing_max_retries               = 2
